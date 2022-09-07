@@ -20,6 +20,8 @@ import {
 import { Icon } from '@iconify/react';
 import { motion } from 'framer-motion';
 
+
+
 let easing = [0.6, -0.05, 0.01, 0.99];
 const animate = {
     opacity: 1,
@@ -57,6 +59,7 @@ const LoginForm = () => {
             // navigate(from, { replace: true });
         },
     });
+
 
     const { errors, touched, values, isSubmitting, handleSubmit, getFieldProps } = formik;
 

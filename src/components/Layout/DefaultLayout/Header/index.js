@@ -200,7 +200,7 @@ const Header = () => {
                                         marginRight: '10px',
                                     }}
                                 >
-                                    {JSON.parse(localStorage.getItem('user')).email}
+                                    {/* {aa} */}
                                 </p>
                                 <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
                             </IconButton>
