@@ -7,68 +7,57 @@ import { motion } from 'framer-motion';
 import { useDispatch, useSelector } from 'react-redux';
 import Alert from '@/components/Alert/Alert';
 import toast, { Toaster } from 'react-hot-toast';
-import { Checkbox, Input } from 'antd';
-import { UserOutlined } from '@ant-design/icons';
-import PasswordIcon from '@/assets/password.icon';
-import UserIcon from '@/assets/user.icon';
-import { EyeOpen, EyeClosed } from 'akar-icons';
-import eyesIcon from '@/assets/eyes.icon';
-import * as AuthActions from '@/redux/actions/authAction';
 
-import './index.scss';
+//////////////////////////////////
+const RootStyle = styled('div')({
+    background: 'rgb(249, 250, 251)',
+    height: '100vh',
+    display: 'grid',
+    placeItems: 'center',
+});
 
-let logoComponent = (
-    <svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="60" cy="60" r="59.25" fill="#D9D9D9" stroke="#C5C5C5" stroke-width="1.5" />
-    </svg>
-);
+const HeadingStyle = styled(Box)({
+    textAlign: 'center',
+});
+
+const ContentStyle = styled('div')({
+    maxWidth: 480,
+    padding: 25,
+    margin: 'auto',
+    display: 'flex',
+    justifyContent: 'center',
+    flexDirection: 'column',
+    background: '#fff',
+});
+
+let easing = [0.6, -0.05, 0.01, 0.99];
+const fadeInUp = {
+    initial: {
+        y: 60,
+        opacity: 0,
+        transition: { duration: 0.6, ease: easing },
+    },
+    animate: {
+        y: 0,
+        opacity: 1,
+        transition: {
+            duration: 0.6,
+            ease: easing,
+        },
+    },
+};
+
 const Login = () => {
     const { auth, alert } = useSelector((state) => state);
-    const initialState = { username: '', password: '' };
-    const [userData, setUserData] = useState(initialState);
-    const { username, password } = userData;
-    const [focusUsername, setFocusUsername] = useState(false);
-    const [focusPassword, setFocusPassword] = useState(false);
-
-    const [typePass, setTypePass] = useState(false);
 
     const navigate = useNavigate();
-    const dispatch = useDispatch();
 
     useEffect(() => {
         if (auth.token) navigate('/');
     }, [auth.token, navigate]);
 
-    const handleChangeInput = (e) => {
-        const { name, value } = e.target;
-        setUserData({ ...userData, [name]: value });
-        console.log(userData);
-    };
-
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        dispatch(AuthActions.login(userData));
-    };
-    const onChange = (e) => {
-        console.log(`checked = ${e.target.checked}`);
-    };
-    const handleFocus = (e) => {
-        console.log(e.target.outerHTML[13]);
-        if (e.target.outerHTML[13] === 'u') {
-            setFocusUsername(true);
-            setFocusPassword(false);
-            setTypePass(false);
-        } else if (e.target.outerHTML[13] === 'p') {
-            setFocusPassword(true);
-            setFocusUsername(false);
-        } else {
-        }
-    };
-
-    const handleRememberPassword = () => {};
-
     return (
-        <div className="authpage">
+        <RootStyle>
             <Alert></Alert>
             <Toaster
                 toastOptions={{
@@ -78,85 +67,29 @@ const Login = () => {
                     },
                 }}
             />
-            <form className="authpage_form" onSubmit={handleSubmit}>
-                <div className="authform_logo">
-                    <div className="logo">{logoComponent}</div>
-                </div>
-                <div className="authform_login--title">
-                    <span>ĐĂNG NHẬP</span>
-                </div>
+            <Container maxWidth="sm">
+                <ContentStyle>
+                    <HeadingStyle component={motion.div} {...fadeInUp}>
+                        <Typography sx={{ color: 'text.secondary', mb: 5 }}>Login to your account</Typography>
+                    </HeadingStyle>
 
-                <div className="authform_login--input">
-                    <div className="form-group input-username input-form">
-                        <input
-                            name="username"
-                            type="text"
-                            className="form-control"
-                            id="exampleInputUsername"
-                            aria-describedby="usernameHelp"
-                            onChange={handleChangeInput}
-                            value={username}
-                            placeholder="Tên đăng nhâp"
-                            onFocus={handleFocus}
-                        />
-                        <div className="icon">
-                            <UserIcon isHandle={focusUsername}></UserIcon>
-                        </div>
-                    </div>
+                    <Divider sx={{ my: 3 }} component={motion.div} {...fadeInUp}>
+                        <Typography variant="body2" sx={{ color: 'text.secondary' }}>
+                            OR
+                        </Typography>
+                    </Divider>
 
-                    <div className="form-group input-password input-form">
-                        <div className="pass">
-                            <input
-                                name="password"
-                                type={typePass ? 'text' : 'password'}
-                                className="form-control"
-                                id="exampleInputPassword1"
-                                onChange={handleChangeInput}
-                                value={password}
-                                placeholder="Mật khẩu"
-                                onFocus={handleFocus}
-                            />
+                    <LoginForm />
 
-                            <div className="icon">
-                                <PasswordIcon isHandle={focusPassword}></PasswordIcon>
-                            </div>
-                            <div
-                                className="icon-showPassword"
-                                onClick={() => {
-                                    setFocusPassword(true);
-                                    setFocusUsername(false);
-                                    setTypePass(!typePass);
-                                }}
-                            >
-                                {focusPassword === true ? (
-                                    typePass ? (
-                                        <EyeOpen style={{ color: 'F78B2D' }} />
-                                    ) : (
-                                        <EyeClosed style={{ color: 'F78B2D' }} />
-                                    )
-                                ) : (
-                                    <EyeClosed style={{ color: 'A3A3A3' }} />
-                                )}
-                            </div>
-                            {/* <small onClick={() => setTypePass(!typePass)}>{typePass ? 'Hide' : 'Show'}</small> */}
-                        </div>
-                    </div>
-                    <div className="form-group form-repass">
-                        <Checkbox onChange={onChange} onClick={handleRememberPassword}>
-                            Nhớ mật khẩu
-                        </Checkbox>
-                    </div>
-
-                    <button
-                        type="submit"
-                        className="authform_login--btn"
-                        disabled={username && password ? false : true}
-                    >
-                        <span>ĐĂNG NHẬP</span>
-                    </button>
-                </div>
-            </form>
-        </div>
+                    <Typography component={motion.p} {...fadeInUp} variant="body2" align="center" sx={{ mt: 3 }}>
+                        Don’t have an account?{' '}
+                        <Link variant="subtitle2" component={RouterLink} to="/signup">
+                            Sign up
+                        </Link>
+                    </Typography>
+                </ContentStyle>
+            </Container>
+        </RootStyle>
     );
 };
 
