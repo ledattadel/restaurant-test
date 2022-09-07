@@ -1,0 +1,24 @@
+.formNewMenu {
+    position: relative;
+}
+
+.inputFormNewMenu {
+    position: absolute;
+    top: 0;
+    left: 44px;
+}
+.Modal-left {
+    position: relative;
+}
+.switchNewMenu {
+    position: absolute !important;
+    left: 75px !important;
+    top: 60px !important;
+    z-index: 99;
+}
+.title {
+    width: 32%;
+    font-size: 25px;
+    font-weight: bold;
+    margin: 0 auto;
+}

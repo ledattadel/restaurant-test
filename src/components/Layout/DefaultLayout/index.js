@@ -1,18 +1,23 @@
-import HeaderDefault from './Header';
-import SideBar from './SideBar';
-import { Layout, Menu } from 'antd';
-const { Header, Content, Footer, Sider } = Layout;
+import HeaderDefaul from './Header';
+import SideBar from './Sidebar';
+import TitlePages from './TitlePages';
+import { Layout } from 'antd';
+const { Content } = Layout;
 
 function DefaultLayout({ children }) {
     return (
-        <div>
-            <HeaderDefault></HeaderDefault>
-            <div className="container">
-                {/* <SideBar></SideBar> */}
-
-                <div className="content">{children}</div>
-            </div>
-        </div>
+        <Layout>
+            <SideBar />
+            <Layout>
+                <HeaderDefaul/>
+                <div className="container">
+                    <div className="main">
+                        <TitlePages/>
+                        <Content>{children}</Content>
+                    </div>
+                </div>
+            </Layout>
+        </Layout>
     );
 }
 

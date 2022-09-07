@@ -1,5 +1,11 @@
-function SideBar() {
-    return <div>SideBarr</div>;
+import * as React from 'react';
+import { Layout } from 'antd';
+const { Sider } = Layout;
+
+const Sidebar = () => {
+    return (
+        <Sider>SideBarr</Sider>
+    );
 }
 
-export default SideBar;
+export default Sidebar;

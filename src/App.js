@@ -2,10 +2,11 @@ import { Fragment } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { publicRoutes, privateRoutes } from '@/routes';
 import { DefaultLayout } from '@/components/Layout';
-import { useDispatch, useSelector } from 'react-redux';
-import Login from './pages/Auth/Login';
+import { useSelector } from 'react-redux';
+
 import 'react-toastify/dist/ReactToastify.css';
 import 'antd/dist/antd.css';
+import '@/sass/app.scss'
 
 function App() {
     const { auth, alert } = useSelector((state) => state);

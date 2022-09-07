@@ -3,24 +3,24 @@ import { postDataAPI } from '@/utils/fetchData';
 
 export const login = (data) => async (dispatch) => {
     try {
-        // const res = await postDataAPI('login', data);
-        // console.log(res);
+        const res = await postDataAPI('login', data);
+        console.log(res);
         localStorage.setItem('firstLogin', true);
-        localStorage.setItem('token', '123');
-        localStorage.setItem('user', data);
+        localStorage.setItem('token', res.data.data.token);
+        localStorage.setItem('user', JSON.stringify(res.data.data.user));
 
         dispatch({
             type: GLOBALTYPES.AUTH,
             payload: {
-                token: '123',
-                user: data,
+                token: res.data.data.token,
+                user: res.data.data.user,
             },
         });
 
         dispatch({
             type: GLOBALTYPES.ALERT,
             payload: {
-                success: 'Đăng nhập thành công',
+                success: res.data.message,
             },
         });
     } catch (err) {
