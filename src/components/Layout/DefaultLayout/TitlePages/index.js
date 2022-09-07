@@ -7,15 +7,13 @@ import home from '@/assets/icons/home.svg';
 
 const TitlePages = () => {
     return (
-        <Breadcrumb>
-            <Breadcrumb.Item href="">
-                <HomeOutlined />
+        <Breadcrumb className='title-pages'>
+            <Breadcrumb.Item href="" className=' title-pages__item color-orange'>
+                <HomeOutlined color='orange'/> Home
             </Breadcrumb.Item>
-            <Breadcrumb.Item href="">
-                <UserOutlined />
-                <span>Application List</span>
+            <Breadcrumb.Item href="" className=' title-pages__item'>
+                <span>Quản lý món ăn</span>
             </Breadcrumb.Item>
-            <Breadcrumb.Item>Application</Breadcrumb.Item>
         </Breadcrumb>
     );
 };

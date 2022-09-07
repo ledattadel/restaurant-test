@@ -1,5 +1,5 @@
 import HeaderDefaul from './Header';
-import SideBar from './Sidebar';
+import SideBar from './SideBar';
 import TitlePages from './TitlePages';
 import { Layout } from 'antd';
 const { Content } = Layout;
