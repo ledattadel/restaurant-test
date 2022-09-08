@@ -23,8 +23,8 @@ const HeaderDefaul = ({ onHandleCollapsed, collapsed }) => {
             })}
             <div className="header_userhandle">
                 <Search />
-                <ChangeLanguague></ChangeLanguague>
-                <UserSetting></UserSetting>
+                {/* <ChangeLanguague></ChangeLanguague>
+                <UserSetting></UserSetting> */}
             </div>
         </Header>
     );

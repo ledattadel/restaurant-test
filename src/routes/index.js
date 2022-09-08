@@ -15,13 +15,13 @@ import Area from '@/pages/Area';
 
 // Public routes
 const privateRoutes = [
-    { path: '/', component: Home },
-    { path: '/dashboard', component: Home },
-    { path: '/menu', component: Menu },
-    { path: '/dish', component: DishManagement },
-    { path: '/order', component: Order },
-    { path: '/area', component: Area },
-    { path: '/table', component: Table },
+    { path: '/', component: BlankPage },
+    { path: '/dashboard', component: BlankPage },
+    { path: '/menu', component: BlankPage },
+    { path: '/dish', component: Dish },
+    { path: '/order', component: BlankPage },
+    { path: '/area', component: BlankPage },
+    { path: '/table', component: BlankPage },
     { path: '*', component: BlankPage },
 ];
 

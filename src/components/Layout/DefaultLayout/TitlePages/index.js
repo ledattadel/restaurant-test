@@ -42,6 +42,9 @@ const TitlePages = ({ title, setRouteBreadcumRender }) => {
         navigate('/');
         setRouteBreadcumRender('/');
     };
+    const routeToLink = () => {
+        navigate(location.pathname);
+    };
 
     const findTitle = items2.find((v) => v.key === location.pathname).label;
 
@@ -51,7 +54,7 @@ const TitlePages = ({ title, setRouteBreadcumRender }) => {
                 <HomeOutlined color="orange" /> Home
             </Breadcrumb.Item>
             <Link to="/"> </Link>
-            <Breadcrumb.Item href="" className=" title-pages__item">
+            <Breadcrumb.Item onClick={routeToLink} className=" title-pages__item">
                 <span>{findTitle === 'Trang chủ' ? '' : findTitle}</span>
             </Breadcrumb.Item>
         </Breadcrumb>
