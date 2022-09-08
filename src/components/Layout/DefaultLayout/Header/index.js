@@ -15,7 +15,7 @@ const HeaderDefaul = () => {
     const [collapsed, setCollapsed] = React.useState(false);
     return (
         <Header
-            className='wrapper header'
+            className='header'
         >
             {React.createElement( AlignLeftOutlined, {
                 className: 'header__trigger color-white',

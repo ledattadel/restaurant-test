@@ -1,9 +1,6 @@
 import React from 'react';
-import { HomeOutlined, UserOutlined } from '@ant-design/icons';
+import { HomeOutlined } from '@ant-design/icons';
 import { Breadcrumb } from 'antd';
-
-import icons from '@/assets/icons';
-import home from '@/assets/icons/home.svg';
 
 const TitlePages = () => {
     return (

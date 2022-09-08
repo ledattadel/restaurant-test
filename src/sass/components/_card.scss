@@ -1,0 +1,147 @@
+.product-card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 259px;
+    background: #FFFFFF;
+    box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.25);
+    border-radius: $br-card;
+
+    &__img {
+        width: 259px;
+        height: 145.73px;
+        border-radius: $br-img  !important;
+    }
+
+    &__info {
+        width: 100%;
+        height: 100%;
+        padding: 14px 10px;
+
+        &__name {
+            width: 138px;
+            height: 25px;
+            font-family: 'Nunito';
+            font-style: normal;
+            font-weight: 700;
+            font-size: 18px;
+            line-height: 25px;
+            color: $txt-main-color;
+        }
+
+        &__price {
+            width: 89px;
+            height: 22px;
+            font-family: 'Nunito';
+            font-style: normal;
+            font-weight: 700;
+            font-size: 16px;
+            line-height: 22px;
+            text-align: right;
+            letter-spacing: 0.001em;
+            color: $main-color;
+        }
+
+        &__discount {
+            width: 46px;
+            height: 16px;
+
+            font-family: 'Nunito';
+            font-style: normal;
+            font-weight: 200;
+            font-size: 12px;
+            line-height: 16px;
+            text-align: right;
+            text-decoration-line: line-through;
+
+            color: $gray;
+        }
+
+        &__sale-number {
+            /* Body2/nunito/light 14px */
+
+            font-family: 'Nunito';
+            font-style: normal;
+            font-weight: 300;
+            font-size: 14px;
+            line-height: 19px;
+            /* identical to box height */
+
+            letter-spacing: 0.001em;
+
+            color: $dark-gray;
+        }
+
+        &__status {
+            display: flex;
+            flex-direction: row;
+            align-items: flex-start;
+            padding: 4px 6px;
+            background: $green;
+            color: $white;
+            border-radius: 4px;
+
+            /* nunito/semibold 14 */
+
+            font-family: 'Nunito';
+            font-style: normal;
+            font-weight: 600;
+            font-size: 14px;
+            line-height: 127%;
+            /* identical to box height, or 18px */
+
+            text-align: center;
+            // letter-spacing: 0.001em;
+        }
+
+        &__description {
+            font-family: 'Nunito';
+            font-style: normal;
+            font-weight: 300;
+            font-size: 14px;
+            line-height: 19px;
+            letter-spacing: 0.001em;
+            color: $dark-gray;
+            margin: 12px 10px;
+        }
+
+        &__btn {
+            border-radius: $br-btn;
+            width: 80px;
+            height: 30px;
+            margin-top: 12px;
+
+            &-del:hover {
+                background-color: $red;
+                color: $white;
+                border-color: $red;
+            }
+
+            &-edit {
+                background-color: $main-color;
+                color: $white;
+                border-color: $main-color;
+            }
+
+            &-edit:hover {
+                background-color: $white;
+                color: $main-color;
+                border-color: $main-color;
+            }
+        }
+    }
+}
+
+.ant-card-body {
+    width: 100%;
+    height: 100%;
+    padding: 0px;
+}
+
+.ant-tag {
+    margin: 0;
+}
+
+.ant-btn {
+    padding: 0;
+}

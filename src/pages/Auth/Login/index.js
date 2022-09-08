@@ -1,18 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { Link as RouterLink, useLocation, useNavigate } from 'react-router-dom';
-import { Container, Typography, Link, Box, Divider } from '@mui/material';
-import styled from '@emotion/styled';
-import LoginForm from '@/components/Auth/LoginForm';
-import { motion } from 'framer-motion';
+import { Link as  useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import Alert from '@/components/Alert/Alert';
-import toast, { Toaster } from 'react-hot-toast';
-import { Checkbox, Input } from 'antd';
-import { UserOutlined } from '@ant-design/icons';
+import { Toaster } from 'react-hot-toast';
+import { Checkbox} from 'antd';
 import PasswordIcon from '@/assets/password.icon';
 import UserIcon from '@/assets/user.icon';
 import { EyeOpen, EyeClosed } from 'akar-icons';
-import eyesIcon from '@/assets/eyes.icon';
 import * as AuthActions from '@/redux/actions/authAction';
 
 import './index.scss';
@@ -23,7 +17,7 @@ let logoComponent = (
     </svg>
 );
 const Login = () => {
-    const { auth, alert } = useSelector((state) => state);
+    const { auth } = useSelector((state) => state);
     const initialState = { username: '', password: '' };
     const [userData, setUserData] = useState(initialState);
     const { username, password } = userData;
