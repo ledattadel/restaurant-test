@@ -4,9 +4,8 @@
     background-color: $main-color;
     height: $header-height;
     align-items: center;
-    gap: 567px;
+    justify-content: space-between !important;
+    // gap: 567px;
     &__trigger {
-       
-
     }
 }

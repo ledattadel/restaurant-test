@@ -1,0 +1,74 @@
+@import url(../../../../sass//_variables.scss);
+
+.siderbar {
+    background: url(https://images.unsplash.com/photo-1529543544282-ea669407fca3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1974&q=80) !important;
+    background-size: cover !important;
+    background-repeat: no-repeat !important;
+
+    .siderbar_logo {
+        width: 100% !important;
+        // background-color: white;
+        color: white;
+        text-align: center;
+        height: 76px;
+        margin-bottom: 35px;
+    }
+    .siderbar_menu {
+        border-right: none !important;
+        width: 85% !important;
+        margin: 0 auto;
+        background: transparent;
+
+        // text-align: center;
+        span {
+            margin-left: 20px !important;
+            //styleName: heading 3/Subtitle 1/Heading 1/nunito/regular 16px;
+            font-family: 'Nunito';
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 22px;
+            letter-spacing: 0.001em;
+            color: #fff;
+            text-align: left;
+        }
+
+        li {
+            margin-bottom: 15px !important;
+            // padding-top: 5px !important;
+            // height: 44px;
+            // width: 255px;
+            left: 0px;
+            top: 52px;
+            border-radius: 6px;
+            padding: 10px 12px 10px 12px;
+            position: relative;
+            svg {
+                position: absolute;
+                top: 7px;
+                left: 21px;
+                margin-right: 10px;
+            }
+            span {
+                position: absolute;
+                left: 45px;
+                top: 10px;
+            }
+        }
+    }
+}
+
+.ant-menu-item-selected {
+    border-right: none;
+    background-color: #f78b2d !important;
+}
+.ant-menu-item::after {
+    border-right: none !important;
+}
+#root > div > section > aside > div > ul > li.ant-menu-item {
+    margin: auto;
+    padding-top: 5px;
+    // width: 44px;
+    // height: 44px;
+    line-height: 44px !important;
+    position: relative;
+}

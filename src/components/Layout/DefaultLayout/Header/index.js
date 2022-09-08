@@ -1,7 +1,10 @@
 import * as React from 'react';
 import { Layout } from 'antd';
 import { AlignLeftOutlined } from '@ant-design/icons';
-import Search from '@/components/Search';
+import Search from '@/components/Layout/DefaultLayout/Header/Search';
+import ChangeLanguague from '@/components/Layout/DefaultLayout/Header/ChangeLanguage';
+import UserSetting from '@/components/Layout/DefaultLayout/Header/UserSetting';
+import './index.scss';
 
 const { Header } = Layout;
 
@@ -11,17 +14,18 @@ const pages = [
 ];
 const settings = ['Profile', 'Account', 'Logout'];
 
-const HeaderDefaul = () => {
-    const [collapsed, setCollapsed] = React.useState(false);
+const HeaderDefaul = ({ onHandleCollapsed, collapsed }) => {
     return (
-        <Header
-            className='wrapper header'
-        >
-            {React.createElement( AlignLeftOutlined, {
+        <Header className="wrapper header ">
+            {React.createElement(AlignLeftOutlined, {
                 className: 'header__trigger color-white',
-                onClick: () => setCollapsed(!collapsed),
+                onClick: () => onHandleCollapsed(!collapsed),
             })}
-            <Search/>
+            <div className="header_userhandle">
+                <Search />
+                <ChangeLanguague></ChangeLanguague>
+                <UserSetting></UserSetting>
+            </div>
         </Header>
     );
 };

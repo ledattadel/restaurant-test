@@ -15,7 +15,7 @@ import Area from '@/pages/Area';
 
 // Public routes
 const privateRoutes = [
-    { path: '/', component: Home,  },
+    { path: '/', component: Home },
     { path: '/dashboard', component: Home },
     { path: '/menu', component: Menu },
     { path: '/dish', component: Dish },
@@ -26,7 +26,7 @@ const privateRoutes = [
 ];
 
 const publicRoutes = [
-    { path: '/', component: DishManagement},
+    { path: '/', component: Login, layout: null },
     { path: '/login', component: Login, layout: null },
     { path: '/register', component: Register, layout: null },
     { path: '*', component: BlankPage },

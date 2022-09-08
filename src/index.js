@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 
-import App from '@/App';
+import App from '@/App.js';
 import reportWebVitals from './reportWebVitals';
-import GlobalStyles from '@/components/GlobalStyles';
-import DataProvider from '@/redux/store';
+import GlobalStyles from '@/components/GlobalStyles/index.js';
+import DataProvider from '@/redux/store.js';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
