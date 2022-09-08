@@ -2,10 +2,10 @@
 
 @each $color, $val in $colors {
   .color-#{$color} {
-      color: $val;
+      color: $val !important; 
   }
   .bg-#{$color} {
-      background-color: $val;
+      background-color: $val !important;
   }
 }
 

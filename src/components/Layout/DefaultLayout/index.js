@@ -1,5 +1,5 @@
 import HeaderDefaul from './Header';
-import SideBar from './Sidebar';
+import SideBar from './SideBar';
 import TitlePages from './TitlePages';
 import { Layout } from 'antd';
 const { Content } = Layout;
@@ -9,12 +9,10 @@ function DefaultLayout({ children }) {
         <Layout>
             <SideBar />
             <Layout>
-                <HeaderDefaul/>
+                <HeaderDefaul />
+                <TitlePages />
                 <div className="container">
-                    <div className="main">
-                        <TitlePages/>
-                        <Content>{children}</Content>
-                    </div>
+                    <Content>{children}</Content>
                 </div>
             </Layout>
         </Layout>
