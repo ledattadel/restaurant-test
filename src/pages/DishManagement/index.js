@@ -13,6 +13,7 @@ const data = {
 
 
 const DishManagement = () => {
+    console.log(window.innerWidth/60);
     const products = [];
     for (let i = 0; i < 12; i++) {
         products.push(
@@ -22,7 +23,7 @@ const DishManagement = () => {
     }
     return (
         <div>
-            <Row justify='space-around' align="middle" gutter={[24, 24]} >
+            <Row justify='space-around' align="middle" gutter={[window.innerWidth/60, 24]} >
                 {products}
             </Row>
         </div>
