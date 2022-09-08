@@ -1,13 +1,13 @@
 import React from 'react';
-import { Button, Card, Col, Row, Tag } from 'antd';
+import { Button, Card, Col, Image, Row, Tag } from 'antd';
 
 const ProductCard = ({ product }) => {
     return (
         <Card
             hoverable
             className='product-card'
-            cover={<img className='product-card__img' alt="example" src={product.image}/>}
         > 
+        <Image className='product-card__img' alt="example" src={product.image}/>
           <div className='product-card__info'>
             <Row justify="space-between">
               <Col><span className='product-card__info__name'>{product.name}</span></Col>
