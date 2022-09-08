@@ -9,12 +9,10 @@ function DefaultLayout({ children }) {
         <Layout>
             <SideBar />
             <Layout>
-                <HeaderDefaul/>
+                <HeaderDefaul />
+                <TitlePages />
                 <div className="container">
-                    <div className="main">
-                        <TitlePages/>
-                        <Content>{children}</Content>
-                    </div>
+                    <Content>{children}</Content>
                 </div>
             </Layout>
         </Layout>
