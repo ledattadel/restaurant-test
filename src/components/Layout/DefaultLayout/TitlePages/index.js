@@ -4,6 +4,7 @@ import { Breadcrumb } from 'antd';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import icons from '@/assets/icons';
 import home from '@/assets/icons/home.svg';
+import './index.scss';
 
 const items2 = [
     {
@@ -46,7 +47,7 @@ const TitlePages = ({ title, setRouteBreadcumRender }) => {
 
     return (
         <Breadcrumb className="title-pages">
-            <Breadcrumb.Item onClick={routeToHome} className=" title-pages__item color-orange">
+            <Breadcrumb.Item onClick={routeToHome} className=" title-pages__item title-breadcum-home color-orange">
                 <HomeOutlined color="orange" /> Home
             </Breadcrumb.Item>
             <Link to="/"> </Link>
