@@ -21,9 +21,11 @@ const DishManagement = () => {
         </Col>);
     }
     return (
-        <Row justify='center' gutter={[16, 16]} >
-              {products} ;
-        </Row>
+        <div>
+            <Row justify='space-around' align="middle" gutter={[24, 24]} >
+                {products}
+            </Row>
+        </div>
     );
 };
 

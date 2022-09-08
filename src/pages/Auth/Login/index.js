@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { Link as  useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import Alert from '@/components/Alert/Alert';
 import { Toaster } from 'react-hot-toast';
-import { Checkbox} from 'antd';
+import { Checkbox } from 'antd';
 import PasswordIcon from '@/assets/password.icon';
 import UserIcon from '@/assets/user.icon';
 import { EyeOpen, EyeClosed } from 'akar-icons';

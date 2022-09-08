@@ -30,7 +30,7 @@ function DefaultLayout({ children }) {
                 <HeaderDefaul collapsed={collapsed} onHandleCollapsed={handleCollapsed} />
                 <TitlePages title={titleBreadcum} setRouteBreadcumRender={setRouteBreadcumRender} />
                 <div className="container">
-                    <Content>{children}</Content>=
+                    <Content>{children}</Content>
                 </div>
             </Layout>
         </Layout>
