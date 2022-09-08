@@ -18,7 +18,7 @@ const privateRoutes = [
     { path: '/', component: Home },
     { path: '/dashboard', component: Home },
     { path: '/menu', component: Menu },
-    { path: '/dish', component: Dish },
+    { path: '/dish', component: DishManagement },
     { path: '/order', component: Order },
     { path: '/area', component: Area },
     { path: '/table', component: Table },

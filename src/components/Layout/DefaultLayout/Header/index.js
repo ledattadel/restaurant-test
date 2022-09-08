@@ -16,7 +16,7 @@ const settings = ['Profile', 'Account', 'Logout'];
 
 const HeaderDefaul = ({ onHandleCollapsed, collapsed }) => {
     return (
-        <Header className="wrapper header ">
+        <Header className="header">
             {React.createElement(AlignLeftOutlined, {
                 className: 'header__trigger color-white',
                 onClick: () => onHandleCollapsed(!collapsed),

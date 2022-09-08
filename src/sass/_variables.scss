@@ -1,3 +1,4 @@
+// Base
 $font: 'Nunito', sans-serif;
 
 $main-background: #F5F5F5;
@@ -8,30 +9,30 @@ $txt-main-color: #333333;
 $btn-main-color: $main-color;
 $bg-after-main-coler: rgba(0, 0, 0, 0.5);
 
+// Header
 $header-height: 76px;
 $header-tablet-height: 70px;
 $header-mobile-height: 40px;
 $header-shrink-height: 70px;
 
-$colors: (
-    'orange': $main-color,
-    'dark-yelow': $border-main-color,
-    'green': #53A551,
-    'red': #DC0000,
-    'red-dark': #A62323,
-    'brown': #905B36,
-    'gray': #9C9CAC,
-    'dark-gray': #7D747C,
-    'white': #FFFFFF,
-);
+// Color
+$orange: $main-color;
+$dark-yelow: $border-main-color;
+$green: #53A551;
+$red: #DC0000;
+$red-dark: #A62323;
+$brown: #905B36;
+$gray: #9C9CAC;
+$dark-gray: #7D747C;
+$white: #FFFFFF;
 
-$boder-radius: (
-    'img': 34px,
-    'search': 25px,
-    'card': 12px,
-    'menu': 6px,
-    'btn': 4px,
-);
+// Border-Radius
+$br-img: 12px 12px 0px 34px;
+$br-search: 25px;
+$br-card: 12px;
+$br-menu: 6px;
+$br-btn: 4px;
 
+// Responsive
 $mobile-width: 600px;
 $tablet-width: 1024px;
