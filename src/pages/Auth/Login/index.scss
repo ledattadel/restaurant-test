@@ -1,11 +1,11 @@
 .authpage {
     width: 100vw;
-    height: 100%;
+    height: 100vh;
     position: absolute;
-    background: url('https://images.unsplash.com/photo-1533640924469-f04e06f8898d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1926&q=80')
-        rgba(37, 37, 37, 0.2);
+    background: url('https://images.unsplash.com/photo-1533640924469-f04e06f8898d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1926&q=80') rgba(37, 37, 37, 0.2);
+
     .authpage_form {
-        margin-top: 148px;
+        margin-top: 5%;
         margin-left: auto;
         margin-right: auto;
         width: 635px;
@@ -13,6 +13,7 @@
         border-radius: 24px;
         background: rgba(0, 0, 0, 0.6);
         box-shadow: rgba(255, 255, 255, 0.6) !important;
+
         .authform_login--btn {
             height: 54px;
             width: 459px;
@@ -33,12 +34,14 @@
                 color: rgba(255, 255, 255, 1);
             }
         }
+
         .authform_logo {
             padding-top: 62px;
             padding-bottom: 37px;
             display: flex;
             justify-content: center;
         }
+
         .authform_login--title {
             color: rgba(247, 139, 45, 1);
             font-family: 'Nunito', sans-serif;
@@ -49,6 +52,7 @@
             text-align: center;
             margin-bottom: 42px;
         }
+
         input,
         .input {
             height: 54px;
@@ -60,6 +64,7 @@
             outline: none;
             border: 1px solid rgba(247, 139, 45, 1);
         }
+
         .authform_login--input {
             display: flex;
             flex-direction: column;
@@ -68,15 +73,18 @@
             .input-username {
                 margin-bottom: 38px;
             }
+
             .input-password {
                 margin-bottom: 18px;
             }
+
             .form-repass {
                 height: 15px;
                 width: 72%;
                 display: flex;
                 align-items: flex-start;
                 margin-bottom: 25px;
+
                 .input_repass {
                     height: 16px;
                     width: 16px;
@@ -90,6 +98,7 @@
                     background: rgba(40, 40, 40, 0.2);
                     color: black;
                 }
+
                 label {
                     font-family: 'Nunito';
                     font-size: 14px;
@@ -103,16 +112,20 @@
         }
     }
 }
+
 .ant-checkbox-input {
     height: 15px !important;
 }
+
 .input-form {
     position: relative;
+
     .icon {
         position: absolute !important;
         top: 15px;
         left: 15px;
     }
+
     .icon-showPassword {
         position: absolute !important;
         top: 15px;
