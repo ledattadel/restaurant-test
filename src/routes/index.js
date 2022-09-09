@@ -8,7 +8,7 @@ import Register from '@/pages/Auth/Register';
 import BlankPage from '@/pages/Blank';
 import Order from '@/pages/Order';
 import Table from '@/pages/TableManagement';
-import DishManagement from '@/pages/DishManagement';
+// import DishManagement from '@/pages/DishManagement';
 
 //P menu
 import Area from '@/pages/Area';

@@ -28,6 +28,7 @@ const DishManagement = () => {
     }
     return (
         <div style={{ height: '100vh' }}>
+            <div style={{ backgroundColor: 'red' }}>a</div>
             <Row justify="space-around" align="middle" gutter={[window.innerWidth / 120, window.innerWidth / 120]}>
                 {products}
             </Row>

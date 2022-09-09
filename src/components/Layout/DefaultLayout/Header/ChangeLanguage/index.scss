@@ -1,10 +1,20 @@
 .header_changelanguage {
-    width: 47px !important;
-    // padding-top: 16px;
-    background-color: red;
+    width: 80px !important;
+    padding-top: 5px;
+    padding-left: 15px;
+    // background-color: red;
     .header_changelanguage_flag {
-        height: 40px;
-        width: 100%;
-        // background-color: yellow;
+        height: 17px;
+        width: 25px;
+        background-color: yellow;
     }
+    .header_changelanguage-icon {
+        width: 8px !important;
+        height: 4px !important;
+    }
+}
+#root > div > section > section > header > div > div.header_changelanguage > a > div > div:nth-child(2) > span > svg {
+    width: 12px !important;
+    // height: 4px !important;
+    color: white;
 }

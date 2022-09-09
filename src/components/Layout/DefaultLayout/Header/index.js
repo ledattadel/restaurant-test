@@ -4,6 +4,7 @@ import { AlignLeftOutlined } from '@ant-design/icons';
 import Search from '@/components/Layout/DefaultLayout/Header/Search';
 import ChangeLanguague from '@/components/Layout/DefaultLayout/Header/ChangeLanguage';
 import UserSetting from '@/components/Layout/DefaultLayout/Header/UserSetting';
+import Notify from '@/components/Layout/DefaultLayout/Header/Notify';
 import './index.scss';
 
 const { Header } = Layout;
@@ -23,8 +24,9 @@ const HeaderDefaul = ({ onHandleCollapsed, collapsed }) => {
             })}
             <div className="header_userhandle">
                 <Search />
-                {/* <ChangeLanguague></ChangeLanguague>
-                <UserSetting></UserSetting> */}
+                <ChangeLanguague></ChangeLanguague>
+                <Notify></Notify>
+                <UserSetting></UserSetting>
             </div>
         </Header>
     );
