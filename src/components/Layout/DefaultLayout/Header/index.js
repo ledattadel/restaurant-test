@@ -9,21 +9,15 @@ import './index.scss';
 
 const { Header } = Layout;
 
-const pages = [
-    { name: 'Phân khu', link: 'area' },
-    { name: 'Quản lý bàn', link: 'table' },
-];
-const settings = ['Profile', 'Account', 'Logout'];
-
 const HeaderDefaul = ({ onHandleCollapsed, collapsed }) => {
     return (
         <Header className="header">
             {React.createElement(AlignLeftOutlined, {
-                className: 'header__trigger color-white',
+                className: 'header__trigger',
                 onClick: () => onHandleCollapsed(!collapsed),
             })}
             <div className="header_userhandle">
-                <Search />
+                <Search/>
                 <ChangeLanguague></ChangeLanguague>
                 <Notify></Notify>
                 <UserSetting></UserSetting>

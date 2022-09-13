@@ -32,11 +32,11 @@ img {
     display: block;
     max-width: 100%;
 }
+p {margin: 0;}
 
 .container {
-    // width: 100vw;
     height: 100vh !important;
-    padding: 0 12px 24px 12px;
+    padding: 0 24px 24px 24px;
 
     @include tablet {
         padding: 0 20px;

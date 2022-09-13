@@ -1,0 +1,109 @@
+.breadcrumb {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 14px 24px 24px;
+    height: 90px;
+
+    &__item {
+        display: inline-block;
+        font-family: 'Nunito';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 20px;
+        line-height: 27px;
+        color: $orange;
+
+        svg {
+            margin-bottom: -1px;
+        }
+    }
+
+    &__item:last-of-type {
+        color: $dark-gray;
+        padding-left: 7px;
+    }
+
+    &__item:not(:last-of-type)::after {
+        content: '/';
+        margin: 0 5px;
+        color: $dark-gray;
+    }
+
+    &__menu {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+
+        &__btn {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            height: 40px;
+            margin: 8px 6px;
+            border-radius: $br-btn;
+        }
+
+        &__btn-add {
+            width: 143px;
+
+            background-color: $white;
+            color: $main-color;
+            border-color: $main-color;
+
+            p {
+                padding: 11px 12px;
+                /* nunito/semibold 14 */
+                font-family: 'Nunito';
+                font-style: normal;
+                font-weight: 600;
+                font-size: 14px;
+                line-height: 127%;
+
+                /* identical to box height, or 18px */
+                letter-spacing: 0.001em;
+            }
+
+            svg {
+                margin: 8px 0 8px 12px;
+                font-size: 24px;
+            }
+
+        }
+
+        &__btn-add:hover {
+            background-color: $main-color;
+            color: $white;
+            border-color: $main-color;
+        }
+
+        &__btn-sort {
+            width: 106px;
+            border: 1px solid #C2C2C2;
+
+            p {
+                padding: 8px 8px 8px 0;
+
+                /* heading 3/Subtitle 1/Heading 1/nunito/regular 16px */
+                font-family: 'Nunito';
+                font-style: normal;
+                font-weight: 400;
+                font-size: 16px;
+                line-height: 22px;
+                color: $txt-main-color;
+
+                /* identical to box height */
+                letter-spacing: 0.001em;
+            }
+
+            svg {
+                margin: 9px;
+                font-size: 20px;
+                color: $txt-main-color;
+            }
+        }
+    }
+}

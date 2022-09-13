@@ -6,31 +6,31 @@ const tableicon = () => {
             <path
                 d="M4.75 20.5V3.5C4.75 2.67157 5.42157 2 6.25 2H17.75C18.5784 2 19.25 2.67157 19.25 3.5V20.5C19.25 21.3284 18.5784 22 17.75 22H6.25C5.42157 22 4.75 21.3284 4.75 20.5Z"
                 stroke="white"
-                stroke-width="2"
+                strokeWidth="2"
             />
             <path
                 d="M7.30859 7.33333V5C7.30859 4.72386 7.53245 4.5 7.80859 4.5H10.2204C10.4965 4.5 10.7204 4.72386 10.7204 5V7.33333C10.7204 7.60948 10.4965 7.83333 10.2204 7.83333H7.80859C7.53245 7.83333 7.30859 7.60948 7.30859 7.33333Z"
                 stroke="white"
-                stroke-width="2"
+                strokeWidth="2"
             />
             <path
                 d="M7.30859 13.1667V10.8334C7.30859 10.5572 7.53245 10.3334 7.80859 10.3334H10.2204C10.4965 10.3334 10.7204 10.5572 10.7204 10.8334V13.1667C10.7204 13.4428 10.4965 13.6667 10.2204 13.6667H7.80859C7.53245 13.6667 7.30859 13.4429 7.30859 13.1667Z"
                 stroke="white"
-                stroke-width="2"
+                strokeWidth="2"
             />
             <path
                 d="M13.2793 7.33333V5C13.2793 4.72386 13.5032 4.5 13.7793 4.5H16.1911C16.4672 4.5 16.6911 4.72386 16.6911 5V7.33333C16.6911 7.60948 16.4672 7.83333 16.1911 7.83333H13.7793C13.5032 7.83333 13.2793 7.60948 13.2793 7.33333Z"
                 stroke="white"
-                stroke-width="2"
+                strokeWidth="2"
             />
             <path
                 d="M13.2793 13.6667V10.8334C13.2793 10.5572 13.5032 10.3334 13.7793 10.3334H16.6911"
                 stroke="white"
-                stroke-width="2"
-                stroke-linecap="round"
+                strokeWidth="2"
+                strokeLinecap="round"
             />
-            <path d="M19.1663 11L5.34863 21.6071" stroke="white" stroke-width="2" stroke-linecap="round" />
-            <path d="M4.83748 16L9.44336 17.6071" stroke="white" stroke-width="2" stroke-linecap="round" />
+            <path d="M19.1663 11L5.34863 21.6071" stroke="white" strokeWidth="2" strokeLinecap="round" />
+            <path d="M4.83748 16L9.44336 17.6071" stroke="white" strokeWidth="2" strokeLinecap="round" />
         </svg>
     );
 };
