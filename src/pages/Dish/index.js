@@ -13,16 +13,11 @@ const data = {
         'Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim.',
 };
 
-const DishManagement = () => {
+const Dish = () => {
     const products = [];
-    for (let i = 0; i < 8; i++) {
+    for (let i = 0; i < 12; i++) {
         products.push(
-            <Col
-                style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}
-                xl={{ span: 6 }}
-                sm={{ span: 8 }}
-                xs={{ span: 24 }}
-            >
+            <Col key={i} className="grid__col" xxl={{ span: 4 }} xl={{ span: 6 }} sm={{ span: 8 }} xs={{ span: 24 }}>
                 <ProductCard product={data} />
             </Col>,
         );
@@ -39,4 +34,4 @@ const DishManagement = () => {
     );
 };
 
-export default DishManagement;
+export default Dish;

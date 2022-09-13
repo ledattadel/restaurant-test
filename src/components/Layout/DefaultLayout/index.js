@@ -1,8 +1,8 @@
+import React from 'react';
 import HeaderDefaul from './Header';
 import SideBar from './SideBar';
-import TitlePages from './TitlePages';
+import Breadcrumb from './Breadcrumb';
 import { Layout } from 'antd';
-import * as React from 'react';
 
 const { Content } = Layout;
 
@@ -28,7 +28,7 @@ function DefaultLayout({ children }) {
             <SideBar collapsed={collapsed} setBreadcum={setBreadcum} renderBreadcum={renderBreadcum} />
             <Layout>
                 <HeaderDefaul collapsed={collapsed} onHandleCollapsed={handleCollapsed} />
-                <TitlePages title={titleBreadcum} setRouteBreadcumRender={setRouteBreadcumRender} />
+                <Breadcrumb title={titleBreadcum} setRouteBreadcumRender={setRouteBreadcumRender} />
                 <div className="container">
                     <Content>{children}</Content>
                 </div>
@@ -36,5 +36,4 @@ function DefaultLayout({ children }) {
         </Layout>
     );
 }
-
 export default DefaultLayout;
