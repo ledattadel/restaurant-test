@@ -1,5 +1,7 @@
 .grid {
     &__col {
-        padding: 0px 0px 14px;
+        display: flex;
+        justify-content: center; 
+        align-items: center
     }
 }

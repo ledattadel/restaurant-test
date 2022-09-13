@@ -1,47 +1,45 @@
 import * as React from 'react';
 import { Layout } from 'antd';
-import { AppstoreOutlined, MailOutlined, SettingOutlined } from '@ant-design/icons';
 import * as MenuIcon from '@/assets/menu-icon/';
-import { Menu, Switch } from 'antd';
+import { Menu } from 'antd';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-
 import './index.scss';
 const { Sider } = Layout;
 
-function getItem(label, key, icon, children, type) {
-    return {
-        key,
-        icon,
-        children,
-        label,
-        type,
-    };
-}
+// function getItem(label, key, icon, children, type) {
+//     return {
+//         key,
+//         icon,
+//         children,
+//         label,
+//         type,
+//     };
+// }
 
 const items2 = [
     {
         key: '/',
-        icon: <MenuIcon.homeIcon />,
+        icon: <MenuIcon.HomeIcon color={'white'} />,
         label: 'Trang chủ',
     },
     {
         key: '/dish',
-        icon: <MenuIcon.dishIcon />,
+        icon: <MenuIcon.DishIcon />,
         label: 'Quản lý món ăn',
     },
     {
         key: '/table',
-        icon: <MenuIcon.tableIcon />,
+        icon: <MenuIcon.TableIcon />,
         label: 'Quản lý bàn ăn',
     },
     {
         key: '/discount',
-        icon: <MenuIcon.discountIcon />,
+        icon: <MenuIcon.DiscountIcon />,
         label: 'Khuyến mãi',
     },
     {
         key: '/account',
-        icon: <MenuIcon.accountIcon />,
+        icon: <MenuIcon.AccountIcon />,
         label: 'Quản lý nhân viên',
     },
 ];
@@ -59,9 +57,10 @@ const Sidebar = ({ collapsed, setBreadcum, renderBreadcum }) => {
         setBreadcum(titleBreadcum);
         setCurrent(e.key);
     };
-    const handleSelectMenu = (e) => {
-        console.log(e);
-    };
+
+    // const handleSelectMenu = (e) => {
+    //     console.log(e);
+    // };
 
     return (
         <Sider collapsedWidth={76} width={283} trigger={null} collapsible collapsed={collapsed} className="siderbar">

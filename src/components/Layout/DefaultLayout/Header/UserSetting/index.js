@@ -8,8 +8,8 @@ import * as React from 'react';
 import './index.scss';
 
 const UserSetting = () => {
-    const [flag, changFlag] = React.useState('');
     const dispatch = useDispatch();
+    const [flag, changFlag] = React.useState('');
 
     const handleLogout = () => {
         dispatch(AuthActions.logout());

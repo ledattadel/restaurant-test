@@ -1,7 +1,7 @@
-import homeIcon from './home.icon';
-import dishIcon from './dish.icon';
-import discountIcon from './discount.icon';
-import accountIcon from './account.icon';
-import tableIcon from './table.icon';
+import HomeIcon from './home.icon';
+import DishIcon from './dish.icon';
+import DiscountIcon from './discount.icon';
+import AccountIcon from './account.icon';
+import TableIcon from './table.icon';
 
-export { homeIcon, discountIcon, dishIcon, accountIcon, tableIcon };
+export { HomeIcon, DiscountIcon, DishIcon, AccountIcon, TableIcon };
