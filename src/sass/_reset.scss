@@ -2,37 +2,52 @@
 
 html {
     box-sizing: border-box;
+    --antd-wave-shadow-color: #F8B000;
 }
+
 * {
     margin: 0;
     padding: 0;
 }
+
 *,
 *:before,
 *:after {
     box-sizing: border-box;
 }
+
 input,
 textarea,
 select,
 button {
     outline: none;
 }
+
 input {
     line-height: normal;
 }
+
 label,
 button {
     cursor: pointer;
 }
+
 a {
     text-decoration: none;
 }
+
 img {
     display: block;
     max-width: 100%;
 }
-p {margin: 0;}
+
+p {
+    margin: 0;
+}
+::selection {
+    color: $white;
+    background: $border-main-color;
+}
 
 .container {
     height: 100vh !important;

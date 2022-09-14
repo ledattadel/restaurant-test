@@ -1,8 +1,14 @@
+// Golbal
 @import "variables";
 @import "mixin";
 @import "reset";
 
+// Component
 @import "./components/header";
 @import "./components/sidebar";
 @import "./components/breadcrumb";
 @import "./components/card";
+@import "./components/modal";
+
+// Form
+@import "./components/form/add-dish";

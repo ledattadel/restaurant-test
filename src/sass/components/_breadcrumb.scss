@@ -79,6 +79,12 @@
             color: $white;
             border-color: $main-color;
         }
+        
+        &__btn-add:focus {
+            background-color: $main-color;
+            color: $white;
+            border-color: $main-color;
+        }
 
         &__btn-sort {
             width: 106px;
