@@ -30,11 +30,13 @@ function DefaultLayout({ children }) {
             <SideBar collapsed={collapsed} setBreadcum={setBreadcum} renderBreadcum={renderBreadcum} />
             <Layout>
                 <DefaultHeader collapsed={collapsed} onHandleCollapsed={handleCollapsed} />
-                {location.pathname !== '/' ? (
-                    <Breadcrumb title={titleBreadcum} setRouteBreadcumRender={setRouteBreadcumRender} />
-                ) : (
+                <Breadcrumb title={titleBreadcum} setRouteBreadcumRender={setRouteBreadcumRender} />
+
+                {/* {location.pathname === '/' ? (
                     <></>
-                )}
+                ) : (
+                    <Breadcrumb title={titleBreadcum} setRouteBreadcumRender={setRouteBreadcumRender} />
+                )} */}
 
                 <div className="container">
                     <Content>{children}</Content>

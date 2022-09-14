@@ -1,13 +1,13 @@
 import * as React from 'react';
 import { Button, Modal } from 'antd';
-import { useLocation } from 'react-router-dom';
-import constants from '@/constants';
+// import { useLocation } from 'react-router-dom';
+// import constants from '@/constants';
 
 import FormAddDish from '@/components/Form/FormAddDish';
 
 const DefaultModal = ({ trigger, handleTrigger }) => {
-    const location = useLocation();
-    const labelForm = constants.modal.find((v) => v.key === location.pathname).label;
+    // const location = useLocation();
+    // const labelForm = constants.modal.find((v) => v.key === location.pathname).label;
     return (
         <Modal
             centered
@@ -24,7 +24,8 @@ const DefaultModal = ({ trigger, handleTrigger }) => {
                 </Button>,
             ]}
         >
-            {labelForm && labelForm === 'FormAddDish' ? <FormAddDish /> : <></>}
+            {/* {labelForm && labelForm === 'FormAddDish' ? <FormAddDish /> : <></>} */}
+            <FormAddDish />
         </Modal>
     );
 };
