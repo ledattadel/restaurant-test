@@ -1,0 +1,51 @@
+.ant-modal-content {
+    border-radius: $br-modal;
+}
+
+.ant-modal-body {
+    padding: 14px 24px 24px 24px;
+}
+
+.ant-modal-footer {
+    padding: 18px 24px;
+}
+
+.modal {
+
+    &__btn {
+        width: 78px;
+        border-radius: $br-btn;
+
+        font-family: 'Nunito';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 20px;
+
+        margin: 9px;
+    }
+
+    &__btn-cancel {
+        background: $red-dark;
+        color: $white;
+        border-color: $red-dark;
+    }
+
+    &__btn-cancel:hover {
+        background: $white;
+        color: $red-dark;
+        border-color: $red-dark;
+    }
+
+    &__btn-save {
+        background: $main-color;
+        color: $white;
+        border-color: $main-color;
+    }
+
+    &__btn-save:hover {
+        background: $white;
+        color: $main-color;
+        border-color: $main-color;
+    }
+}

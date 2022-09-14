@@ -33,7 +33,7 @@ import Highlighter from 'react-highlight-words';
 import * as Redux from 'react-redux';
 import { plPL } from '@mui/x-data-grid';
 import './index.scss';
-import FormAddDish from '@/components/Form/FormAddDish';
+import FormAddDish from '@/components/Form/FormAddDish/';
 import FormEditDish from '@/components/Form/FormEditDish';
 import FormShowOrder from '@/components/Form/FormShowOrder';
 const { Text, Link } = Typography;
