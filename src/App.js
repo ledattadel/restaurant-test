@@ -2,20 +2,19 @@ import { Fragment } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { publicRoutes, privateRoutes } from '@/routes';
 import { DefaultLayout } from '@/components/Layout';
-// import { useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 import 'react-toastify/dist/ReactToastify.css';
 import 'antd/dist/antd.min.css';
-import '@/sass/app.scss'
+import '@/sass/app.scss';
 
 function App() {
-    // const { auth, alert } = useSelector((state) => state);
-
+    const { auth } = useSelector((state) => state);
     return (
         <Router>
             <div className="App">
                 <Routes>
-                    {!localStorage.getItem('token')
+                    {!auth.token
                         ? publicRoutes.map((route, index) => {
                               let Layout = DefaultLayout;
                               if (route.layout) {
