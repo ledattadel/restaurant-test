@@ -6,7 +6,7 @@ const ProductCard = ({ product }) => {
         <Card
             hoverable
             className="product-card"
-            cover={<img className="product-card__img" alt="example" src={product.image} />}
+            cover={<img className="product-card__img" alt="example" src={product.image}/>}
         >
             <div className="product-card__info">
                 <Row justify="space-between">
