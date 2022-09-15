@@ -6,6 +6,7 @@ import { BsPlusCircle, BsSortDown } from "react-icons/bs";
 import AddDish from "@/components/Modal/AddDish";
 import { useEffect } from "react";
 import { privateRoutes } from "@/routes";
+import constants from '@/constants';
 
 const menu = (
     <Menu
@@ -105,9 +106,9 @@ const Breadcrumber = ({ title, setRouteBreadcumRender }) => {
     const location = useLocation();
     const [trigger, setTrigger] = React.useState(false);
     const [findTitle, setFindTitle] = React.useState("");
-    const [{ route }] = matchRoutes(items2, location);
+    const [{ route }] = matchRoutes(constants.breadcrumb, location);
     useEffect(() => {
-        setFindTitle(items2.find((v) => v.path === route.path).label);
+        setFindTitle(constants.breadcrumb.find((v) => v.path === route.path).label);
     }, [navigate]);
 
     const routeToHome = () => {

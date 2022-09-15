@@ -17,7 +17,7 @@ const Breadcrumber = ({ title, setRouteBreadcumRender }) => {
         navigate(location.pathname);
     };
 
-    const findTitle = constants.breadcrumb.find((v) => v.key === location.pathname).label;
+    const findTitle = constants.breadcrumb.find((v) => v.path === location.pathname).label;
     return (
         <div className="breadcrumb">
             <ul>
