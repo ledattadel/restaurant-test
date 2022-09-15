@@ -41,28 +41,36 @@ const constants = {
             label: "Trang chủ",
         },
         {
-            path: "/dish",
-            label: "Quản lý món ăn",
+
+            key: '/catalogy',
+            label: 'Quản lý danh mục',
+            buttonLabel: 'Thêm danh mục',
         },
         {
-            path: "/table",
-            label: "Quản lý bàn ăn",
+            key: '/dish',
+            label: 'Quản lý món ăn',
+            buttonLabel: 'Tạo món mới',
         },
         {
-            path: "/discount",
-            label: "Khuyến mãi",
+            key: '/area',
+            label: 'Quản lý khu vực bàn',
+            buttonLabel: 'Tạo khu vực',
         },
         {
-            path: "/account",
-            label: "Quản lý nhân viên",
+            key: '/table',
+            label: 'Chi tiết bàn',
+            buttonLabel: 'Tạo bàn',
         },
         {
-            path: "/customer",
-            label: "Quản lý khách hàng",
+            key: '/discount',
+            label: 'Khuyến mãi',
+            buttonLabel: 'Thêm khuyến mãi',
         },
         {
-            path: "/table-area/:id",
-            label: "Quản lý bàn",
+            key: '/account',
+            label: 'Quản lý nhân viên',
+            buttonLabel: 'Quản lý nhân viên',
+
         },
     ],
 

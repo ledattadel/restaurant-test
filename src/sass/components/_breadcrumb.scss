@@ -48,8 +48,6 @@
         }
 
         &__btn-add {
-            width: 143px;
-
             background-color: $white;
             color: $main-color;
             border-color: $main-color;
@@ -84,32 +82,6 @@
             background-color: $main-color;
             color: $white;
             border-color: $main-color;
-        }
-
-        &__btn-sort {
-            width: 106px;
-            border: 1px solid #C2C2C2;
-
-            p {
-                padding: 8px 8px 8px 0;
-
-                /* heading 3/Subtitle 1/Heading 1/nunito/regular 16px */
-                font-family: 'Nunito';
-                font-style: normal;
-                font-weight: 400;
-                font-size: 16px;
-                line-height: 22px;
-                color: $txt-main-color;
-
-                /* identical to box height */
-                letter-spacing: 0.001em;
-            }
-
-            svg {
-                margin: 9px;
-                font-size: 20px;
-                color: $txt-main-color;
-            }
         }
     }
 }

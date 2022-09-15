@@ -1,0 +1,31 @@
+.btn-sort {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    margin: 8px 6px;
+    border-radius: $br-btn;
+    border: 1px solid #C2C2C2;
+
+    p {
+
+        padding: 8px 8px 8px 0;
+        /* heading 3/Subtitle 1/Heading 1/nunito/regular 16px */
+        font-family: 'Nunito';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 22px;
+        color: $txt-main-color;
+
+        /* identical to box height */
+        letter-spacing: 0.001em;
+    }
+
+    svg {
+        margin: 9px;
+        font-size: 20px;
+        color: $txt-main-color;
+    }
+}

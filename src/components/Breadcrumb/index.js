@@ -17,7 +17,9 @@ const Breadcrumber = ({ title, setRouteBreadcumRender }) => {
         navigate(location.pathname);
     };
 
-    const findTitle = constants.breadcrumb.find((v) => v.path === location.pathname).label;
+
+    const address = constants.breadcrumb.find((v) => v.key === location.pathname);
+
     return (
         <div className="breadcrumb">
             <ul>
@@ -25,10 +27,10 @@ const Breadcrumber = ({ title, setRouteBreadcumRender }) => {
                     <MenuIcon.HomeIcon color={'#F78B2D'} /> Home
                 </li>
                 <li onClick={routeToLink} className="breadcrumb__item">
-                    {findTitle === 'Trang chủ' ? '' : findTitle}
+                    {address.label === 'Trang chủ' ? '' : address.label}
                 </li>
             </ul>
-            <Menu />
+            <Menu address={address.key} btn={address.buttonLabel}/>
         </div>
     );
 };
