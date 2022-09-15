@@ -42,6 +42,11 @@ const items2 = [
         icon: <MenuIcon.AccountIcon />,
         label: 'Quản lý nhân viên',
     },
+    {
+        key: '/customer',
+        icon: <MenuIcon.AccountIcon />,
+        label: 'Quản lý Khách hàng',
+    },
 ];
 
 const Sidebar = ({ collapsed, setBreadcum, renderBreadcum }) => {
