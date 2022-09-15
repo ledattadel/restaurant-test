@@ -1,4 +1,5 @@
 import * as MenuIcon from '@/assets/menu-icon/';
+import * as React from 'react';
 
 const constants = {
     sidebar: [
@@ -27,14 +28,20 @@ const constants = {
             icon: <MenuIcon.AccountIcon />,
             label: 'Quản lý nhân viên',
         },
+        {
+            key: '/customer',
+            icon: <MenuIcon.AccountIcon />,
+            label: 'Quản lý Khách hàng',
+        },
     ],
 
     breadcrumb: [
         {
-            key: '/',
-            label: 'Trang chủ',
+            path: "/",
+            label: "Trang chủ",
         },
         {
+
             key: '/catalogy',
             label: 'Quản lý danh mục',
             buttonLabel: 'Thêm danh mục',
@@ -63,6 +70,7 @@ const constants = {
             key: '/account',
             label: 'Quản lý nhân viên',
             buttonLabel: 'Quản lý nhân viên',
+
         },
     ],
 

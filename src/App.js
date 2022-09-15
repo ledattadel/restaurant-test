@@ -9,7 +9,10 @@ import 'antd/dist/antd.min.css';
 import '@/sass/app.scss';
 
 function App() {
-    const { auth } = useSelector((state) => state);
+
+    const { auth, alert } = useSelector((state) => state);
+
+ 
     return (
         <Router>
             <div className="App">

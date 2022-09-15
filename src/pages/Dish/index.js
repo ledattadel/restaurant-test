@@ -1,7 +1,7 @@
 import React from 'react';
 import { Col, Row } from 'antd';
 import ProductCard from '@/components/ProductCard';
-
+import './index.scss';
 const data = {
     image: 'https://suamaytinhtphcm.net/wp-content/uploads/2019/08/hinh-nen-cho-man-hinh-dien-thoai-dai-quantrimangcom-10.jpg',
     name: 'Gà nướng mật ong',
@@ -23,8 +23,11 @@ const Dish = () => {
         );
     }
     return (
-        <div>
-            <Row justify="space-around" align="middle" gutter={[window.innerWidth / 60, window.innerWidth / 60]}>
+        <div style={{ height: '100vh', position: 'relative' }}>
+            <div className="control-dish">
+                <div className="btn-createDish">Tạo món mới</div>
+            </div>
+            <Row justify="space-around" align="middle" gutter={[window.innerWidth / 120, window.innerWidth / 120]}>
                 {products}
             </Row>
         </div>
