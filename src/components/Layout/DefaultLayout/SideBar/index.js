@@ -3,6 +3,7 @@ import { Layout } from 'antd';
 import * as MenuIcon from '@/assets/menu-icon/';
 import { Menu } from 'antd';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import constants from '@/constants';
 import './index.scss';
 const { Sider } = Layout;
 
@@ -55,10 +56,8 @@ const Sidebar = ({ collapsed, setBreadcum, renderBreadcum }) => {
     const location = useLocation();
 
     const onClick = (e) => {
-        console.log('click ', e);
         navigate(e.key);
-        let titleBreadcum = items2.find((v) => v.key === e.key).label;
-
+        let titleBreadcum = constants.sidebar.find((v) => v.key === e.key).label;
         setBreadcum(titleBreadcum);
         setCurrent(e.key);
     };
@@ -82,7 +81,7 @@ const Sidebar = ({ collapsed, setBreadcum, renderBreadcum }) => {
                 defaultOpenKeys={['sub1']}
                 selectedKeys={location.pathname === '/' ? ['/'] : [current]}
                 mode="inline"
-                items={items2}
+                items={constants.sidebar}
                 defaultSelectedKeys={['/']}
             />
         </Sider>

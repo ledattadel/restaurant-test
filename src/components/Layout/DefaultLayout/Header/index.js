@@ -9,7 +9,7 @@ import './index.scss';
 
 const { Header } = Layout;
 
-const HeaderDefaul = ({ onHandleCollapsed, collapsed }) => {
+const DefaultHeader = ({ onHandleCollapsed, collapsed }) => {
     return (
         <Header className="header">
             {React.createElement(AlignLeftOutlined, {
@@ -17,7 +17,7 @@ const HeaderDefaul = ({ onHandleCollapsed, collapsed }) => {
                 onClick: () => onHandleCollapsed(!collapsed),
             })}
             <div className="header_userhandle">
-                <Search/>
+                <Search />
                 <ChangeLanguague></ChangeLanguague>
                 <Notify></Notify>
                 <UserSetting></UserSetting>
@@ -25,4 +25,4 @@ const HeaderDefaul = ({ onHandleCollapsed, collapsed }) => {
         </Header>
     );
 };
-export default HeaderDefaul;
+export default DefaultHeader;

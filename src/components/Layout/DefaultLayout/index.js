@@ -1,12 +1,14 @@
 import React from 'react';
-import HeaderDefaul from './Header';
-import SideBar from './SideBar';
-import Breadcrumb from './Breadcrumb';
+import { useLocation } from 'react-router-dom';
 import { Layout } from 'antd';
+import SideBar from './SideBar';
+import DefaultHeader from './Header';
+import Breadcrumb from '@/components/Breadcrumb';
 
 const { Content } = Layout;
 
 function DefaultLayout({ children }) {
+    const location = useLocation();
     const [collapsed, setCollapsed] = React.useState(false);
     const [titleBreadcum, setTitleBreadcum] = React.useState('');
     const [renderBreadcum, setRenderBreadcum] = React.useState('');
@@ -27,8 +29,15 @@ function DefaultLayout({ children }) {
         <Layout>
             <SideBar collapsed={collapsed} setBreadcum={setBreadcum} renderBreadcum={renderBreadcum} />
             <Layout>
-                <HeaderDefaul collapsed={collapsed} onHandleCollapsed={handleCollapsed} />
+                <DefaultHeader collapsed={collapsed} onHandleCollapsed={handleCollapsed} />
                 <Breadcrumb title={titleBreadcum} setRouteBreadcumRender={setRouteBreadcumRender} />
+
+                {/* {location.pathname === '/' ? (
+                    <></>
+                ) : (
+                    <Breadcrumb title={titleBreadcum} setRouteBreadcumRender={setRouteBreadcumRender} />
+                )} */}
+
                 <div className="container">
                     <Content>{children}</Content>
                 </div>
