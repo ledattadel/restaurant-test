@@ -17,7 +17,9 @@ const Breadcrumber = ({ title, setRouteBreadcumRender }) => {
         navigate(location.pathname);
     };
 
+
     const address = constants.breadcrumb.find((v) => v.key === location.pathname);
+
     return (
         <div className="breadcrumb">
             <ul>
