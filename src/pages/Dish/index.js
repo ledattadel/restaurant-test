@@ -24,9 +24,9 @@ const Dish = () => {
     }
     return (
         <div style={{ height: '100vh', position: 'relative' }}>
-            <div className="control-dish">
+            {/* <div className="control-dish">
                 <div className="btn-createDish">Tạo món mới</div>
-            </div>
+            </div> */}
             <Row justify="space-around" align="middle" gutter={[window.innerWidth / 120, window.innerWidth / 120]}>
                 {products}
             </Row>

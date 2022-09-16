@@ -21,7 +21,7 @@ const privateRoutes = [
     { path: '/dish', component: Dish },
     { path: '/order', component: BlankPage },
     { path: '/area', component: BlankPage },
-    { path: '/table', component: BlankPage },
+    { path: '/table', component: Table },
     { path: '*', component: BlankPage },
 ];
 

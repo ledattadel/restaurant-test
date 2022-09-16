@@ -62,6 +62,7 @@ const columns = [
 
 const Area = () => {
     const [selectedRowKeys, setSelectedRowKeys] = React.useState([]);
+
     const [selected, setSelected] = React.useState([]);
     const [loading, setLoading] = React.useState(true);
     const [data, setData] = React.useState([]);
