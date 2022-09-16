@@ -37,11 +37,10 @@ const constants = {
 
     breadcrumb: [
         {
-            path: "/",
-            label: "Trang chủ",
+            key: '/',
+            label: 'Trang chủ',
         },
         {
-
             key: '/catalogy',
             label: 'Quản lý danh mục',
             buttonLabel: 'Thêm danh mục',
@@ -69,8 +68,12 @@ const constants = {
         {
             key: '/account',
             label: 'Quản lý nhân viên',
-            buttonLabel: 'Quản lý nhân viên',
-
+            buttonLabel: 'Thêm nhân viên',
+        },
+        {
+            key: '/customer',
+            label: 'Quản lý khách hàng',
+            buttonLabel: 'Thêm khách hàng',
         },
     ],
 

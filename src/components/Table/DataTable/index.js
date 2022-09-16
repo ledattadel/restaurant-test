@@ -1,10 +1,9 @@
 import { Col, Row, Table } from 'antd';
 import React, { useState } from 'react';
-import './index.scss'
+import './index.scss';
 import Search from '@/components/Layout/DefaultLayout/Header/Search';
 
-
-const DataTable = ({columns,data}) => {
+const DataTable = ({ columns, data }) => {
     const [selectedRowKeys, setSelectedRowKeys] = useState([]);
 
     const onSelectChange = (newSelectedRowKeys) => {
@@ -50,20 +49,19 @@ const DataTable = ({columns,data}) => {
             },
         ],
     };
-    return <div className={'data-table'}>
-        <Row className={'data-table__header'}>
-            <Col span={8}>
-                <p>Danh sách khách hàng</p>
-            </Col>
-            <Col span={8} offset={8} className={'data-table__header-filter'}>
-                <Search/>
-
-            </Col>
-
-        </Row>
-        <Table className={'data-table__datas'} columns={columns} dataSource={data} />;
-
-    </div>
+    return (
+        <div className={'data-table'}>
+            <Row className={'data-table__header'}>
+                <Col span={8}>
+                    <p>Danh sách khách hàng</p>
+                </Col>
+                <Col span={8} offset={8} className={'data-table__header-filter'}>
+                    <Search />
+                </Col>
+            </Row>
+            <Table className={'data-table__datas'} columns={columns} dataSource={data} />
+        </div>
+    );
 };
 
 export default DataTable;

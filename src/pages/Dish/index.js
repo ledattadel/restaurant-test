@@ -23,7 +23,7 @@ const Dish = () => {
         );
     }
     return (
-        <div style={{ height: '100vh', position: 'relative' }}>
+        <div>
             <div className="control-dish">
                 <div className="btn-createDish">Tạo món mới</div>
             </div>

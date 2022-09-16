@@ -27,7 +27,7 @@ const columns = [
     {
         title: 'Thao tác',
         dataIndex: 'action',
-    }
+    },
 ];
 const data = [];
 
@@ -40,10 +40,11 @@ for (let i = 0; i < 46; i++) {
     });
 }
 const CustomerManagement = () => {
-    return <ContentFnB className={"customer-management"}>
-
-        <DataTable columns={columns} data={data}/>
-    </ContentFnB>;
+    return (
+        <ContentFnB className={'customer-management'}>
+            <DataTable columns={columns} data={data}/>
+        </ContentFnB>
+    );
 };
 
 export default CustomerManagement;
