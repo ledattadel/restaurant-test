@@ -1,5 +1,5 @@
 import React from 'react';
-import { useLocation } from 'react-router-dom';
+// import { useLocation } from 'react-router-dom';
 import { Layout } from 'antd';
 import SideBar from './SideBar';
 import DefaultHeader from './Header';
@@ -8,7 +8,7 @@ import Breadcrumb from '@/components/Breadcrumb';
 const { Content } = Layout;
 
 function DefaultLayout({ children }) {
-    const location = useLocation();
+    // const location = useLocation();
     const [collapsed, setCollapsed] = React.useState(false);
     const [titleBreadcum, setTitleBreadcum] = React.useState('');
     const [renderBreadcum, setRenderBreadcum] = React.useState('');

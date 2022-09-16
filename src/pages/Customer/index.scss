@@ -1,0 +1,81 @@
+.table-page {
+  display: flex;
+  min-height: 92.9vh;
+  .table-sidebar {
+    width: 20%;
+    background-color: white;
+    padding: 20px;
+  }
+}
+
+.table-content {
+  margin-top: 20px;
+  padding: 20px;
+  width: 80%;
+
+  .bth-table {
+    width: 90%;
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 20px;
+    Button:first-child {
+      margin-right: 10px;
+    }
+  }
+}
+.btn-createTable {
+  margin-top: 10px;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  button:nth-child(1) {
+    margin-right: 10px;
+  }
+}
+
+.table-layout {
+  width: 90%;
+  margin: 0 auto;
+
+  Table {
+    width: 100%;
+    margin: 0 auto;
+  }
+}
+#createTableForm > div > div.ant-col.ant-form-item-label > label {
+  width: 100px;
+}
+.render-table {
+  display: flex;
+}
+.render-table-child {
+  width: 50px;
+  height: 50px;
+  background-color: red;
+}
+.areaTable {
+  padding: 5px;
+  margin: 20px;
+  background-color: white;
+
+  border-radius: 15px;
+}
+.table-content {
+  margin-left: 20px;
+
+  padding: 15px;
+  width: 77%;
+}
+.elementTable {
+  width: 70px !important;
+  height: 100px !important;
+  border-radius: 15px !important;
+  border: 5px solid #3d405b !important;
+  // background-color: yellow;
+
+  margin-left: 5px;
+}
+#root > div > div > div > div > div > div.table-content > div > div > button:hover {
+  background: #3d405b;
+  border: 1px solid #3d405b !important;
+}

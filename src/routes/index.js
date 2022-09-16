@@ -12,6 +12,8 @@ import Table from '@/pages/TableManagement';
 
 //P menu
 import Area from '@/pages/Area';
+import TableManagement from '@/pages/TableManagement';
+import CustomerManagement from '@/pages/Customer';
 
 // Public routes
 const privateRoutes = [
@@ -24,7 +26,6 @@ const privateRoutes = [
     { path: '/table', component: Table },
     { path: '*', component: BlankPage },
 ];
-
 const publicRoutes = [
     { path: '/', component: Login, layout: null },
     { path: '/login', component: Login, layout: null },

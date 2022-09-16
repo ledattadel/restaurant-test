@@ -3,7 +3,7 @@ import { Col, Row } from 'antd';
 import ProductCard from '@/components/ProductCard';
 import './index.scss';
 const data = {
-    image: 'https://images.unsplash.com/photo-1602253057119-44d745d9b860?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8ZGlzaHxlbnwwfDB8MHx8&auto=format&fit=crop&w=500&q=60',
+    image: 'https://suamaytinhtphcm.net/wp-content/uploads/2019/08/hinh-nen-cho-man-hinh-dien-thoai-dai-quantrimangcom-10.jpg',
     name: 'Gà nướng mật ong',
     price: '95.000',
     discount: '120.000',
@@ -23,10 +23,10 @@ const Dish = () => {
         );
     }
     return (
-        <div style={{ height: '100vh', position: 'relative' }}>
-            {/* <div className="control-dish">
+        <div>
+            <div className="control-dish">
                 <div className="btn-createDish">Tạo món mới</div>
-            </div> */}
+            </div>
             <Row justify="space-around" align="middle" gutter={[window.innerWidth / 120, window.innerWidth / 120]}>
                 {products}
             </Row>
