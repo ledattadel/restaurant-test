@@ -12,13 +12,14 @@
 
         /* text */
         color: $txt-main-color;
-
     }
 
     &__form {
-        &-left {}
+        &-left {
+        }
 
-        &-right {}
+        &-right {
+        }
 
         &__input {
             box-sizing: border-box;
@@ -36,8 +37,6 @@
             border: 1px solid $light-gray;
             border-radius: $br-btn;
 
-
-
             /* Inside auto layout */
 
             flex: none;
@@ -45,15 +44,20 @@
             align-self: stretch;
             flex-grow: 0;
 
-            &-name {}
+            &-name {
+            }
 
-            &-price {}
+            &-price {
+            }
 
-            &-status {}
+            &-status {
+            }
 
-            &-quantitative {}
+            &-quantitative {
+            }
 
-            &-discount {}
+            &-discount {
+            }
         }
 
         &__input:hover {
@@ -120,5 +124,5 @@
 
     /* text */
 
-    color: #38424B;
+    color: #38424b;
 }

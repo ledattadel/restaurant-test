@@ -17,7 +17,6 @@ const Breadcrumber = ({ title, setRouteBreadcumRender }) => {
         navigate(location.pathname);
     };
 
-
     const address = constants.breadcrumb.find((v) => v.key === location.pathname);
 
     return (
@@ -30,7 +29,7 @@ const Breadcrumber = ({ title, setRouteBreadcumRender }) => {
                     {address.label === 'Trang chủ' ? '' : address.label}
                 </li>
             </ul>
-            <Menu address={address.key} btn={address.buttonLabel}/>
+            <Menu address={address.key} btn={address.buttonLabel} />
         </div>
     );
 };

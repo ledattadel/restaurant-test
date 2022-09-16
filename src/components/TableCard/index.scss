@@ -1,30 +1,28 @@
-/* thông tin khu vực bàn */
-
-/* Auto layout */
-.table_area {
+.table_card {
+    height: 100px;
+    width: 100%;
     display: flex;
-    flex-direction: column;
-    cursor: pointer;
-    align-items: flex-start;
-    padding: 12px;
-    gap: 8px;
-    width: 259px !important;
-    height: 104px;
-    background: #ffffff;
-    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.25);
+    flex-direction: row;
     border-radius: 8px;
-    .table_area--head {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
-        padding: 0px;
-        // gap: 24px;
 
-        width: 235px;
-        height: 28px;
-        span {
+    padding: 12px;
+    box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.25);
+    .table_cardLeft {
+        width: 30%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+    }
+    .table_cardRight {
+        width: 70%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+
+        justify-content: space-around;
+        .table_right--name {
             //styleName: nunito/bold 16px;
+
             font-family: 'Nunito';
             font-size: 16px;
             font-weight: 700;
@@ -32,304 +30,49 @@
             letter-spacing: 0.001em;
             text-align: left;
         }
-        .table_area--head-handing {
-            height: 28px;
-            width: 52.90909194946289px;
-            left: 182.0909423828125px;
-            top: 0px;
-            border-radius: 0px;
-            padding: 2px 0px 0px 0px;
-        }
-    }
-    .table_area--info {
-        height: 18px;
-        width: 235px;
-        left: 12px;
-        top: 48px;
-        border-radius: 0px;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        span {
-            //styleName: Subtitle 2/nunito/regular 14px;
+        .table_right--stt {
+            //styleName: nunito/semibold 14;
+            padding-top: 5px;
+
             font-family: 'Nunito';
             font-size: 14px;
-            font-weight: 400;
-            line-height: 12px;
+            font-weight: 600;
+            line-height: 18px;
             letter-spacing: 0.001em;
             text-align: left;
-        }
-    }
-    .table_area--stt {
-        //styleName: nunito/semibold 14;
-        font-family: 'Nunito';
-        font-size: 14px;
-        font-weight: 600;
-        line-height: 18px;
-        letter-spacing: 0.001em;
-        text-align: left;
-
-        //styleName: Subtitle 2/nunito/regular 14px;
-        .table_area--stt-2 {
-            //styleName: nunito/semibold 14;
 
             //styleName: Subtitle 2/nunito/regular 14px;
-            color: rgba(30, 164, 27, 1);
-            font-size: 14px;
-            font-weight: 400;
-            line-height: 12px;
-            letter-spacing: 0.001em;
-            text-align: left;
+            span {
+                font-family: 'Nunito';
+                font-size: 14px;
+                font-weight: 600;
+                line-height: 12px;
+                letter-spacing: 0.001em;
+                text-align: left;
+                color: rgba(30, 164, 27, 1);
+            }
+        }
+        .table_right--footer {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            padding-top: 5px;
+            .table_right--id {
+                //styleName: Subtitle 2/nunito/regular 14px;
+                font-family: 'Nunito';
+                font-size: 14px;
+                font-weight: 400;
+                line-height: 12px;
+                letter-spacing: 0.001em;
+                text-align: left;
+            }
+            .table_right--handing {
+                height: 28px;
+                width: 52.90909194946289px;
+
+                border-radius: 0px;
+                padding: -2px 0px 0px 0px;
+            }
         }
     }
 }
-
-// /* Inside auto layout */
-// flex: none;
-// order: 0;
-// flex-grow: 0;
-
-// /* name khu vực */
-
-// /* Auto layout */
-
-// /* Inside auto layout */
-// flex: none;
-// order: 0;
-// align-self: stretch;
-// flex-grow: 0;
-
-// /* Ngoài trời */
-
-// width: 158.09px;
-// height: 22px;
-
-// /* nunito/bold 16px */
-// font-family: 'Nunito';
-// font-style: normal;
-// font-weight: 700;
-// font-size: 16px;
-// line-height: 22px;
-// /* identical to box height */
-// letter-spacing: 0.001em;
-
-// /* text */
-// color: #333333;
-
-// /* Inside auto layout */
-// flex: none;
-// order: 0;
-// flex-grow: 1;
-
-// /* Frame 1303 */
-
-// /* Auto layout */
-// display: flex;
-// flex-direction: row;
-// justify-content: flex-end;
-// align-items: center;
-// padding: 4px 0px 0px;
-// gap: 8px;
-
-// width: 52.91px;
-// height: 28px;
-
-// /* Inside auto layout */
-// flex: none;
-// order: 1;
-// align-self: stretch;
-// flex-grow: 0;
-
-// /* edit-3 */
-
-// width: 20.91px;
-// height: 20px;
-
-// border-radius: 6px;
-
-// /* Inside auto layout */
-// flex: none;
-// order: 0;
-// flex-grow: 0;
-
-// /* Group 723 */
-
-// position: absolute;
-// width: 19.11px;
-// height: 18.18px;
-// left: 0.91px;
-// top: 0.91px;
-
-// /* Vector */
-
-// position: absolute;
-// left: 50.06%;
-// right: 4.23%;
-// top: 95.46%;
-// bottom: 4.54%;
-
-// /* orange */
-// background: #F78B2D;
-// /* orange */
-// border: 1.5px solid #F78B2D;
-
-// /* Vector */
-
-// position: absolute;
-// left: 4.35%;
-// right: 8.7%;
-// top: 4.55%;
-// bottom: 4.55%;
-
-// /* orange */
-// background: #F78B2D;
-// /* orange */
-// border: 1.5px solid #F78B2D;
-
-// /* button số lượng */
-
-// width: 24px;
-// height: 24px;
-
-// border-radius: 6px;
-
-// /* Inside auto layout */
-// flex: none;
-// order: 1;
-// flex-grow: 0;
-
-// /* trash-2 */
-
-// position: absolute;
-// width: 24px;
-// height: 24px;
-// left: 0px;
-// top: 0px;
-
-// /* Vector */
-
-// position: absolute;
-// left: 12.5%;
-// right: 12.5%;
-// top: 25%;
-// bottom: 75%;
-
-// background: #DC0000;
-// border: 2px solid #DC0000;
-
-// /* Vector */
-
-// position: absolute;
-// left: 20.83%;
-// right: 20.83%;
-// top: 8.33%;
-// bottom: 8.33%;
-
-// background: #DC0000;
-// border: 1px solid #DC0000;
-
-// /* Vector */
-
-// position: absolute;
-// left: 41.67%;
-// right: 58.33%;
-// top: 45.83%;
-// bottom: 29.17%;
-
-// background: #DC0000;
-// border: 2px solid #FFFFFF;
-
-// /* Vector */
-
-// position: absolute;
-// left: 58.33%;
-// right: 41.67%;
-// top: 45.83%;
-// bottom: 29.17%;
-
-// background: #DC0000;
-// border: 2px solid #FFFFFF;
-
-// /* thon tin khu vực bàn */
-
-// /* Auto layout */
-// display: flex;
-// flex-direction: row;
-// align-items: center;
-// padding: 0px;
-// gap: 8px;
-
-// width: 235px;
-// height: 18px;
-
-// /* Inside auto layout */
-// flex: none;
-// order: 1;
-// align-self: stretch;
-// flex-grow: 0;
-
-// /* Tổng bàn: 12 */
-
-// width: 157px;
-// height: 18px;
-
-// /* Subtitle 2/nunito/regular 14px */
-// font-family: 'Nunito';
-// font-style: normal;
-// font-weight: 400;
-// font-size: 14px;
-// line-height: 88%;
-// /* or 12px */
-// letter-spacing: 0.001em;
-
-// /* text */
-// color: #333333;
-
-// /* Inside auto layout */
-// flex: none;
-// order: 0;
-// flex-grow: 1;
-
-// /* Mã ID: 122 */
-
-// width: 70px;
-// height: 12px;
-
-// /* Subtitle 2/nunito/regular 14px */
-// font-family: 'Nunito';
-// font-style: normal;
-// font-weight: 400;
-// font-size: 14px;
-// line-height: 88%;
-// /* or 12px */
-// letter-spacing: 0.001em;
-
-// /* text */
-// color: #333333;
-
-// /* Inside auto layout */
-// flex: none;
-// order: 1;
-// flex-grow: 0;
-
-// /* Trạng thái: Đang mở */
-
-// width: 129px;
-// height: 18px;
-
-// /* Subtitle 2/nunito/regular 14px */
-// font-family: 'Nunito';
-// font-style: normal;
-// font-weight: 400;
-// font-size: 14px;
-// line-height: 88%;
-// /* or 12px */
-// letter-spacing: 0.001em;
-
-// /* text */
-// color: #333333;
-
-// /* Inside auto layout */
-// flex: none;
-// order: 2;
-// flex-grow: 0;

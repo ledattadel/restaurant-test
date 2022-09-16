@@ -1,20 +1,44 @@
 import * as React from 'react';
 import { Button, Modal } from 'antd';
-// import { useLocation } from 'react-router-dom';
-// import constants from '@/constants';
+import { useLocation } from 'react-router-dom';
+import constants from '@/constants';
 
+import FormAddArea from '@/components/Form/FormAddArea';
 import FormAddDish from '@/components/Form/FormAddDish';
 
 const DefaultModal = ({ trigger, handleTrigger }) => {
-    // const location = useLocation();
-    // const labelForm = constants.modal.find((v) => v.key === location.pathname).label;
+    const location = useLocation();
+    const labelForm = constants.breadcrumb.find((v) => v.key === location.pathname);
+
+    const switchWidthForm = (route) => {
+        switch (route) {
+            case '/dish':
+                return ' !important';
+            case '/area':
+                return 'calc(100vw) !important';
+            default:
+                return '300px';
+        }
+    };
+
+    const switchForm = (route) => {
+        switch (route) {
+            case '/dish':
+                return <FormAddDish />;
+            case '/area':
+                return <FormAddArea />;
+            default:
+                return <></>;
+        }
+    };
+
     return (
         <Modal
             centered
             closable={false}
             visible={trigger}
             className="modal"
-            width={window.innerWidth / 1.7}
+            width={`${switchWidthForm(labelForm.key)}`}
             footer={[
                 <Button type="primary" className="modal__btn modal__btn-cancel" onClick={handleTrigger}>
                     Hủy
@@ -24,8 +48,7 @@ const DefaultModal = ({ trigger, handleTrigger }) => {
                 </Button>,
             ]}
         >
-            {/* {labelForm && labelForm === 'FormAddDish' ? <FormAddDish /> : <></>} */}
-            <FormAddDish />
+            {labelForm.label.length > 0 ? switchForm(labelForm.key) : <></>}
         </Modal>
     );
 };

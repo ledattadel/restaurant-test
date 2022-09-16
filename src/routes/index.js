@@ -7,13 +7,11 @@ import Menu from '@/pages/Menu';
 import Register from '@/pages/Auth/Register';
 import BlankPage from '@/pages/Blank';
 import Order from '@/pages/Order';
-import Table from '@/pages/TableManagement';
+import Table from '@/pages/Table';
 // import DishManagement from '@/pages/DishManagement';
 
 //P menu
 import Area from '@/pages/Area';
-import TableManagement from '@/pages/TableManagement';
-import CustomerManagement from '@/pages/Customer';
 
 // Public routes
 const privateRoutes = [
@@ -22,8 +20,8 @@ const privateRoutes = [
     { path: '/menu', component: BlankPage },
     { path: '/dish', component: Dish },
     { path: '/order', component: BlankPage },
-    { path: '/area', component: BlankPage },
-    { path: '/table', component: Table },
+    { path: '/area', component: Area },
+    { path: '/area/table', component: Table },
     { path: '*', component: BlankPage },
 ];
 const publicRoutes = [
