@@ -151,11 +151,14 @@ body {
     background-color: #f0f2f5;
 }
 .App {
-    height: 100vh !important;
+    // height: 100vh !important;
+    height: 100%;
     width: 100%;
     background-color: #f0f2f5;
     // background-color: red !important;
 }
 .container {
     // background-color: red !important;
+    // overflow: auto;
+    // overflow: scroll;
 }
