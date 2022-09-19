@@ -4,13 +4,13 @@ import ProductCard from '@/components/ProductCard';
 import './index.scss';
 const data = {
     image: 'https://suamaytinhtphcm.net/wp-content/uploads/2019/08/hinh-nen-cho-man-hinh-dien-thoai-dai-quantrimangcom-10.jpg',
-    name: 'Gà nướng mật ong',
-    price: '95.000',
-    discount: '120.000',
+    name: 'Gà nướng mật ong Gà nướng mật ong',
+    price: 6900000,
+    discount: 120000,
     saleNumber: 24,
     status: 'Còn món',
     description:
-        'Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim.',
+        'Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim. Amet minim mollit',
 };
 
 const Dish = () => {
@@ -24,9 +24,9 @@ const Dish = () => {
     }
     return (
         <div>
-            <div className="control-dish">
+            {/* <div className="control-dish">
                 <div className="btn-createDish">Tạo món mới</div>
-            </div>
+            </div> */}
             <Row justify="space-around" align="middle" gutter={[window.innerWidth / 120, window.innerWidth / 120]}>
                 {products}
             </Row>
