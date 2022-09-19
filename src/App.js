@@ -1,4 +1,4 @@
-import { Fragment } from 'react';
+import { Fragment, useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { publicRoutes, privateRoutes } from '@/routes';
 import { DefaultLayout } from '@/components/Layout';
@@ -9,10 +9,9 @@ import 'antd/dist/antd.min.css';
 import '@/sass/app.scss';
 
 function App() {
-
     const { auth, alert } = useSelector((state) => state);
+    const { crumbs, setCrumbs } = useState(null);
 
- 
     return (
         <Router>
             <div className="App">

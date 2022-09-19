@@ -1,5 +1,87 @@
-.feed {
-    margin: 0 auto;
-    width: 80%;
-    margin-top: 50px;
+.home {
+    // background-color: black;
+    padding-top: 24px;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    .home_fav {
+        width: 100%;
+        height: 25%;
+        background: rgba(255, 255, 255, 1);
+
+        border-radius: 0px;
+        padding: 0px 0px 32px 0px;
+        box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.25);
+
+        display: flex;
+        flex-direction: column;
+        .home_fav-title {
+            height: 30%;
+            padding-left: 18px;
+            border-bottom: 1px solid rgba(218, 218, 218, 1);
+            display: flex;
+            align-items: center;
+            span {
+                //styleName: nunito/bold 16px;
+                font-family: 'Nunito';
+                font-size: 16px;
+                font-weight: 700;
+                line-height: 22px;
+                letter-spacing: 0.001em;
+                text-align: left;
+                text-transform: uppercase;
+            }
+        }
+        .home_fav-percent {
+            height: 70%;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            // padding: 12px 100px 100px;
+            padding-left: 100px;
+            padding-right: 100px;
+            align-items: center;
+            .home_fav-percent--item {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                height: 100%;
+                width: 20%;
+                span {
+                    //styleName: nunito/bold 16px;
+                    font-family: 'Nunito';
+                    font-size: 16px;
+                    font-weight: 700;
+                    line-height: 22px;
+                    letter-spacing: 0.001em;
+                    text-align: center;
+                }
+                .home_fav-item--circle {
+                    height: 50% !important;
+
+                    max-height: 50px;
+                    max-width: 100px;
+                }
+            }
+        }
+    }
+    .home_center {
+        margin-top: 24px;
+        width: 100%;
+        height: 40%;
+        background: rgba(255, 255, 255, 1);
+
+        box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.25);
+    }
+    .home_most-ordered {
+        margin-top: 24px;
+        width: 100%;
+        height: 20%;
+        background: rgba(255, 255, 255, 1);
+
+        box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.25);
+    }
 }
