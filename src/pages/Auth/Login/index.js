@@ -18,7 +18,7 @@ let logoComponent = (
 );
 const Login = () => {
     const { auth } = useSelector((state) => state);
-    const initialState = { username: '', password: '' };
+    const initialState = { username: '123', password: '123' };
     const [userData, setUserData] = useState(initialState);
     const { username, password } = userData;
     const [focusUsername, setFocusUsername] = useState(false);

@@ -1,34 +1,25 @@
-// import { HeaderOnly } from '@/components/Layout';
-
-import Home from '@/pages/Home';
-import Login from '@/pages/Auth/Login';
-import Dish from '@/pages/Dish/';
-import Menu from '@/pages/Menu';
-import Register from '@/pages/Auth/Register';
-import BlankPage from '@/pages/Blank';
-import Order from '@/pages/Order';
-import Table from '@/pages/Table';
 // import DishManagement from '@/pages/DishManagement';
+import { Home, Login, Dish, Menu, Blank, Table } from '@/pages/index';
 
-//P menu
+//P menus
 import Area from '@/pages/Area';
 
 // Public routes
 const privateRoutes = [
-    { path: '/', component: BlankPage },
-    { path: '/dashboard', component: BlankPage },
-    { path: '/menu', component: BlankPage },
+    { path: '/', component: Blank },
+    { path: '/dashboard', component: Blank },
+    { path: '/menu', component: Blank },
     { path: '/dish', component: Dish },
-    { path: '/order', component: BlankPage },
+    { path: '/order', component: Blank },
     { path: '/area', component: Area },
     { path: '/area/table', component: Table },
-    { path: '*', component: BlankPage },
+    { path: '*', component: Blank },
 ];
 const publicRoutes = [
     { path: '/', component: Login, layout: null },
     { path: '/login', component: Login, layout: null },
-    { path: '/register', component: Register, layout: null },
-    { path: '*', component: BlankPage },
+    { path: '/register', component: Blank, layout: null },
+    { path: '*', component: Blank },
 ];
 
 export { publicRoutes, privateRoutes };
