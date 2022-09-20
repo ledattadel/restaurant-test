@@ -13,9 +13,9 @@ const DefaultModal = ({ trigger, handleTrigger }) => {
     const switchWidthForm = (route) => {
         switch (route) {
             case '/dish':
-                return ' !important';
+                return window.innerWidth / 1.7;
             case '/area':
-                return 'calc(100vw) !important';
+                return window.innerWidth;
             default:
                 return '300px';
         }
@@ -38,7 +38,8 @@ const DefaultModal = ({ trigger, handleTrigger }) => {
             closable={false}
             visible={trigger}
             className="modal"
-            width={`${switchWidthForm(labelForm.key)}`}
+            // width={`${switchWidthForm(labelForm.key)}`}
+            width={switchWidthForm(labelForm.key)}
             footer={[
                 <Button type="primary" className="modal__btn modal__btn-cancel" onClick={handleTrigger}>
                     Hủy

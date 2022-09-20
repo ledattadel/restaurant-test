@@ -3,14 +3,14 @@ import { Col, Row } from 'antd';
 import ProductCard from '@/components/ProductCard';
 import './index.scss';
 const data = {
-    image: 'https://suamaytinhtphcm.net/wp-content/uploads/2019/08/hinh-nen-cho-man-hinh-dien-thoai-dai-quantrimangcom-10.jpg',
-    name: 'Gà nướng mật ong Gà nướng mật ong',
+    image: 'https://image.shutterstock.com/image-vector/compact-size-icon-vector-illustration-260nw-489811306.jpg',
+    name: 'Gà nướng mật ong Gà nướng mật ong Gà nướng mật ong Gà nướng mật ong Gà nướng mật ong Gà nướng mật ong',
     price: 6900000,
     discount: 120000,
     saleNumber: 24,
     status: 'Còn món',
     description:
-        'Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim. Amet minim mollit',
+        'Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.',
 };
 
 const Dish = () => {
