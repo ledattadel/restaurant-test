@@ -1,8 +1,6 @@
 import React from 'react';
 import { Col, Form, Row, Typography } from 'antd';
-import Dragger from '@/components/Dragger';
 import Radio from '@/components/Button/Radio';
-import SelectBox from '@/components/SelectBox';
 const { Title } = Typography;
 
 const formAddDish = () => {

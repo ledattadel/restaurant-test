@@ -27,6 +27,7 @@ const items = [
     getItem('Quản lý nhân viên', '/account', <MenuIcon.AccountIcon />),
 ];
 
+
 const Sidebar = ({ collapsed, setBreadcum, renderBreadcum }) => {
     const [current, setCurrent] = React.useState('1');
     const navigate = useNavigate();
@@ -39,10 +40,6 @@ const Sidebar = ({ collapsed, setBreadcum, renderBreadcum }) => {
         setBreadcum(titleBreadcum);
         setCurrent(e.key);
     };
-
-    // const handleSelectMenu = (e) => {
-    //     console.log(e);
-    // };
 
     return (
         <Sider collapsedWidth={76} width={283} trigger={null} collapsible collapsed={collapsed} className="siderbar">

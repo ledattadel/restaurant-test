@@ -1,8 +1,8 @@
 import React from 'react';
-import ProductCard from '@/components/ProductCard';
+import ProductCard from '@/components/Card/Product';
 import './index.scss';
 import { Col, Row } from 'antd';
-import AreaCard from '@/components/AreaCard';
+import AreaCard from '@/components/Card/Area';
 import { PermPhoneMsg } from '@mui/icons-material';
 
 const AreaManagement = () => {

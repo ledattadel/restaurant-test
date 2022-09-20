@@ -1,7 +1,7 @@
-import { Button, Modal } from 'antd';
+import { Modal } from 'antd';
 import React, { useState } from 'react';
 
-const App = ({ childFunc }) => {
+const FormAddOffer = ({ childFunc }) => {
     const [isModalVisible, setIsModalVisible] = useState(false);
 
     React.useEffect(() => {
@@ -31,4 +31,4 @@ const App = ({ childFunc }) => {
     );
 };
 
-export default App;
+export default FormAddOffer;

@@ -1,5 +1,5 @@
-import { Avatar } from 'antd';
 import React from 'react';
+import { Avatar } from 'antd';
 import { IoIosArrowDown, IoIosArrowUp } from 'react-icons/io';
 
 const SelectBox = () => {
