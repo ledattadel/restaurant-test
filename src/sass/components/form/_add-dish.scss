@@ -15,16 +15,16 @@
     }
 
     &__form {
-        &-left {
-        }
 
-        &-right {
-        }
+        // &-left {}
+
+        // &-right {}
+
 
         &__input {
             box-sizing: border-box;
-            /* Auto layout */
 
+            /* Auto layout */
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -38,26 +38,22 @@
             border-radius: $br-btn;
 
             /* Inside auto layout */
-
             flex: none;
             order: 1;
             align-self: stretch;
             flex-grow: 0;
 
-            &-name {
-            }
 
-            &-price {
-            }
+            // &-name {}
 
-            &-status {
-            }
+            // &-price {}
 
-            &-quantitative {
-            }
+            // &-status {}
 
-            &-discount {
-            }
+            // &-quantitative {}
+
+            // &-discount {}
+
         }
 
         &__input:hover {
@@ -74,7 +70,6 @@
         box-sizing: border-box;
 
         /* Auto layout */
-
         display: flex;
         flex-direction: column;
         align-items: flex-start;
@@ -87,7 +82,6 @@
         border-radius: $br-btn;
 
         /* Inside auto layout */
-
         flex: none;
         order: 1;
         align-self: stretch;
@@ -118,11 +112,12 @@
     font-weight: 400;
     font-size: 14px;
     line-height: 88%;
-    /* or 12px */
 
+    /* or 12px */
     letter-spacing: 0.001em;
 
     /* text */
 
-    color: #38424b;
+    color: #38424B;
 }
+
