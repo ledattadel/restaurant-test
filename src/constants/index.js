@@ -14,7 +14,7 @@ const constants = {
             label: 'Quản lý món ăn',
         },
         {
-            key: '/table',
+            key: '/area',
             icon: <MenuIcon.TableIcon />,
             label: 'Quản lý bàn ăn',
         },
@@ -39,6 +39,7 @@ const constants = {
         {
             key: '/',
             label: 'Trang chủ',
+            buttonLabel: '',
         },
         {
             key: '/catalogy',
@@ -56,10 +57,11 @@ const constants = {
             buttonLabel: 'Tạo khu vực',
         },
         {
-            key: '/table',
-            label: 'Chi tiết bàn',
+            key: '/area/table',
+            label: 'Quản lý khu vực bàn / Chi tiết bàn',
             buttonLabel: 'Tạo bàn',
         },
+
         {
             key: '/discount',
             label: 'Khuyến mãi',
@@ -74,13 +76,6 @@ const constants = {
             key: '/customer',
             label: 'Quản lý khách hàng',
             buttonLabel: 'Thêm khách hàng',
-        },
-    ],
-
-    modal: [
-        {
-            key: '/dish',
-            label: 'FormAddDish',
         },
     ],
 };

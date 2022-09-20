@@ -1,0 +1,78 @@
+.table_card {
+    height: 100px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    border-radius: 8px;
+
+    padding: 12px;
+    box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.25);
+    .table_cardLeft {
+        width: 30%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+    }
+    .table_cardRight {
+        width: 70%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+
+        justify-content: space-around;
+        .table_right--name {
+            //styleName: nunito/bold 16px;
+
+            font-family: 'Nunito';
+            font-size: 16px;
+            font-weight: 700;
+            line-height: 22px;
+            letter-spacing: 0.001em;
+            text-align: left;
+        }
+        .table_right--stt {
+            //styleName: nunito/semibold 14;
+            padding-top: 5px;
+
+            font-family: 'Nunito';
+            font-size: 14px;
+            font-weight: 600;
+            line-height: 18px;
+            letter-spacing: 0.001em;
+            text-align: left;
+
+            //styleName: Subtitle 2/nunito/regular 14px;
+            span {
+                font-family: 'Nunito';
+                font-size: 14px;
+                font-weight: 600;
+                line-height: 12px;
+                letter-spacing: 0.001em;
+                text-align: left;
+                color: rgba(30, 164, 27, 1);
+            }
+        }
+        .table_right--footer {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            padding-top: 5px;
+            .table_right--id {
+                //styleName: Subtitle 2/nunito/regular 14px;
+                font-family: 'Nunito';
+                font-size: 14px;
+                font-weight: 400;
+                line-height: 12px;
+                letter-spacing: 0.001em;
+                text-align: left;
+            }
+            .table_right--handing {
+                height: 28px;
+                width: 52.90909194946289px;
+
+                border-radius: 0px;
+                padding: -2px 0px 0px 0px;
+            }
+        }
+    }
+}

@@ -23,10 +23,7 @@ const Dish = () => {
         );
     }
     return (
-        <div>
-            {/* <div className="control-dish">
-                <div className="btn-createDish">Tạo món mới</div>
-            </div> */}
+        <div className="dish">
             <Row justify="space-around" align="middle" gutter={[window.innerWidth / 120, window.innerWidth / 120]}>
                 {products}
             </Row>

@@ -2,10 +2,10 @@ import React from 'react';
 import ProductCard from '@/components/ProductCard';
 import './index.scss';
 import { Col, Row } from 'antd';
-import AreaCard from '@/components/AreaCard';
+import TableCard from '@/components/TableCard';
 import { PermPhoneMsg } from '@mui/icons-material';
 
-const AreaManagement = () => {
+const Table = () => {
     const products = [];
     for (let i = 0; i < 12; i++) {
         products.push(
@@ -18,7 +18,7 @@ const AreaManagement = () => {
                 sm={{ span: 12 }}
                 xs={{ span: 24 }}
             >
-                <AreaCard name="Ngoài trời" sum={12} status="Đang mở" id="12" />
+                <TableCard name="Ngoài trời 1" status="Đang mở" id="122" />
             </Col>,
         );
     }
@@ -32,4 +32,4 @@ const AreaManagement = () => {
     );
 };
 
-export default AreaManagement;
+export default Table;

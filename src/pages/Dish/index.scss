@@ -1,16 +1,4 @@
-.control-dish {
-    position: absolute;
-    width: 50vw;
-    top: -65px;
-    right: 0px;
-    height: 40px;
-    display: flex;
-    .btn-createDish {
-        height: 40px;
-        width: 140px;
-        background: rgb(0, 0, 0);
-        border-radius: 4px;
-        padding: 8px 12px 8px 12px;
-        border: rgba(247, 139, 45, 1);
-    }
+.dish {
+    margin-bottom: 200px !important;
+    overflow: scroll;
 }

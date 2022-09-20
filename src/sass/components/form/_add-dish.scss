@@ -15,9 +15,11 @@
     }
 
     &__form {
+
         // &-left {}
 
         // &-right {}
+
 
         &__input {
             box-sizing: border-box;
@@ -35,13 +37,12 @@
             border: 1px solid $light-gray;
             border-radius: $br-btn;
 
-
-
             /* Inside auto layout */
             flex: none;
             order: 1;
             align-self: stretch;
             flex-grow: 0;
+
 
             // &-name {}
 
@@ -52,6 +53,7 @@
             // &-quantitative {}
 
             // &-discount {}
+
         }
 
         &__input:hover {
@@ -115,5 +117,7 @@
     letter-spacing: 0.001em;
 
     /* text */
+
     color: #38424B;
 }
+

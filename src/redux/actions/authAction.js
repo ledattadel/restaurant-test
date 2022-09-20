@@ -8,6 +8,7 @@ export const login = (data) => async (dispatch) => {
         localStorage.setItem('firstLogin', true);
         localStorage.setItem('token', '123');
         localStorage.setItem('user', data);
+        localStorage.setItem('table', []);
 
         dispatch({
             type: GLOBALTYPES.AUTH,

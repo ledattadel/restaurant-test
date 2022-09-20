@@ -1,20 +1,21 @@
 // Golbal
-@import "variables";
-@import "mixin";
-@import "reset";
+@import 'variables';
+@import 'mixin';
+@import 'reset';
 
 // Component
-@import "./components/header";
-@import "./components/sidebar";
-@import "./components/breadcrumb";
-@import "./components/card";
-@import "./components/modal";
-@import "./components/select-box";
-@import "./components/dragger";
+@import './components/header';
+@import './components/sidebar';
+@import './components/breadcrumb';
+@import './components/card';
+@import './components/modal';
+@import './components/select-box';
+@import './components/dragger';
 
 // Button
-@import "./components/button/sort";
-@import "./components/button/radio";
+@import './components/button/sort';
+@import './components/button/radio';
 
 // Form
-@import "./components/form/add-dish";
+@import './components/form/add-dish';
+@import './components/form/add-area';
