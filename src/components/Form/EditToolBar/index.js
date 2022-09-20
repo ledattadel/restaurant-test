@@ -2,9 +2,9 @@ import * as React from 'react';
 import PropTypes from 'prop-types';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
-import { DataGrid, GridCellModes } from '@mui/x-data-grid';
+import { GridCellModes } from '@mui/x-data-grid';
 
-export default function EditToolbar(props) {
+const EditToolbar = (props) => {
     const { selectedCellParams, cellMode, cellModesModel, setCellModesModel } = props;
 
     const handleSaveOrEdit = () => {
@@ -71,7 +71,7 @@ export default function EditToolbar(props) {
             </Button>
         </Box>
     );
-}
+};
 
 EditToolbar.propTypes = {
     cellMode: PropTypes.oneOf(['edit', 'view']).isRequired,
@@ -82,3 +82,5 @@ EditToolbar.propTypes = {
     }),
     setCellModesModel: PropTypes.func.isRequired,
 };
+
+export default EditToolbar;

@@ -7,15 +7,21 @@
 @import './components/header';
 @import './components/sidebar';
 @import './components/breadcrumb';
-@import './components/card';
 @import './components/modal';
 @import './components/select-box';
 @import './components/dragger';
-
-// Button
-@import './components/button/sort';
-@import './components/button/radio';
+@import './components/input';
+@import './components/text-area';
 
 // Form
 @import './components/form/add-dish';
 @import './components/form/add-area';
+
+// Card
+@import './components/card/product';
+@import './components/card/area';
+@import './components/card/table';
+
+// Button
+@import './components/button/sort';
+@import './components/button/radio';

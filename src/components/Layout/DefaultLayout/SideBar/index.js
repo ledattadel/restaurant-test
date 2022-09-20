@@ -7,49 +7,6 @@ import constants from '@/constants';
 import './index.scss';
 const { Sider } = Layout;
 
-// function getItem(label, key, icon, children, type) {
-//     return {
-//         key,
-//         icon,
-//         children,
-//         label,
-//         type,
-//     };
-// }
-
-const items2 = [
-    {
-        key: '/',
-        icon: <MenuIcon.HomeIcon color={'white'} />,
-        label: 'Trang chủ',
-    },
-    {
-        key: '/dish',
-        icon: <MenuIcon.DishIcon />,
-        label: 'Quản lý món ăn',
-    },
-    {
-        key: '/table',
-        icon: <MenuIcon.TableIcon />,
-        label: 'Quản lý bàn ăn',
-    },
-    {
-        key: '/discount',
-        icon: <MenuIcon.DiscountIcon />,
-        label: 'Khuyến mãi',
-    },
-    {
-        key: '/account',
-        icon: <MenuIcon.AccountIcon />,
-        label: 'Quản lý nhân viên',
-    },
-    {
-        key: '/customer',
-        icon: <MenuIcon.AccountIcon />,
-        label: 'Quản lý Khách hàng',
-    },
-];
-
 const Sidebar = ({ collapsed, setBreadcum, renderBreadcum }) => {
     const [current, setCurrent] = React.useState('1');
     const navigate = useNavigate();
@@ -61,10 +18,6 @@ const Sidebar = ({ collapsed, setBreadcum, renderBreadcum }) => {
         setBreadcum(titleBreadcum);
         setCurrent(e.key);
     };
-
-    // const handleSelectMenu = (e) => {
-    //     console.log(e);
-    // };
 
     return (
         <Sider collapsedWidth={76} width={283} trigger={null} collapsible collapsed={collapsed} className="siderbar">

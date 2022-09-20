@@ -1,9 +1,7 @@
 import React from 'react';
-import ProductCard from '@/components/ProductCard';
 import './index.scss';
 import { Col, Row } from 'antd';
-import TableCard from '@/components/TableCard';
-import { PermPhoneMsg } from '@mui/icons-material';
+import TableCard from '@/components/Card/Table';
 
 const Table = () => {
     const products = [];

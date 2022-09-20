@@ -1,5 +1,3 @@
-import { GLOBALTYPES } from '@/redux/actions/globalTypes';
-
 const initialState = {};
 
 const orderReducer = (state = initialState, action) => {

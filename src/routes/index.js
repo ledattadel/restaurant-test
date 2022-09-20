@@ -1,5 +1,5 @@
 // import DishManagement from '@/pages/DishManagement';
-import { Home, Login, Dish, Menu, Blank, Table } from '@/pages/index';
+import { Home, Login, Dish, Blank, Table } from '@/pages/index';
 
 //P menus
 import Area from '@/pages/Area';

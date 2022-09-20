@@ -3,9 +3,8 @@ import * as MenuIcon from "@/assets/menu-icon/";
 import { useNavigate, useLocation, matchRoutes } from "react-router-dom";
 import { Button, Dropdown, Menu } from "antd";
 import { BsPlusCircle, BsSortDown } from "react-icons/bs";
-import AddDish from "@/components/Modal/AddDish";
+import { FormAddDish } from "@/components";
 import { useEffect } from "react";
-import { privateRoutes } from "@/routes";
 import constants from '@/constants';
 
 const menu = (
@@ -144,7 +143,7 @@ const Breadcrumber = ({ title, setRouteBreadcumRender }) => {
                 />
             )}
 
-            <AddDish trigger={trigger} handleTrigger={() => setTrigger(false)} />
+            <FormAddDish trigger={trigger} handleTrigger={() => setTrigger(false)} />
         </div>
     );
 };

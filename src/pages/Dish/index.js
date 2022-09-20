@@ -1,6 +1,6 @@
 import React from 'react';
 import { Col, Row } from 'antd';
-import ProductCard from '@/components/ProductCard';
+import ProductCard from '@/components/Card/Product';
 import './index.scss';
 const data = {
     image: 'https://image.shutterstock.com/image-vector/compact-size-icon-vector-illustration-260nw-489811306.jpg',
@@ -24,7 +24,7 @@ const Dish = () => {
     }
     return (
         <div className="dish">
-            <Row justify="space-around" align="middle" gutter={[window.innerWidth / 120, window.innerWidth / 120]}>
+            <Row justify="space-around" align="middle" gutter={[window.innerWidth / 60, window.innerWidth / 60]}>
                 {products}
             </Row>
         </div>

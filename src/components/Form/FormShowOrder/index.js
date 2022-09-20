@@ -1,36 +1,26 @@
-import * as Redux from 'react-redux';
+// import * as Redux from 'react-redux';
 import * as React from 'react';
 import {
-    Form,
-    Input,
-    InputNumber,
-    Popconfirm,
-    Table,
-    Typography,
-    Switch,
-    Space,
-    message,
-    Upload,
-    Select,
+    // Form,
+    // Typography,
+    // Upload,
+    // Select,
     Button,
-    Modal,
 } from 'antd';
-import { CheckOutlined, CloseOutlined, InboxOutlined } from '@ant-design/icons';
-import * as DishActions from '@/redux/actions/dishAction';
-import './index.scss';
+import './FormShowOrder.model.scss';
 import { useReactToPrint } from 'react-to-print';
 
-const { Text, Link } = Typography;
-const { Dragger } = Upload;
-const { Option } = Select;
+// const { Text, Link } = Typography;
+// const { Dragger } = Upload;
+// const { Option } = Select;
 
 const FormShowOrder = ({ record }) => {
-    const [isModalVisible, setIsModalVisible] = React.useState(false);
-    const [visible, setVisible] = React.useState(false);
-    const [noneText, setNoneText] = React.useState(false);
-    const [form] = Form.useForm();
-    const [textNewMenu, setTextNewMenu] = React.useState('');
-    const dispatch = Redux.useDispatch();
+    // const [isModalVisible, setIsModalVisible] = React.useState(false);
+    // const [visible, setVisible] = React.useState(false);
+    // const [noneText, setNoneText] = React.useState(false);
+    // const [form] = Form.useForm();
+    // const [textNewMenu, setTextNewMenu] = React.useState('');
+    // const dispatch = Redux.useDispatch();
 
     const componentRef = React.useRef();
 

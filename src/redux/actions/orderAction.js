@@ -1,4 +1,3 @@
-import { GLOBALTYPES } from './globalTypes';
 import { postDataAPI } from '@/utils/fetchData';
 
 export const getAllOrder = async () => {

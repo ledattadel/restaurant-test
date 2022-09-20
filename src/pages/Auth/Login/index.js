@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import Alert from '@/components/Alert/Alert';
+import { Alert } from '@/components';
 import { Toaster } from 'react-hot-toast';
 import { Checkbox } from 'antd';
 import PasswordIcon from '@/assets/password.icon';
