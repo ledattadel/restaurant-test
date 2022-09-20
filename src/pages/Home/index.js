@@ -1,5 +1,4 @@
 import React from 'react';
-import FeedRestaurant from '@/components/FeedRestaurant';
 import { Typography } from '@mui/material';
 import './index.scss';
 import * as ReactRedux from 'react-redux';

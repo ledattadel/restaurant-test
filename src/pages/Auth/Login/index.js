@@ -8,6 +8,7 @@ import PasswordIcon from '@/assets/password.icon';
 import UserIcon from '@/assets/user.icon';
 import { EyeOpen, EyeClosed } from 'akar-icons';
 import * as AuthActions from '@/redux/actions/authAction';
+import * as picture from '@/assets/picture/index';
 
 import './index.scss';
 
@@ -62,7 +63,13 @@ const Login = () => {
     const handleRememberPassword = () => {};
 
     return (
-        <div className="authpage">
+        <div
+            className="authpage"
+            style={{
+                background: `url(${picture.bground})
+        rgba(37, 37, 37, 0.2)`,
+            }}
+        >
             <Alert></Alert>
             <Toaster
                 toastOptions={{
