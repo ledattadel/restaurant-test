@@ -9,25 +9,23 @@ const ProductCard = ({ product }) => {
             cover={<img className="product-card__img" alt="example" src={product.image} />}
         >
             <div className="product-card__info">
-                <Row justify="space-between">
+                <Row justify="space-between" className="product-card__info__row">
                     <Col>
                         <span className="product-card__info__name">
-                            {product.name.length > 16 ? (
-                                <p>{product.name.substring(0, 16)} ...</p>
+                            {product.name.length > 50 ? (
+                                <p>{product.name.substring(0, 50)} ...</p>
                             ) : (
                                 <p>{product.name}</p>
                             )}
                         </span>
                     </Col>
-                    <Col
-                        style={{
-                            display: 'flex',
-                            flexDirection: 'column',
-                            alignItems: 'end',
-                            justifyContent: 'end',
-                            // width: '100%',
-                        }}
-                    >
+                </Row>
+                <Row justify="space-between">
+                    <Col className="product-card__info__col">
+                        <span className="product-card__info__sale-number">Đã bán: {product.saleNumber}</span>
+                        <Tag className="product-card__info__status">{product.status}</Tag>
+                    </Col>
+                    <Col className="product-card__info__col">
                         <span className="product-card__info__price">
                             {product.price.length > 6 ? (
                                 <p>
@@ -53,22 +51,11 @@ const ProductCard = ({ product }) => {
                         </span>
                     </Col>
                 </Row>
-                <Row className="product-card__info-row" justify="end">
-                    <Col></Col>
-                </Row>
-                <Row justify="space-between">
-                    <Col>
-                        <span className="product-card__info__sale-number">Đã bán: {product.saleNumber}</span>
-                    </Col>
-                    <Col>
-                        <Tag className="product-card__info__status">{product.status}</Tag>
-                    </Col>
-                </Row>
                 <Row>
                     <Col span={24}>
                         <p className="product-card__info__description">
-                            {product.description.length > 120 ? (
-                                <>{product.description.substring(0, 120)} ...</>
+                            {product.description.length > 150 ? (
+                                <>{product.description.substring(0, 150)}...</>
                             ) : (
                                 <>{product.description}</>
                             )}

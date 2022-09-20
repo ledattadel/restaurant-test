@@ -43,7 +43,7 @@ const columns = [
         render: (text, record) => {
             return (
                 <div className="recent_dish-column">
-                    <img className="recent_dish-column--img" src={record.image} />
+                    <img className="recent_dish-column--img" src={record.image} alt=''/>
                     <span className="recent_dish-column--name">{record.name}</span>
                 </div>
             );
@@ -213,7 +213,7 @@ const Home = () => {
                     </div>
                     <Row className="most-ordered-list">
                         <Col className="most-ordered-item">
-                            <img src={picture.top}></img>
+                            <img src={picture.top} alt='Mỳ ý đặc biệt'/>
                             <div className="most-ordered-item--info">
                                 <div className="most-ordered-item--info-1">
                                     <span className="info-name">Mỳ ý đặc biệt</span>
@@ -225,7 +225,7 @@ const Home = () => {
                             </div>
                         </Col>
                         <Col className="most-ordered-item">
-                            <img src={picture.top}></img>
+                            <img src={picture.top} alt='Mỳ ý đặc biệt'/>
                             <div className="most-ordered-item--info">
                                 <div className="most-ordered-item--info-1">
                                     <span className="info-name">Mỳ ý đặc biệt</span>
@@ -237,7 +237,7 @@ const Home = () => {
                             </div>
                         </Col>
                         <Col className="most-ordered-item">
-                            <img src={picture.top}></img>
+                            <img src={picture.top} alt='Mỳ ý đặc biệt'/>
                             <div className="most-ordered-item--info">
                                 <div className="most-ordered-item--info-1">
                                     <span className="info-name">Mỳ ý đặc biệt</span>
@@ -249,7 +249,7 @@ const Home = () => {
                             </div>
                         </Col>
                         <Col className="most-ordered-item">
-                            <img src={picture.top}></img>
+                            <img src={picture.top} alt='Mỳ ý đặc biệt'/>
                             <div className="most-ordered-item--info">
                                 <div className="most-ordered-item--info-1">
                                     <span className="info-name">Mỳ ý đặc biệt</span>

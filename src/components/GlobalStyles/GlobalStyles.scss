@@ -91,6 +91,7 @@ video {
     font: inherit;
     vertical-align: baseline;
 }
+
 /* HTML5 display-role reset for older browsers */
 article,
 aside,
@@ -105,17 +106,21 @@ nav,
 section {
     display: block;
 }
+
 body {
     line-height: 1;
 }
+
 ol,
 ul {
     list-style: none;
 }
+
 blockquote,
 q {
     quotes: none;
 }
+
 blockquote:before,
 blockquote:after,
 q:before,
@@ -123,6 +128,7 @@ q:after {
     content: '';
     content: none;
 }
+
 table {
     border-collapse: collapse;
     border-spacing: 0;
@@ -138,8 +144,9 @@ body {
     line-height: 1.5;
     text-rendering: optimizeSpeed;
     background-color: #f0f2f5;
-    overflow: hidden;
+    // overflow: hidden;
 }
+
 // .App {
 //     height: 100vh;
 //     background-repeat: no-repeat;
@@ -151,6 +158,7 @@ body {
 .table {
     background-color: #f0f2f5;
 }
+
 .App {
     // height: 100vh !important;
     height: 100%;
@@ -158,9 +166,10 @@ body {
     background-color: #f0f2f5;
     // background-color: red !important;
 }
+
 .container {
     // background-color: red !important;
     // overflow: auto;
-    overflow: scroll;
+    // overflow: scroll;
     // height: 1200px !important;
 }

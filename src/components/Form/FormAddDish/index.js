@@ -30,6 +30,7 @@ const formAddDish = () => {
                                     <Form.Item label="Giá">
                                         <input
                                             type="number"
+                                            min={1}
                                             className="add-dish__form__input add-dish__form__input-price"
                                             placeholder="Nhập giá của món"
                                         />
@@ -52,6 +53,7 @@ const formAddDish = () => {
                                     <Form.Item label="Giảm giá">
                                         <input
                                             type="number"
+                                            min={1}
                                             className="add-dish__form__input add-dish__form__input-discount"
                                             placeholder="Nhập số tiền giảm"
                                         />
