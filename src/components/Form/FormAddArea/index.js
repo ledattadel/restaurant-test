@@ -28,7 +28,7 @@ const formAddDish = () => {
                             <Col span={12}>
                                 <div className="add-dish__form-right">
                                     <Form.Item label="Trạng thái" style={{ marginBottom: '20px' }}>
-                                        <Radio status={'Đang mở'} />
+                                        <Radio status={'Đang mở'} checked={true}/>
                                         <Radio status={'Tạm đóng'} />
                                     </Form.Item>
                                 </div>

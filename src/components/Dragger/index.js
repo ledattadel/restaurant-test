@@ -2,9 +2,8 @@ import React from 'react';
 import ImgCrop from 'antd-img-crop';
 import PhotoIcon from '@/assets/photo-icon';
 import UploadIcon from '@/assets/upload-icon';
-// import { useDropzone } from 'react-dropzone';
 import { Upload, Button } from 'antd';
-import './Dragger.model.scss'
+import './Dragger.model.scss';
 
 const Dragger = () => {
     const [fileList, setFileList] = React.useState([]);
@@ -32,7 +31,15 @@ const Dragger = () => {
         <div className="dragger">
             <ImgCrop rotate>
                 <Upload listType="picture-card" fileList={fileList} onChange={onChange} onPreview={onPreview}>
-                    {fileList.length < 1 && <div><PhotoIcon/><Button className="dragger__button"><UploadIcon/><p> Tải ảnh món ăn</p></Button></div>}
+                    {fileList.length < 1 && (
+                        <div>
+                            <PhotoIcon />
+                            <Button className="dragger__button">
+                                <UploadIcon />
+                                <p> Tải ảnh món ăn</p>
+                            </Button>
+                        </div>
+                    )}
                 </Upload>
             </ImgCrop>
         </div>
