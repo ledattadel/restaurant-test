@@ -1,9 +1,13 @@
 import React from 'react';
 
-const Radio = ({ status }) => {
+const Radio = ({ status, checked }) => {
     return (
-        <label for={status} className="radio">
-            <input type="radio" className="radio__input" name="myRadioField" id={status} />
+        <label htmlFor={status} className="radio">
+            {checked && checked === true ? (
+                <input type="radio" className="radio__input" name="myRadioField" id={status} defaultChecked />
+            ) : (
+                <input type="radio" className="radio__input" name="myRadioField" id={status} />
+            )}
             <div className="radio__radio"></div>
             {status}
         </label>
