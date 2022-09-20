@@ -7,12 +7,34 @@ import constants from '@/constants';
 import './index.scss';
 const { Sider } = Layout;
 
+function getItem(label, key, icon, children, type) {
+    return {
+        key,
+        icon,
+        children,
+        label,
+        type,
+    };
+}
+const items = [
+    getItem('Trang chủ', '/', <MenuIcon.HomeIcon color={'white'} />),
+    getItem('Quản lý menu', '', <MenuIcon.MenuIcon />, [
+        getItem('Quản lý danh mục', '', <MenuIcon.DishIcon />),
+        getItem('Quản lý món ăn', '/dish', <MenuIcon.CategoryIcon />),
+    ]),
+    getItem('Quản lý bàn ăn', '/area', <MenuIcon.TableIcon />),
+    getItem('Khuyến mãi', '/discount', <MenuIcon.DiscountIcon />),
+    getItem('Quản lý nhân viên', '/account', <MenuIcon.AccountIcon />),
+];
+
+
 const Sidebar = ({ collapsed, setBreadcum, renderBreadcum }) => {
     const [current, setCurrent] = React.useState('1');
     const navigate = useNavigate();
     const location = useLocation();
 
     const onClick = (e) => {
+        console.log(e.key);
         navigate(e.key);
         let titleBreadcum = constants.sidebar.find((v) => v.key === e.key).label;
         setBreadcum(titleBreadcum);
@@ -34,7 +56,7 @@ const Sidebar = ({ collapsed, setBreadcum, renderBreadcum }) => {
                 defaultOpenKeys={['sub1']}
                 selectedKeys={location.pathname === '/' ? ['/'] : [current]}
                 mode="inline"
-                items={constants.sidebar}
+                items={items}
                 defaultSelectedKeys={['/']}
             />
         </Sider>
