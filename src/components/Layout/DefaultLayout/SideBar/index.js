@@ -40,17 +40,12 @@ const Sidebar = ({ collapsed, setBreadcum, renderBreadcum }) => {
         setCurrent(e.key);
     };
 
-    // const handleSelectMenu = (e) => {
-    //     console.log(e);
-    // };
-
     return (
         <Sider collapsedWidth={76} width={283} trigger={null} collapsible collapsed={collapsed} className="siderbar">
             <Link to="/">
                 <div className="siderbar_logo">LOGO</div>
             </Link>
             <Menu
-                // theme={theme}
                 className="siderbar_menu"
                 onClick={onClick}
                 style={{
