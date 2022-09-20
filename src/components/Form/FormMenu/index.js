@@ -4,12 +4,10 @@ import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import { IconButton } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
-import * as MenuActions from '@/redux/actions/menuAction';
-import { useDispatch, useSelector } from 'react-redux';
+// import { useDispatch} from 'react-redux';
 import {
     DataGrid,
     GridCellModes,
-    GridToolbarContainer,
     GridToolbarColumnsButton,
     GridToolbarFilterButton,
     GridToolbarExport,
@@ -19,14 +17,14 @@ import ConfirmDialog from '@/components/ConfirmDialog';
 
 function EditToolbar(props) {
     const { selectedCellParams, cellMode, cellModesModel, setCellModesModel, onDelete } = props;
-    const [selectionModel, setSelectionModel] = React.useState([]);
-    const [loadingData, setLoadingData] = React.useState(true);
+    // const [selectionModel, setSelectionModel] = React.useState([]);
+    // const [loadingData, setLoadingData] = React.useState(true);
 
     const childRef = React.useRef(null);
 
-    const [rows, setRows] = React.useState(props.rows);
+    // const [rows, setRows] = React.useState(props.rows);
 
-    const dispatch = useDispatch();
+    // const dispatch = useDispatch();
 
     const handleSaveOrEdit = () => {
         if (!selectedCellParams) {
@@ -127,14 +125,14 @@ EditToolbar.propTypes = {
     setCellModesModel: PropTypes.func.isRequired,
 };
 
-export default function MenuForm({
+const FormMenu = ({
     rows,
     columns,
     handleDelete,
     handleSelectionModel,
     handleOnSelectionModelChange,
     numOfPageSize,
-}) {
+}) => {
     const [selectedCellParams, setSelectedCellParams] = React.useState(null);
     const [cellModesModel, setCellModesModel] = React.useState({});
 
@@ -202,4 +200,6 @@ export default function MenuForm({
             />
         </div>
     );
-}
+};
+
+export default FormMenu;

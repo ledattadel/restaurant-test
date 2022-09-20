@@ -1,16 +1,11 @@
 import React from 'react';
-import { Typography } from '@mui/material';
-import './index.scss';
-import * as ReactRedux from 'react-redux';
-import * as OrderAction from '@/redux/actions/orderAction';
-import { Progress, Row, Col } from 'antd';
 import { CircularProgressbar } from 'react-circular-progressbar';
-import 'react-circular-progressbar/dist/styles.css';
-import * as picture from '@/assets/picture/index';
-import { Select } from 'antd';
+import { Col, Row, Select, Table } from 'antd';
 import ProgressBar from '@/components/ProgressBar';
+import * as picture from '@/assets/picture/index';
+import 'react-circular-progressbar/dist/styles.css';
+import './index.scss';
 
-import { Space, Table, Tag } from 'antd';
 const { Option } = Select;
 
 const items = [

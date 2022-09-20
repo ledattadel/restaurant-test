@@ -3,9 +3,14 @@ import { Col, Form, Row, Typography } from 'antd';
 import Dragger from '@/components/Dragger';
 import Radio from '@/components/Button/Radio';
 import SelectBox from '@/components/SelectBox';
+// import checkValidate from '@/utils/checkValidate';
+
 const { Title } = Typography;
 
-const formAddDish = () => {
+const FormAddDish = () => {
+    // const [validateName, setValidateName] = React.useState(false);
+    // const [name, setName] = React.useState('');
+
     return (
         <div className="add-dish">
             <Title level={3} className="add-dish__title">
@@ -23,6 +28,7 @@ const formAddDish = () => {
                                             className="add-dish__form__input add-dish__form__input-name"
                                             placeholder="Nhập tên của món"
                                         />
+                                        <span></span>
                                     </Form.Item>
                                     <Form.Item label="Danh mục">
                                         <SelectBox />
@@ -80,4 +86,4 @@ const formAddDish = () => {
     );
 };
 
-export default formAddDish;
+export default FormAddDish;

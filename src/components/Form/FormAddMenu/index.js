@@ -1,6 +1,6 @@
 import React from 'react';
 
-const index = () => {
+const FormAddMenu = () => {
     return (
         <div
             style={{
@@ -14,4 +14,4 @@ const index = () => {
     );
 };
 
-export default index;
+export default FormAddMenu;

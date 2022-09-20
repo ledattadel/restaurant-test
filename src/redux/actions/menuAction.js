@@ -1,5 +1,5 @@
 import { GLOBALTYPES } from './globalTypes';
-import { postDataAPI, getDataAPI, getWithParams, deleteWithParams, putDataAPI } from '@/utils/fetchData';
+import { getWithParams, deleteWithParams, putDataAPI } from '@/utils/fetchData';
 
 export const fetchStoreMenu = async (forceFetch) => {
     try {

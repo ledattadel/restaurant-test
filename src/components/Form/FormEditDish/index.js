@@ -1,13 +1,12 @@
-import { PlusOutlined } from '@ant-design/icons';
-import { Button, Col, DatePicker, Drawer, Form, Input, Row, Select, Space, Switch } from 'antd';
-import { CheckOutlined, CloseOutlined, InboxOutlined } from '@ant-design/icons';
+import { Button, Drawer, Form, Input, Select,  Switch } from 'antd';
+import { CheckOutlined, CloseOutlined } from '@ant-design/icons';
 
 import * as React from 'react';
-import './index.scss';
+import './FormEditDish.model.scss';
 
 const { Option } = Select;
 
-const App = (props) => {
+const FormEditDish = (props) => {
     const [visible, setVisible] = React.useState(false);
     const { childFunc, sizeDish, menuList, allergyList, meatList } = props;
     const [form] = Form.useForm();
@@ -45,9 +44,9 @@ const App = (props) => {
 
         setVisible(false);
     };
-    const handleResetForm = () => {
-        form.resetFields();
-    };
+    // const handleResetForm = () => {
+    //     form.resetFields();
+    // };
 
     return (
         <Drawer
@@ -210,4 +209,4 @@ const App = (props) => {
     );
 };
 
-export default App;
+export default FormEditDish;
