@@ -1,7 +1,7 @@
 @import url(../../../../sass//_variables.scss);
 
 .siderbar {
-    background: url(https://images.unsplash.com/photo-1529543544282-ea669407fca3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1974&q=80)
+    background: url(https://images.unsplash.com/photo-1578474846511-04ba529f0b88?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1887&q=80)
         rgba(0, 0, 0, 0.7) !important;
     background-size: cover !important;
     // // background-repeat: no-repeat !important;
@@ -9,11 +9,11 @@
 
     .siderbar_logo {
         width: 100% !important;
-        // background-color: white;
-        color: white;
+        //         // background-color: white;
+        //         color: white;
         text-align: center;
         height: 76px;
-        margin-bottom: 35px;
+        //         margin-bottom: 35px;
     }
     .siderbar_menu {
         border-right: none !important;
@@ -21,34 +21,32 @@
         margin: 0 auto;
         background: transparent;
 
-        // text-align: center;
+        text-align: start;
         span {
             margin-left: 20px !important;
-            //styleName: heading 3/Subtitle 1/Heading 1/nunito/regular 16px;
+            // styleName: heading 3/Subtitle 1/Heading 1/nunito/regular 16px;
             font-family: 'Nunito';
             font-size: 16px;
             font-weight: 400;
             line-height: 22px;
             letter-spacing: 0.001em;
             color: #fff;
-            text-align: left;
+            //             text-align: left;
         }
 
         li {
             margin-bottom: 15px !important;
-            // padding-top: 5px !important;
-            // height: 44px;
-            // width: 255px;
-            left: 0px;
-            top: 52px;
+
+            // left: 0px;
+            // top: 52px;
             border-radius: 6px;
-            padding: 10px 12px 10px 12px;
+            // padding: 10px 0 10px 12px;
             position: relative;
             svg {
                 position: absolute;
                 top: 7px;
                 left: 21px;
-                margin-right: 10px;
+                // margin-right: 15px !important;
             }
             span {
                 position: absolute;
@@ -73,4 +71,72 @@
     // height: 44px;
     line-height: 44px !important;
     position: relative;
+}
+// #root > div > section > aside > div > ul > li.ant-menu-submenu.ant-menu-submenu-inline.ant-menu-submenu-selected > div {
+//     margin-left: -12px;
+// }
+// #root > div > section > aside > div > ul > li.ant-menu-submenu.ant-menu-submenu-inline > div {
+//     margin-left: -12px;
+// }
+
+// .ant-menu {
+//     z-index: 300;
+//     height: 150px;
+//     background: none !important;
+//     margin-top: -40px !important;
+// }
+#root
+    > div
+    > section
+    > aside
+    > div
+    > ul
+    > li.ant-menu-submenu.ant-menu-submenu-inline.ant-menu-submenu-active
+    > div
+    > i {
+    color: white !important;
+    margin-left: 20px !important;
+}
+
+// #root > div > section > aside > div > ul > li.ant-menu-submenu.ant-menu-submenu-vertical > div > svg {
+//     margin-left: -12px;
+// }
+.ant-menu-submenu-popup > .ant-menu {
+    background-color: #fff !important;
+    margin-left: 20px !important;
+    height: 100px !important;
+    &:hover span {
+        color: black !important;
+    }
+    // &:hover {
+    //     background-color: #f78b2d !important;
+    // }
+
+    svg {
+        // visibility: hidden !important;
+        display: none !important;
+    }
+    & > .ant-menu-item-selected {
+        color: white !important;
+    }
+}
+
+.ant-menu-submenu-arrow,
+.ant-menu-submenu-expand-icon {
+    color: #fff !important;
+    right: 15px !important;
+    z-index: 20 !important;
+    // margin-left: 25px !important;
+}
+// .ant-menu-submenu-title {
+//     width: 120% !important;
+// }
+#rc-menu-uuid-51764-2--popup {
+}
+.ant-menu-submenu {
+    > ul {
+        background: transparent !important;
+        margin-left: 20px !important;
+        margin-top: 10px !important;
+    }
 }

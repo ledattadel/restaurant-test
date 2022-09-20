@@ -11,7 +11,12 @@ const constants = {
         {
             key: '/dish',
             icon: <MenuIcon.DishIcon />,
-            label: 'Quản lý món ăn',
+            label: 'Quản lý menu',
+        },
+        {
+            key: '/order',
+            icon: <MenuIcon.DishIcon />,
+            label: 'Quản lý danh mục',
         },
         {
             key: '/area',

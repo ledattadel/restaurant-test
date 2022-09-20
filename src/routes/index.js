@@ -1,5 +1,5 @@
 // import DishManagement from '@/pages/DishManagement';
-import { Home, Login, Dish, Menu, Blank, Table } from '@/pages/index';
+import { Home, Login, Dish, Menu, Blank, Table, Order } from '@/pages/index';
 
 //P menus
 import Area from '@/pages/Area';
@@ -10,7 +10,7 @@ const privateRoutes = [
     { path: '/dashboard', component: Blank },
     { path: '/menu', component: Blank },
     { path: '/dish', component: Dish },
-    { path: '/order', component: Blank },
+    { path: '/order', component: Area },
     { path: '/area', component: Area },
     { path: '/area/table', component: Table },
     { path: '*', component: Blank },
