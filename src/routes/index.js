@@ -1,7 +1,7 @@
 // import DishManagement from '@/pages/DishManagement';
 
 import { Home, Login, Dish, Blank, Table } from '@/pages/index';
-
+import CustomerManagement from '@/pages/Customer';
 
 //P menus
 import Area from '@/pages/Area';
@@ -15,6 +15,7 @@ const privateRoutes = [
     { path: '/order', component: Area },
     { path: '/area', component: Area },
     { path: '/area/table', component: Table },
+    { path: '/customer', component: CustomerManagement },
     { path: '*', component: Blank },
 ];
 const publicRoutes = [

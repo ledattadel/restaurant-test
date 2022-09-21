@@ -4,7 +4,10 @@ import * as MenuIcon from '@/assets/menu-icon/';
 import { Menu } from 'antd';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import constants from '@/constants';
+import * as ReactRedux from 'react-redux';
 import './index.scss';
+import { GLOBALTYPES } from '@/redux/actions/globalTypes';
+
 const { Sider } = Layout;
 
 function getItem(label, key, icon, children, type) {
@@ -26,7 +29,6 @@ const items = [
     getItem('Khuyến mãi', '/discount', <MenuIcon.DiscountIcon />),
     getItem('Quản lý nhân viên', '/account', <MenuIcon.AccountIcon />),
 ];
-
 
 const Sidebar = ({ collapsed, setBreadcum, renderBreadcum }) => {
     const [current, setCurrent] = React.useState('1');

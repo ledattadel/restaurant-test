@@ -6,8 +6,7 @@ import { GLOBALTYPES } from '@/redux/actions/globalTypes';
 
 const Alert = () => {
     const { alert } = useSelector((state) => state);
-    console.log(alert);
-    //    console.log({auth, notify});
+
     const dispatch = useDispatch();
     const killNotify = () => dispatch({ type: GLOBALTYPES.ALERT, payload: {} });
 

@@ -1,17 +1,22 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { Layout } from 'antd';
 import SideBar from './SideBar';
 import DefaultHeader from './Header';
 import Breadcrumb from '@/components/Breadcrumb';
+import * as RoutingAction from '@/redux/actions/routingAction';
+import { useSelector, useDispatch } from 'react-redux';
+import { GLOBALTYPES } from '@/redux/actions/globalTypes';
 
 const { Content } = Layout;
 
 function DefaultLayout({ children }) {
-    const location = useLocation();
     const [collapsed, setCollapsed] = React.useState(false);
     const [titleBreadcum, setTitleBreadcum] = React.useState('');
     const [renderBreadcum, setRenderBreadcum] = React.useState('');
+
+    const location = useLocation();
+    const dispatch = useDispatch();
 
     function handleCollapsed(collapsed) {
         setCollapsed(collapsed);
