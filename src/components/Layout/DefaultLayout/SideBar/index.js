@@ -28,6 +28,8 @@ const items = [
     getItem('Quản lý bàn ăn', '/area', <MenuIcon.TableIcon />),
     getItem('Khuyến mãi', '/discount', <MenuIcon.DiscountIcon />),
     getItem('Quản lý nhân viên', '/account', <MenuIcon.AccountIcon />),
+    getItem('Quản lý khách hàng', '/customer', <MenuIcon.AccountIcon />),
+
 ];
 
 const Sidebar = ({ collapsed, setBreadcum, renderBreadcum }) => {
