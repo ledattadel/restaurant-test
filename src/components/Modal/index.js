@@ -12,6 +12,7 @@ import * as ReactRedux from 'react-redux';
 const DefaultModal = ({ visible, setVisible }) => {
     const location = useLocation();
     const addDishRef = React.useRef(null);
+    const addCateRef = React.useRef(null);
     const dispatch = ReactRedux.useDispatch();
     // dish
 
@@ -19,8 +20,12 @@ const DefaultModal = ({ visible, setVisible }) => {
     const [form] = Form.useForm();
 
     const handleSubmitDish = async (values) => {
-        console.log('value modal:', values);
         addDishRef.current.addDish(values);
+        form.resetFields();
+        setVisible(false);
+    };
+    const handleSubmitCategory = async (values) => {
+        addCateRef.current.addCate(values);
         form.resetFields();
         setVisible(false);
     };
@@ -53,7 +58,7 @@ const DefaultModal = ({ visible, setVisible }) => {
             case '/area':
                 return <FormAddArea />;
             case '/category':
-                return <FormAddCategory />;
+                return <FormAddCategory form={form} onFinish={handleSubmitCategory} ref={addCateRef} />;
             default:
                 return <></>;
         }

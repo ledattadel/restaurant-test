@@ -1,10 +1,26 @@
-import React from 'react';
+import * as React from 'react';
 import { Col, Form, Row, Typography } from 'antd';
 import { Dragger, SelectBox, Radio } from '@/components';
+import * as ReactRedux from 'react-redux';
 
 const { Title } = Typography;
 
-const FormAddCategory = () => {
+const FormAddCategory = React.forwardRef(({ form, onFinish }, ref) => {
+    const [fileList, setFileList] = React.useState([]);
+    const [value, setValue] = React.useState('');
+    const [status, setStatus] = React.useState('');
+    const dispatch = ReactRedux.useDispatch();
+    React.useImperativeHandle(ref, () => ({
+        addCate,
+    }));
+
+    const addCate = (values) => {
+        console.log(values);
+        // const api = await dispatch(DishAction.submitDish(values));
+
+        // console.log(api);
+    };
+
     return (
         <div className="add-category">
             <Title level={3} className="add-category__title">
@@ -34,12 +50,12 @@ const FormAddCategory = () => {
                         </Row>
                     </Col>
                     <Col xs={24} lg={11}>
-                        <Dragger />
+                        <Dragger fileList={fileList} setFileList={setFileList} />
                     </Col>
                 </Row>
             </Form>
         </div>
     );
-};
+});
 
 export default FormAddCategory;

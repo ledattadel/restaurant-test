@@ -3,7 +3,7 @@ import * as ReactRedux from 'react-redux';
 import * as DishAction from '@/redux/actions/dishAction';
 import { Col, Row } from 'antd';
 import ProductCard from '@/components/Card/Product';
-import './index.scss';
+
 import axios from 'axios';
 
 // test api
