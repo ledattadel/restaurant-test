@@ -1,12 +1,8 @@
 import * as React from 'react';
-import * as ReactRedux from 'react-redux';
-import { Link, useLocation } from 'react-router-dom';
-
-//import assets
+import { ContentFnB } from '@/components/Layout/Content';
+import { DataTable } from '@/components';
 import './index.scss';
-import { Col, Row } from 'antd';
-import { Content, ContentFnB } from '@/components/Layout/Content';
-import DataTable from '@/components/Table/DataTable';
+
 const columns = [
     {
         title: 'Stt',
@@ -39,7 +35,8 @@ for (let i = 0; i < 46; i++) {
         birthday: `14/09/202${i}`,
     });
 }
-const CustomerManagement = () => {
+
+const Customer = () => {
     return (
         <ContentFnB className={'customer-management'}>
             <DataTable columns={columns} data={data} />
@@ -47,4 +44,4 @@ const CustomerManagement = () => {
     );
 };
 
-export default CustomerManagement;
+export default Customer;

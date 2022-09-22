@@ -3,7 +3,6 @@ import ImgCrop from 'antd-img-crop';
 import PhotoIcon from '@/assets/photo-icon';
 import UploadIcon from '@/assets/upload-icon';
 import { Upload, Button } from 'antd';
-import './Dragger.model.scss';
 
 const Dragger = ({ fileList, setFileList }) => {
     const onChange = ({ fileList: newFileList }) => {
@@ -32,10 +31,10 @@ const Dragger = ({ fileList, setFileList }) => {
                     {fileList.length < 1 && (
                         <div>
                             <PhotoIcon />
-                            <Button className="dragger__button">
+                            <button className="dragger__button">
                                 <UploadIcon />
                                 <p> Tải ảnh món ăn</p>
-                            </Button>
+                            </button>
                         </div>
                     )}
                 </Upload>

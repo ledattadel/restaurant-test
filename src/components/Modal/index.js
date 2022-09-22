@@ -6,6 +6,7 @@ import { Form } from 'antd';
 import * as DishAction from '@/redux/actions/dishAction';
 import FormAddArea from '@/components/Form/FormAddArea';
 import FormAddDish from '@/components/Form/FormAddDish';
+import FormAddCategory from '@/components/Form/FormAddCategory';
 import * as ReactRedux from 'react-redux';
 
 const DefaultModal = ({ visible, setVisible }) => {
@@ -37,7 +38,9 @@ const DefaultModal = ({ visible, setVisible }) => {
             case '/dish':
                 return window.innerWidth / 1.7;
             case '/area':
-                return window.innerWidth;
+                return window.innerWidth / 2.5;
+            case '/category':
+                return window.innerWidth / 2;
             default:
                 return '300px';
         }
@@ -48,7 +51,9 @@ const DefaultModal = ({ visible, setVisible }) => {
             case '/dish':
                 return <FormAddDish form={form} onFinish={handleSubmitDish} ref={addDishRef} />;
             case '/area':
-                return <FormAddArea form={form} />;
+                return <FormAddArea />;
+            case '/category':
+                return <FormAddCategory />;
             default:
                 return <></>;
         }

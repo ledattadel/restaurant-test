@@ -2,6 +2,11 @@
 @import 'variables';
 @import 'mixin';
 @import 'reset';
+@import 'antd';
+
+// Pages
+@import './pages/dish';
+@import './pages/category';
 
 // Component
 @import './components/header';
@@ -16,11 +21,13 @@
 // Form
 @import './components/form/add-dish';
 @import './components/form/add-area';
+@import './components/form/add-category';
 
 // Card
 @import './components/card/product';
 @import './components/card/area';
 @import './components/card/table';
+@import './components/card/category';
 
 // Button
 @import './components/button/sort';

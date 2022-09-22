@@ -25,14 +25,18 @@ export { default as DefaultHeader } from '@/components/Layout/DefaultLayout/Head
 export { default as EditToolbar } from '@/components/Form/EditToolBar';
 export { default as FormAddArea } from '@/components/Form/FormAddArea';
 export { default as FormAddDish } from '@/components/Form/FormAddDish';
-export { default as FormAddMenu } from '@/components/Form/FormAddMenu';
+export { default as FormAddCategory } from '@/components/Form/FormAddCategory';
 export { default as FormAddOffer } from '@/components/Form/FormAddOffer';
 export { default as FormEditDish } from '@/components/Form/FormEditDish';
 export { default as FormMenu } from '@/components/Form/FormMenu';
 export { default as FormShowOrder } from '@/components/Form/FormShowOrder';
 
+// Table
+export { default as DataTable } from '@/components/Table/DataTable';
+
 // Card
 export { default as AreaCard } from '@/components/Card/Area';
+export { default as CategoryCard } from '@/components/Card/Category';
 export { default as ProductCard } from '@/components/Card/Product';
 export { default as TableCard } from '@/components/Card/Table';
 

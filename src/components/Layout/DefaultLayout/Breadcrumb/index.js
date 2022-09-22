@@ -121,6 +121,12 @@ const Breadcrumber = ({ title, setRouteBreadcumRender }) => {
                     titleFilter={'Lọc theo'}
                 />
             )}
+
+            {route.path === '/category' && (
+                <RenderBtnBreadcrumb titleCreate={'Thêm danh mục'} onClick={() => setTrigger(true)} />
+            )}
+
+
             {route.path === '/customer' && (
                 <RenderBtnBreadcrumb titleCreate={'Tạo Khách hàng'} onClick={() => setTrigger(true)} />
             )}

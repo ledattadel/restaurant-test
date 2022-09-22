@@ -22,12 +22,14 @@ function getItem(label, key, icon, children, type) {
 const items = [
     getItem('Trang chủ', '/', <MenuIcon.HomeIcon color={'white'} />),
     getItem('Quản lý menu', '', <MenuIcon.MenuIcon />, [
-        getItem('Quản lý danh mục', '', <MenuIcon.DishIcon />),
+        getItem('Quản lý danh mục', '/category', <MenuIcon.DishIcon />),
         getItem('Quản lý món ăn', '/dish', <MenuIcon.CategoryIcon />),
     ]),
     getItem('Quản lý bàn ăn', '/area', <MenuIcon.TableIcon />),
     getItem('Khuyến mãi', '/discount', <MenuIcon.DiscountIcon />),
     getItem('Quản lý nhân viên', '/account', <MenuIcon.AccountIcon />),
+    getItem('Quản lý khách hàng', '/customer', <MenuIcon.AccountIcon />),
+
 ];
 
 const Sidebar = ({ collapsed, setBreadcum, renderBreadcum }) => {
