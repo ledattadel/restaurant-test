@@ -1,12 +1,19 @@
 import React from 'react';
 import { Button, Card, Col, Row, Tag } from 'antd';
+import * as fetchData from '@/utils/fetchData';
 
-const ProductCard = ({ product }) => {
+const ProductCard = ({ product, img }) => {
     return (
         <Card
             hoverable
             className="product-card"
-            cover={<img className="product-card__img" alt="example" src={product.image} />}
+            cover={
+                <img
+                    className="product-card__img"
+                    alt="example"
+                    src={`https://api-fnb.pvssolution.com/fnb-api/api/media/dishes/${img}`}
+                />
+            }
         >
             <div className="product-card__info">
                 <Row justify="space-between" className="product-card__info__row">
@@ -22,12 +29,14 @@ const ProductCard = ({ product }) => {
                 </Row>
                 <Row justify="space-between">
                     <Col className="product-card__info__col">
-                        <span className="product-card__info__sale-number">Đã bán: {product.saleNumber}</span>
-                        <Tag className="product-card__info__status">{product.status}</Tag>
+                        <span className="product-card__info__sale-number">
+                            Đã bán: {product.saleNumber ? product.saleNumber : ''}
+                        </span>
+                        <Tag className="product-card__info__status">{product.status ? product.status : ''}</Tag>
                     </Col>
                     <Col className="product-card__info__col">
                         <span className="product-card__info__price">
-                            {product.price.length > 6 ? (
+                            {product.price && product.price.length > 6 ? (
                                 <p>
                                     {product.price.substring(0, 5).toLocaleString('vi-VN', {
                                         style: 'currency',
@@ -44,10 +53,11 @@ const ProductCard = ({ product }) => {
                             )}
                         </span>
                         <span className="product-card__info__discount">
-                            {product.discount.toLocaleString('vi-VN', {
-                                style: 'currency',
-                                currency: 'VND',
-                            })}
+                            {product.discount &&
+                                product.discount.toLocaleString('vi-VN', {
+                                    style: 'currency',
+                                    currency: 'VND',
+                                })}
                         </span>
                     </Col>
                 </Row>

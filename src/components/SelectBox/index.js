@@ -2,7 +2,7 @@ import React from 'react';
 import { Avatar } from 'antd';
 import { IoIosArrowDown, IoIosArrowUp } from 'react-icons/io';
 
-const SelectBox = () => {
+const SelectBox = ({ setMenuId }) => {
     const [select, setSelect] = React.useState('Chọn tên danh mục');
     const [toggle, setToggle] = React.useState(false);
     const [choose, setChoose] = React.useState(false);
@@ -10,19 +10,19 @@ const SelectBox = () => {
     const array = [
         {
             src: 'https://joeschmoe.io/api/v1/random',
-            name: 'LVIPHU',
+            name: 0,
         },
         {
             src: 'https://joeschmoe.io/api/v1/random',
-            name: 'LVPHU',
+            name: 1,
         },
         {
             src: 'https://joeschmoe.io/api/v1/random',
-            name: 'LVP',
+            name: 2,
         },
         {
             src: 'https://joeschmoe.io/api/v1/random',
-            name: 'LUONGVIPHU',
+            name: 3,
         },
     ];
 
@@ -42,6 +42,7 @@ const SelectBox = () => {
                             className="options"
                             onClick={() => {
                                 setSelect(item.name);
+                                setMenuId(item.name);
                                 setChoose(true);
                                 setToggle(false);
                             }}

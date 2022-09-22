@@ -5,9 +5,7 @@ import UploadIcon from '@/assets/upload-icon';
 import { Upload, Button } from 'antd';
 import './Dragger.model.scss';
 
-const Dragger = () => {
-    const [fileList, setFileList] = React.useState([]);
-
+const Dragger = ({ fileList, setFileList }) => {
     const onChange = ({ fileList: newFileList }) => {
         setFileList(newFileList);
     };

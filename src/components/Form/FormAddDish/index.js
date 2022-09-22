@@ -1,39 +1,71 @@
-import React from 'react';
-import { Col, Form, Row, Typography } from 'antd';
+import * as React from 'react';
+import { Col, Form, Row, Typography, Button, Radio } from 'antd';
 import Dragger from '@/components/Dragger';
-import Radio from '@/components/Button/Radio';
+import RadioComponent from '@/components/Button/Radio';
 import SelectBox from '@/components/SelectBox';
+import * as DishAction from '@/redux/actions/dishAction';
+import * as ReactRedux from 'react-redux';
 // import checkValidate from '@/utils/checkValidate';
 
 const { Title } = Typography;
 
-const FormAddDish = () => {
+const FormAddDish = React.forwardRef(({ form, onFinish }, ref) => {
     // const [validateName, setValidateName] = React.useState(false);
     // const [name, setName] = React.useState('');
+    const [fileList, setFileList] = React.useState([]);
+    const [menuId, setMenuId] = React.useState('');
+    const [dish, setDish] = React.useState('');
+    const [value, setValue] = React.useState('');
+    const [status, setStatus] = React.useState('');
+    const dispatch = ReactRedux.useDispatch();
+    React.useImperativeHandle(ref, () => ({
+        addDish,
+    }));
+
+    const addDish = async (values) => {
+        console.log('value modal tranfer to addDish:', values);
+        values.image = fileList[0].originFileObj;
+        values.companyId = 0;
+        values.adminId = 1;
+        values.menuId = menuId;
+
+        const api = await dispatch(DishAction.submitDish(values));
+
+        console.log(api);
+    };
+
+    React.useEffect(() => {
+        getStatuses();
+    }, [status]);
+
+    const getStatuses = async () => {
+        await DishAction.getStatuses().then((v) => {
+            setStatus(v);
+        });
+    };
 
     return (
         <div className="add-dish">
             <Title level={3} className="add-dish__title">
                 Thêm món ăn
             </Title>
-            <Form className="add-dish__form" layout="vertical">
+            <Form form={form} onFinish={onFinish} className="add-dish__form" layout="vertical">
                 <Row gutter={[24, 0]}>
                     <Col xs={24} lg={13}>
                         <Row gutter={[18, 0]}>
                             <Col span={12}>
                                 <div className="add-dish__form-left">
-                                    <Form.Item label="Tên món ăn">
+                                    <Form.Item label="Tên món ăn" name="name">
                                         <input
                                             type="text"
                                             className="add-dish__form__input add-dish__form__input-name"
                                             placeholder="Nhập tên của món"
                                         />
-                                        <span></span>
                                     </Form.Item>
-                                    <Form.Item label="Danh mục">
-                                        <SelectBox />
+                                    <Form.Item label="Danh mục" name="menuId">
+                                        <SelectBox setMenuId={setMenuId} />
                                     </Form.Item>
-                                    <Form.Item label="Giá">
+                                    <Form.Item label="Giá" name="price">
                                         <input
                                             type="number"
                                             min={1}
@@ -45,18 +77,25 @@ const FormAddDish = () => {
                             </Col>
                             <Col span={12}>
                                 <div className="add-dish__form-right">
-                                    <Form.Item label="Trạng thái" style={{ marginBottom: '20px' }}>
-                                        <Radio status={'Còn món'} checked={true} />
-                                        <Radio status={'Hết món'} />
+                                    <Form.Item label="Trạng thái" style={{ marginBottom: '20px' }} name="statusCode">
+                                        {/* <Radio status={'Còn món'} checked={true} />
+                                        <Radio status={'Hết món'} /> */}
+                                        <Radio.Group>
+                                            {status
+                                                ? status.map((v) => {
+                                                      return <Radio value={v.code}>{v.name}</Radio>;
+                                                  })
+                                                : ''}
+                                        </Radio.Group>
                                     </Form.Item>
-                                    <Form.Item label="Định lượng">
+                                    <Form.Item label="Định lượng" name="estimate">
                                         <input
                                             type="text"
                                             className="add-dish__form__input add-dish__form__input-quantitative"
                                             placeholder="Nhập định lượng của món"
                                         />
                                     </Form.Item>
-                                    <Form.Item label="Giảm giá">
+                                    <Form.Item label="Giảm giá" name="priceDiscount">
                                         <input
                                             type="number"
                                             min={1}
@@ -67,7 +106,7 @@ const FormAddDish = () => {
                                 </div>
                             </Col>
                             <Col span={24}>
-                                <Form.Item label="Mô tả">
+                                <Form.Item label="Mô tả" name="description">
                                     <textarea
                                         className="add-dish__form-area"
                                         placeholder="Nhập thông tin mô tả món ăn"
@@ -78,12 +117,12 @@ const FormAddDish = () => {
                         </Row>
                     </Col>
                     <Col xs={24} lg={11}>
-                        <Dragger />
+                        <Dragger fileList={fileList} setFileList={setFileList} />
                     </Col>
                 </Row>
             </Form>
         </div>
     );
-};
+});
 
 export default FormAddDish;
