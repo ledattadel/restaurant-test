@@ -33,10 +33,10 @@ const Dragger = () => {
                     {fileList.length < 1 && (
                         <div>
                             <PhotoIcon />
-                            <Button className="dragger__button">
+                            <button className="dragger__button">
                                 <UploadIcon />
                                 <p> Tải ảnh món ăn</p>
-                            </Button>
+                            </button>
                         </div>
                     )}
                 </Upload>

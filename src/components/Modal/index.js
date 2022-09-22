@@ -2,9 +2,7 @@ import * as React from 'react';
 import { Button, Modal } from 'antd';
 import { useLocation } from 'react-router-dom';
 import constants from '@/constants';
-
-import FormAddArea from '@/components/Form/FormAddArea';
-import FormAddDish from '@/components/Form/FormAddDish';
+import { FormAddArea, FormAddCategory, FormAddDish } from '@/components';
 
 const DefaultModal = ({ trigger, handleTrigger }) => {
     const location = useLocation();
@@ -16,6 +14,8 @@ const DefaultModal = ({ trigger, handleTrigger }) => {
                 return window.innerWidth / 1.7;
             case '/area':
                 return window.innerWidth / 2.5;
+            case '/category':
+                return window.innerWidth / 2;
             default:
                 return '300px';
         }
@@ -27,6 +27,8 @@ const DefaultModal = ({ trigger, handleTrigger }) => {
                 return <FormAddDish />;
             case '/area':
                 return <FormAddArea />;
+            case '/category':
+                return <FormAddCategory />;
             default:
                 return <></>;
         }
@@ -38,7 +40,6 @@ const DefaultModal = ({ trigger, handleTrigger }) => {
             closable={false}
             visible={trigger}
             className="modal"
-            // width={`${switchWidthForm(labelForm.key)}`}
             width={switchWidthForm(labelForm.key)}
             footer={[
                 <Button type="primary" className="modal__btn modal__btn-cancel" onClick={handleTrigger}>

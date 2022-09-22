@@ -1,7 +1,7 @@
 import { Col, Row, Table } from 'antd';
 import React, { useState } from 'react';
+import { Search } from '@/components';
 import './index.scss';
-import Search from '@/components/Layout/DefaultLayout/Header/Search';
 
 const DataTable = ({ columns, data }) => {
     const [selectedRowKeys, setSelectedRowKeys] = useState([]);

@@ -1,9 +1,6 @@
 import React from 'react';
 import { Col, Form, Row, Typography } from 'antd';
-import Dragger from '@/components/Dragger';
-import Radio from '@/components/Button/Radio';
-import SelectBox from '@/components/SelectBox';
-// import checkValidate from '@/utils/checkValidate';
+import { Dragger, SelectBox, Radio } from '@/components';
 
 const { Title } = Typography;
 
