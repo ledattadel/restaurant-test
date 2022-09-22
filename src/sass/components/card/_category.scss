@@ -1,0 +1,98 @@
+.category-card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    min-height: 260px;
+    background: #FFFFFF;
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.25);
+    border-radius: $br-card;
+
+    &__cover {
+        border-radius: 12px 12px 50% 50%;
+        width: fit-content;
+        height: 150px;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        // &__img {}
+    }
+
+    &__info {
+        width: 100%;
+        height: 100%;
+        padding: 14px 10px;
+
+        &__name {
+            width: 100%;
+            height: 100%;
+            font-family: 'Nunito';
+            font-style: normal;
+            font-weight: 600;
+            font-size: 18px;
+            line-height: 25px;
+            color: $txt-main-color;
+        }
+
+        &__ID {
+            width: 100%;
+            height: 100%;
+            /* nunito/semibold 14 */
+            font-family: 'Nunito';
+            font-style: normal;
+            font-weight: 600;
+            font-size: 14px;
+            line-height: 127%;
+
+            /* identical to box height, or 18px */
+            text-align: center;
+            letter-spacing: 0.001em;
+        }
+
+        &__btn {
+            box-sizing: border-box;
+            width: 32px;
+            height: 32px;
+            padding: 7px 8px;
+            border: 1px solid $main-color;
+            border-radius: $br-menu;
+            background-color: $main-color;
+            box-shadow: none;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            p {
+                /* nunito/semibold 14 */
+                font-family: 'Nunito';
+                font-style: normal;
+                font-weight: 600;
+                font-size: 14px;
+                line-height: 127%;
+
+                /* identical to box height, or 18px */
+                letter-spacing: 0.001em;
+            }
+
+        }
+
+        &__btn:hover {
+            border-color: $main-color;
+            color: $main-color;
+            background-color: $white;
+        }
+    }
+}
+
+.category-card:hover {
+    border-color: transparent;
+    box-shadow: 0 1px 2px -2px rgb(0 0 0 / 16%), 0 3px 6px 0 rgb(0 0 0 / 12%), 0 5px 12px 4px rgb(0 0 0 / 9%);
+    cursor: pointer;
+}
+
+.image {
+    border-radius: calc(100%/(100%/2));
+
+}

@@ -3,7 +3,6 @@ import ImgCrop from 'antd-img-crop';
 import PhotoIcon from '@/assets/photo-icon';
 import UploadIcon from '@/assets/upload-icon';
 import { Upload, Button } from 'antd';
-import './Dragger.model.scss';
 
 const Dragger = () => {
     const [fileList, setFileList] = React.useState([]);

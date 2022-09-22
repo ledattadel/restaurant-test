@@ -1,10 +1,9 @@
 import React from 'react';
 import { Col, Row } from 'antd';
-import ProductCard from '@/components/Card/Product';
-import './index.scss';
+import { ProductCard } from '@/components';
 const data = {
-    image: 'https://image.shutterstock.com/image-vector/compact-size-icon-vector-illustration-260nw-489811306.jpg',
-    name: 'Gà nướng mật ong Gà nướng mật ong Gà nướng mật ong Gà nướng mật ong Gà nướng mật ong Gà nướng mật ong',
+    image: 'https://images.unsplash.com/photo-1571805341302-f857308690e3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=464&q=80',
+    name: 'Gà nướng mật ong',
     price: 6900000,
     discount: 120000,
     saleNumber: 24,
@@ -24,9 +23,7 @@ const Dish = () => {
     }
     return (
         <div className="dish">
-            <Row justify="space-around" align="middle" gutter={[window.innerWidth / 60, window.innerWidth / 60]}>
-                {products}
-            </Row>
+            <Row gutter={[window.innerWidth / 60, window.innerWidth / 60]}>{products}</Row>
         </div>
     );
 };

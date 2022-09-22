@@ -1,16 +1,13 @@
-// import DishManagement from '@/pages/DishManagement';
 
-import { Home, Login, Dish, Blank, Table } from '@/pages/index';
-import CustomerManagement from '@/pages/Customer';
+import { Area, Blank, Category, Dish, Home, Login, Table } from '@/pages/index';
 
-//P menus
-import Area from '@/pages/Area';
 
 // Public routes
 const privateRoutes = [
     { path: '/', component: Home },
     { path: '/dashboard', component: Blank },
     { path: '/menu', component: Blank },
+    { path: '/category', component: Category },
     { path: '/dish', component: Dish },
     { path: '/order', component: Area },
     { path: '/area', component: Area },
