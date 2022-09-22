@@ -1,12 +1,8 @@
 import * as React from 'react';
-import * as ReactRedux from 'react-redux';
-import { Link, useLocation } from 'react-router-dom';
-
-//import assets
+import { ContentFnB } from '@/components/Layout/Content';
+import { DataTable } from '@/components';
 import './index.scss';
-import { Col, Row } from 'antd';
-import { Content, ContentFnB } from '@/components/Layout/Content';
-import DataTable from '@/components/Table/DataTable';
+
 const columns = [
     {
         title: 'Stt',
@@ -27,7 +23,7 @@ const columns = [
     {
         title: 'Thao tác',
         dataIndex: 'action',
-    }
+    },
 ];
 const data = [];
 
@@ -39,11 +35,13 @@ for (let i = 0; i < 46; i++) {
         birthday: `14/09/202${i}`,
     });
 }
-const CustomerManagement = () => {
-    return <ContentFnB className={"customer-management"}>
 
-        <DataTable columns={columns} data={data}/>
-    </ContentFnB>;
+const Customer = () => {
+    return (
+        <ContentFnB className={'customer-management'}>
+            <DataTable columns={columns} data={data} />
+        </ContentFnB>
+    );
 };
 
-export default CustomerManagement;
+export default Customer;

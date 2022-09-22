@@ -6,4 +6,5 @@ export { default as Home } from '@/pages/Home';
 export { default as Login } from '@/pages/Auth/Login';
 export { default as Menu } from '@/pages/Menu';
 export { default as Table } from '@/pages/Table';
-export { default as Order } from '@/pages/Order/index';
+export { default as Order } from '@/pages/Order';
+export { default as Customer } from '@/pages/Customer';
