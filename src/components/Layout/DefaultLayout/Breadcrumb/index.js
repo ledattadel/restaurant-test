@@ -94,7 +94,7 @@ const Breadcrumber = ({ title, setRouteBreadcumRender }) => {
     const [{ route }] = matchRoutes(constants.breadcrumb, location);
     useEffect(() => {
         setFindTitle(constants.breadcrumb.find((v) => v.path === route.path).label);
-    }, [navigate]);
+    }, [findTitle]);
 
     const routeToHome = () => {
         navigate('/');
@@ -121,9 +121,12 @@ const Breadcrumber = ({ title, setRouteBreadcumRender }) => {
                     titleFilter={'Lọc theo'}
                 />
             )}
+
             {route.path === '/category' && (
                 <RenderBtnBreadcrumb titleCreate={'Thêm danh mục'} onClick={() => setTrigger(true)} />
             )}
+
+
             {route.path === '/customer' && (
                 <RenderBtnBreadcrumb titleCreate={'Tạo Khách hàng'} onClick={() => setTrigger(true)} />
             )}
