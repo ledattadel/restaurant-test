@@ -33,6 +33,7 @@ export { default as FormShowOrder } from '@/components/Form/FormShowOrder';
 
 // Card
 export { default as AreaCard } from '@/components/Card/Area';
+export { default as CategoryCard } from '@/components/Card/Category';
 export { default as ProductCard } from '@/components/Card/Product';
 export { default as TableCard } from '@/components/Card/Table';
 

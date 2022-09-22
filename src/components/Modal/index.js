@@ -15,7 +15,7 @@ const DefaultModal = ({ trigger, handleTrigger }) => {
             case '/dish':
                 return window.innerWidth / 1.7;
             case '/area':
-                return window.innerWidth;
+                return window.innerWidth / 2.5;
             default:
                 return '300px';
         }

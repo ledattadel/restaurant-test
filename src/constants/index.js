@@ -1,44 +1,44 @@
-import * as MenuIcon from '@/assets/menu-icon/';
-import * as React from 'react';
+// import * as MenuIcon from '@/assets/menu-icon/';
+// import * as React from 'react';
 
 const constants = {
-    sidebar: [
-        {
-            key: '/',
-            icon: <MenuIcon.HomeIcon color={'white'} />,
-            label: 'Trang chủ',
-        },
-        {
-            key: '/dish',
-            icon: <MenuIcon.DishIcon />,
-            label: 'Quản lý menu',
-        },
-        {
-            key: '/order',
-            icon: <MenuIcon.DishIcon />,
-            label: 'Quản lý danh mục',
-        },
-        {
-            key: '/area',
-            icon: <MenuIcon.TableIcon />,
-            label: 'Quản lý bàn ăn',
-        },
-        {
-            key: '/discount',
-            icon: <MenuIcon.DiscountIcon />,
-            label: 'Khuyến mãi',
-        },
-        {
-            key: '/account',
-            icon: <MenuIcon.AccountIcon />,
-            label: 'Quản lý nhân viên',
-        },
-        {
-            key: '/customer',
-            icon: <MenuIcon.AccountIcon />,
-            label: 'Quản lý Khách hàng',
-        },
-    ],
+    // sidebar: [
+    //     {
+    //         key: '/',
+    //         icon: <MenuIcon.HomeIcon color={'white'} />,
+    //         label: 'Trang chủ',
+    //     },
+    //     {
+    //         key: '/dish',
+    //         icon: <MenuIcon.DishIcon />,
+    //         label: 'Quản lý menu',
+    //     },
+    //     {
+    //         key: '/order',
+    //         icon: <MenuIcon.DishIcon />,
+    //         label: 'Quản lý danh mục',
+    //     },
+    //     {
+    //         key: '/area',
+    //         icon: <MenuIcon.TableIcon />,
+    //         label: 'Quản lý bàn ăn',
+    //     },
+    //     {
+    //         key: '/discount',
+    //         icon: <MenuIcon.DiscountIcon />,
+    //         label: 'Khuyến mãi',
+    //     },
+    //     {
+    //         key: '/account',
+    //         icon: <MenuIcon.AccountIcon />,
+    //         label: 'Quản lý nhân viên',
+    //     },
+    //     {
+    //         key: '/customer',
+    //         icon: <MenuIcon.AccountIcon />,
+    //         label: 'Quản lý Khách hàng',
+    //     },
+    // ],
 
     breadcrumb: [
         {
@@ -47,7 +47,7 @@ const constants = {
             buttonLabel: '',
         },
         {
-            key: '/catalogy',
+            key: '/category',
             label: 'Quản lý danh mục',
             buttonLabel: 'Thêm danh mục',
         },
