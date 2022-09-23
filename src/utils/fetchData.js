@@ -8,18 +8,35 @@ const getToken = () => {
     return '' || localStorage.getItem('token');
 };
 
+export const getImage = async (path, img) => {
+    let api = `https://api-fnb.pvssolution.com/fnb-api/api/media/${path}/${img}`;
+    return api;
+};
+
 export const getWithParams = async ({ path = '', params = {} }) => {
     const options = {
         params,
         baseURL: httpRequest.baseUrl,
-        withCredentials: false,
-        headers: { Authorization: 'Bearer ' + getToken() },
+        withCredentials: true,
+        mode: 'cors',
+        headers: { 'Access-Control-Allow-Origin': '*' },
     };
     let response = await httpRequest.get(`/api/${path}`, options);
     return response;
 };
 
-export const deleteWithParams = async ({ path = '', params = {} }) => {
+export const getNoneParams = async ({ path = '' }) => {
+    const options = {
+        baseURL: httpRequest.baseUrl,
+        withCredentials: true,
+        mode: 'cors',
+        headers: { 'Access-Control-Allow-Origin': '*' },
+    };
+    let response = await httpRequest.get(`/api/${path}`, options);
+    return response;
+};
+
+export const deleteWithParamsId = async ({ path = '', params = {} }, id) => {
     const options = {
         params,
         method: 'DELETE',
@@ -27,7 +44,7 @@ export const deleteWithParams = async ({ path = '', params = {} }) => {
         withCredentials: false,
         headers: { Authorization: 'Bearer ' + getToken() },
     };
-    let response = await httpRequest.delete(`/api/${path}`, options);
+    let response = await httpRequest.delete(`/api/${path}/${id}?`, options);
     return response;
 };
 
@@ -46,6 +63,15 @@ export const postDataAPI = async (url, post) => {
     console.log('params', post);
     const res = await httpRequest.post(`/api/${url}`, post, {
         headers: { Authorization: 'Bearer ' + getToken() },
+    });
+    console.log('res', res);
+    return res;
+};
+export const postDataAPIWithFile = async (url, post) => {
+    console.log('path', url);
+    console.log('params', post);
+    const res = await httpRequest.post(`/api/${url}`, post, {
+        headers: { 'Content-Type': 'multipart/form-data' },
     });
     console.log('res', res);
     return res;

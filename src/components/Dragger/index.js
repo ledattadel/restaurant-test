@@ -4,9 +4,7 @@ import PhotoIcon from '@/assets/photo-icon';
 import UploadIcon from '@/assets/upload-icon';
 import { Upload, Button } from 'antd';
 
-const Dragger = () => {
-    const [fileList, setFileList] = React.useState([]);
-
+const Dragger = ({ fileList, setFileList }) => {
     const onChange = ({ fileList: newFileList }) => {
         setFileList(newFileList);
     };
@@ -33,10 +31,10 @@ const Dragger = () => {
                     {fileList.length < 1 && (
                         <div>
                             <PhotoIcon />
-                            <button className="dragger__button">
+                            <div className="dragger__button">
                                 <UploadIcon />
                                 <p> Tải ảnh món ăn</p>
-                            </button>
+                            </div>
                         </div>
                     )}
                 </Upload>

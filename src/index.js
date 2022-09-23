@@ -5,6 +5,7 @@ import App from '@/App.js';
 import reportWebVitals from './reportWebVitals';
 import GlobalStyles from '@/components/GlobalStyles/index.js';
 import DataProvider from '@/redux/store.js';
+import { Alert } from './components';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

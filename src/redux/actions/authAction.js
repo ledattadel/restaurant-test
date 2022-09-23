@@ -3,11 +3,15 @@ import { postDataAPI } from '@/utils/fetchData';
 
 export const login = (data) => async (dispatch) => {
     try {
-        // const res = await postDataAPI('login', data);
+        //  const res = await postDataAPI('login', data);
         // console.log(res);
+        const data = {
+            adminId: 0,
+            companyId: 0,
+        };
         localStorage.setItem('firstLogin', true);
         localStorage.setItem('token', '123');
-        localStorage.setItem('user', data);
+        localStorage.setItem('user', JSON.stringify(data));
         localStorage.setItem('table', []);
 
         dispatch({
@@ -18,12 +22,12 @@ export const login = (data) => async (dispatch) => {
             },
         });
 
-        dispatch({
-            type: GLOBALTYPES.ALERT,
-            payload: {
-                success: 'Đăng nhập thành công',
-            },
-        });
+        // dispatch({
+        //     type: GLOBALTYPES.ALERT,
+        //     payload: {
+        //         success: 'Đăng nhập thành công',
+        //     },
+        // });
     } catch (err) {
         console.log('err', err);
         dispatch({
