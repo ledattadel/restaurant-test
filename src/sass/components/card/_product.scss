@@ -9,6 +9,9 @@
     border-radius: $br-card;
 
     &__img {
+        max-height: 200px;
+        min-width: 100%;
+        min-height: 100%;
         border-radius: $br-img  !important;
     }
 

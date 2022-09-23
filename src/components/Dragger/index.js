@@ -26,7 +26,7 @@ const Dragger = ({ fileList, setFileList }) => {
 
     return (
         <div className="dragger">
-            <ImgCrop rotate>
+            <ImgCrop rotate grid={true}>
                 <Upload listType="picture-card" fileList={fileList} onChange={onChange} onPreview={onPreview}>
                     {fileList.length < 1 && (
                         <div>

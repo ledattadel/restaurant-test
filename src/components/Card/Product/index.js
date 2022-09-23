@@ -13,6 +13,7 @@ const ProductCard = ({ DeleteDish, product, img }) => {
         DeleteDish(product.id);
         message.info('Xóa thành công');
     };
+    console.log(product);
     return (
         <Card
             hoverable
@@ -39,16 +40,17 @@ const ProductCard = ({ DeleteDish, product, img }) => {
                 </Row>
                 <Row justify="space-between">
                     <Col className="product-card__info__col">
-                        <span className="product-card__info__sale-number">Mã ID: {product.id ? product.id : ''}</span>
-                        <Tag className="product-card__info__status">Có hàng</Tag>
+                        <span className="product-card__info__sale-number">Mã ID: {product.id}</span>
+                        <Tag className="product-card__info__status">Có món</Tag>
                     </Col>
                     <Col className="product-card__info__col">
                         <span className="product-card__info__price">
                             <p>
-                                {parseInt(product.price).toLocaleString('vi-VN', {
-                                    style: 'currency',
-                                    currency: 'VND',
-                                })}
+                                {product.price &&
+                                    parseInt(product.price).toLocaleString('vi-VN', {
+                                        style: 'currency',
+                                        currency: 'VND',
+                                    })}
                             </p>
                         </span>
                         <span className="product-card__info__discount">
