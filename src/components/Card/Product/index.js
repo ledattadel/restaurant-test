@@ -1,8 +1,18 @@
 import React from 'react';
 import { Button, Card, Col, Row, Tag } from 'antd';
+import { message, Popconfirm } from 'antd';
 import * as fetchData from '@/utils/fetchData';
+import * as ReactRedux from 'react-redux';
+import * as DishAction from '@/redux/actions/dishAction';
 
-const ProductCard = ({ product, img }) => {
+const text = 'Bạn muốn xóa món này?';
+const ProductCard = ({ DeleteDish, product, img }) => {
+    const dispatch = ReactRedux.useDispatch();
+
+    const confirm = () => {
+        DeleteDish(product.id);
+        message.info('Xóa thành công');
+    };
     return (
         <Card
             hoverable
@@ -74,7 +84,10 @@ const ProductCard = ({ product, img }) => {
                 </Row>
                 <Row justify="space-between">
                     <Col className="space-btn">
-                        <Button className="product-card__info__btn product-card__info__btn-del">Xóa món</Button>
+                        {/* <Button className="product-card__info__btn product-card__info__btn-del">Xóa món</Button> */}
+                        <Popconfirm placement="topLeft" title={text} onConfirm={confirm} okText="Yes" cancelText="No">
+                            <Button className="product-card__info__btn product-card__info__btn-del">Xóa món</Button>
+                        </Popconfirm>
                     </Col>
                     <Col className="space-btn">
                         <Button className="product-card__info__btn product-card__info__btn-edit">Chỉnh sửa</Button>

@@ -11,21 +11,23 @@ import * as ReactRedux from 'react-redux';
 
 const DefaultModal = ({ visible, setVisible }) => {
     const location = useLocation();
-    const addDishRef = React.useRef(null);
-    const addCateRef = React.useRef(null);
-    const dispatch = ReactRedux.useDispatch();
-    // dish
+
+    // const addDishRef = React.useRef(null);
+    // const addCateRef = React.useRef(null);
+    // const dispatch = ReactRedux.useDispatch();
+    // // dish
 
     const labelForm = constants.breadcrumb.find((v) => v.key === location.pathname);
     const [form] = Form.useForm();
 
-    const handleSubmitDish = async (values) => {
-        addDishRef.current.addDish(values);
+    const handleSubmitDish = (values) => {
+        console.log(values);
+        // addDishRef.current.addDish(values);
         form.resetFields();
         setVisible(false);
     };
-    const handleSubmitCategory = async (values) => {
-        addCateRef.current.addCate(values);
+    const handleSubmitCategory = (values) => {
+        // addCateRef.current.addCate(values);
         form.resetFields();
         setVisible(false);
     };
@@ -54,11 +56,13 @@ const DefaultModal = ({ visible, setVisible }) => {
     const switchForm = (route) => {
         switch (route) {
             case '/dish':
-                return <FormAddDish form={form} onFinish={handleSubmitDish} ref={addDishRef} />;
+                return <FormAddDish visible={visible} setVisible={setVisible} />;
+            //
             case '/area':
                 return <FormAddArea />;
             case '/category':
-                return <FormAddCategory form={form} onFinish={handleSubmitCategory} ref={addCateRef} />;
+                return <FormAddCategory visible={visible} setVisible={setVisible} />;
+
             default:
                 return <></>;
         }
@@ -71,17 +75,18 @@ const DefaultModal = ({ visible, setVisible }) => {
             visible={visible}
             className="modal"
             // width={`${switchWidthForm(labelForm.key)}`}
-            onCancel={handleCancel}
-            onOk={form.submit}
+            // onCancel={handleCancel}
+            // onOk={form.submit}
+            footer={null}
             width={switchWidthForm(labelForm.key)}
-            footer={[
-                <Button type="primary" className="modal__btn modal__btn-cancel" onClick={handleCancel}>
-                    Hủy
-                </Button>,
-                <Button type="primary" className="modal__btn modal__btn-save" onClick={handleOk}>
-                    Lưu
-                </Button>,
-            ]}
+            // footer={[
+            //     <Button type="primary" className="modal__btn modal__btn-cancel" onClick={handleCancel}>
+            //         Hủy
+            //     </Button>,
+            //     <Button type="primary" className="modal__btn modal__btn-save" onClick={handleOk}>
+            //         Lưu
+            //     </Button>,
+            // ]}
         >
             {labelForm.label.length > 0 ? switchForm(labelForm.key) : <></>}
         </Modal>

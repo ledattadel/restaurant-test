@@ -1,9 +1,9 @@
 import { GLOBALTYPES } from '@/redux/actions/globalTypes';
 const initialState = {};
 
-const dishReducer = (state = initialState, action) => {
+const categoryReducer = (state = initialState, action) => {
     switch (action.type) {
-        case GLOBALTYPES.LOADDISH:
+        case GLOBALTYPES.LOADCATE:
             return {
                 data: action.payload,
             };
@@ -12,4 +12,4 @@ const dishReducer = (state = initialState, action) => {
     }
 };
 
-export default dishReducer;
+export default categoryReducer;

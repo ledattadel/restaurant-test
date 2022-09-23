@@ -36,7 +36,7 @@ export const getNoneParams = async ({ path = '' }) => {
     return response;
 };
 
-export const deleteWithParams = async ({ path = '', params = {} }) => {
+export const deleteWithParamsId = async ({ path = '', params = {} }, id) => {
     const options = {
         params,
         method: 'DELETE',
@@ -44,7 +44,7 @@ export const deleteWithParams = async ({ path = '', params = {} }) => {
         withCredentials: false,
         headers: { Authorization: 'Bearer ' + getToken() },
     };
-    let response = await httpRequest.delete(`/api/${path}`, options);
+    let response = await httpRequest.delete(`/api/${path}/${id}?`, options);
     return response;
 };
 

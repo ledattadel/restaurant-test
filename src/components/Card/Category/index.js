@@ -2,13 +2,17 @@ import { Col, Row } from 'antd';
 import React from 'react';
 import EditCategoryIcon from '@/assets/edit-category-icon';
 
-const CategoryCard = ({ category }) => {
+const CategoryCard = ({ category, img }) => {
     const [hoverBtn, setHoverBtn] = React.useState(false);
 
     return (
         <div className="category-card">
             <div className="category-card__cover">
-                <img className="category-card__cover__img" alt="example" src={category.image} />
+                <img
+                    className="category-card__cover__img"
+                    alt="example"
+                    src={`https://api-fnb.pvssolution.com/fnb-api/api/media/menu/${img}`}
+                />
             </div>
             <div className="category-card__info">
                 <Row justify="end">

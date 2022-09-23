@@ -4,6 +4,7 @@ import alert from './alertReducer';
 import dish from './dishReducer';
 import order from './orderReducer';
 import routing from './routingReducer';
+import category from './categoryReducer';
 
 export default combineReducers({
     auth,
@@ -11,4 +12,5 @@ export default combineReducers({
     dish,
     order,
     routing,
+    category,
 });

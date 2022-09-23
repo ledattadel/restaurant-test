@@ -1,5 +1,5 @@
 import { GLOBALTYPES } from './globalTypes';
-import { getWithParams, deleteWithParams, putDataAPI } from '@/utils/fetchData';
+import { getWithParams, deleteWithParamsId, putDataAPI } from '@/utils/fetchData';
 
 export const fetchStoreMenu = async (forceFetch) => {
     try {
@@ -63,7 +63,7 @@ export const updateStoreMenu = (payload) => async (dispatch) => {
 
 export const deleteStoreMenu = (id) => async (dispatch) => {
     try {
-        const { data } = await deleteWithParams({ path: 'store/menu', params: { id } });
+        const { data } = await deleteWithParamsId({ path: 'store/menu', params: { id } });
         console.log('data delete:', data);
         dispatch({
             type: GLOBALTYPES.ALERT,

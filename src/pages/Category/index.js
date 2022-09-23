@@ -1,25 +1,61 @@
-import React from 'react';
+import * as React from 'react';
+import * as ReactRedux from 'react-redux';
+import * as DishAction from '@/redux/actions/dishAction';
 import { Col, Row } from 'antd';
 import { CategoryCard } from '@/components';
-
-const data = {
-    image: 'https://images.unsplash.com/photo-1602253057119-44d745d9b860?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=726&q=80',
-    name: 'Món nướng',
-    ID: 24,
-};
+import { postDataAPI, getDataAPI, getWithParams, deleteWithParams, putDataAPI, getImage } from '@/utils/fetchData';
+import { GLOBALTYPES } from '@/redux/actions/globalTypes';
 
 const Category = () => {
-    const categories = [];
-    for (let i = 0; i < 6; i++) {
-        categories.push(
-            <Col key={i} className="grid__col" xxl={{ span: 4 }} xl={{ span: 6 }} sm={{ span: 8 }} xs={{ span: 24 }}>
-                <CategoryCard category={data} />
-            </Col>,
-        );
-    }
+    const [listCate, setListCate] = React.useState(null);
+    const [isDelete, setIsDelete] = React.useState(false);
+    const { category } = ReactRedux.useSelector((state) => state);
+
+    const dispatch = ReactRedux.useDispatch();
+
+    const getAllCates = async () => {
+        let currentUser = JSON.parse(localStorage.getItem('user'));
+        let { data } = await getWithParams({
+            path: `dishes/menus`,
+            params: { companyId: currentUser.companyId },
+        });
+
+        dispatch({
+            type: GLOBALTYPES.LOADCATE,
+            payload: data,
+        });
+    };
+
+    React.useEffect(() => {
+        if (listCate === null || isDelete) {
+            getAllCates();
+            setIsDelete(false);
+        }
+    }, [isDelete]);
+    // const DeleteDish = (id) => {
+    //     dispatch(DishAction.deleteDish(id));
+    //     setIsDelete(true);
+    // };
+
     return (
         <div className="category">
-            <Row gutter={[window.innerWidth / 60, window.innerWidth / 60]}>{categories}</Row>
+            <Row gutter={[window.innerWidth / 60, window.innerWidth / 60]}>
+                {category.data &&
+                    category.data.map((v) => {
+                        return (
+                            <Col
+                                key={v.id}
+                                className="grid__col"
+                                xxl={{ span: 4 }}
+                                xl={{ span: 6 }}
+                                sm={{ span: 8 }}
+                                xs={{ span: 24 }}
+                            >
+                                <CategoryCard img={v.image} category={v} />
+                            </Col>
+                        );
+                    })}
+            </Row>
         </div>
     );
 };

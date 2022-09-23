@@ -1,47 +1,64 @@
 import * as React from 'react';
-import { Col, Form, Row, Typography, Button, Radio } from 'antd';
+import { Col, Form, Row, Typography, Button, Radio, Select, Spin } from 'antd';
 import Dragger from '@/components/Dragger';
 import RadioComponent from '@/components/Button/Radio';
 import SelectBox from '@/components/SelectBox';
 import * as DishAction from '@/redux/actions/dishAction';
 import * as ReactRedux from 'react-redux';
 // import checkValidate from '@/utils/checkValidate';
-
+const { Option } = Select;
 const { Title } = Typography;
 
-const FormAddDish = React.forwardRef(({ form, onFinish }, ref) => {
+const FormAddDish = React.forwardRef((props, ref) => {
     // const [validateName, setValidateName] = React.useState(false);
     // const [name, setName] = React.useState('');
+    const { visible, setVisible } = props;
     const [fileList, setFileList] = React.useState([]);
     const [menuId, setMenuId] = React.useState('');
+    const [menu, setMenu] = React.useState(null);
     const [dish, setDish] = React.useState('');
     const [value, setValue] = React.useState('');
-    const [status, setStatus] = React.useState('');
+    const [status, setStatus] = React.useState(null);
+    const [isLoading, setIsLoading] = React.useState(false);
     const dispatch = ReactRedux.useDispatch();
-    React.useImperativeHandle(ref, () => ({
-        addDish,
-    }));
+    // React.useImperativeHandle(ref, () => ({
+    //     addDish,
+    // }));
 
     const addDish = async (values) => {
-        console.log('value modal tranfer to addDish:', values);
         values.image = fileList[0].originFileObj;
         values.companyId = 0;
         values.adminId = 1;
-        values.menuId = menuId;
-
         const api = await dispatch(DishAction.submitDish(values));
 
         console.log(api);
     };
 
     React.useEffect(() => {
-        getStatuses();
+        if (status === null) {
+            const fetchData = async () => {
+                await DishAction.getStatuses().then((v) => {
+                    setStatus(v);
+                });
+                await DishAction.getMenu().then((v) => {
+                    setMenu(v);
+                });
+            };
+            setIsLoading(true);
+            fetchData();
+        }
     }, [status]);
 
-    const getStatuses = async () => {
-        await DishAction.getStatuses().then((v) => {
-            setStatus(v);
-        });
+    const onFinish = (values) => {
+        console.log('Success:', values);
+        const res = addDish(values);
+        console.log('res.status', res.status);
+        // if (res.status === 201) {
+        setVisible(false);
+        // }
+    };
+    const onFinishFailed = (errorInfo) => {
+        console.log('Failed:', errorInfo);
     };
 
     return (
@@ -49,13 +66,17 @@ const FormAddDish = React.forwardRef(({ form, onFinish }, ref) => {
             <Title level={3} className="add-dish__title">
                 Thêm món ăn
             </Title>
-            <Form form={form} onFinish={onFinish} className="add-dish__form" layout="vertical">
+            <Form onFinish={onFinish} onFinishFailed={onFinishFailed} className="add-dish__form" layout="vertical">
                 <Row gutter={[24, 0]}>
                     <Col xs={24} lg={13}>
                         <Row gutter={[18, 0]}>
                             <Col span={12}>
                                 <div className="add-dish__form-left">
-                                    <Form.Item label="Tên món ăn" name="name">
+                                    <Form.Item
+                                        label="Tên món ăn"
+                                        name="name"
+                                        rules={[{ required: true, message: 'Vui lòng nhập món ăn!' }]}
+                                    >
                                         <input
                                             type="text"
                                             className="add-dish__form__input add-dish__form__input-name"
@@ -63,9 +84,32 @@ const FormAddDish = React.forwardRef(({ form, onFinish }, ref) => {
                                         />
                                     </Form.Item>
                                     <Form.Item label="Danh mục" name="menuId">
-                                        <SelectBox setMenuId={setMenuId} />
+                                        <Select
+                                            showSearch
+                                            style={{
+                                                width: 200,
+                                            }}
+                                            placeholder="Chọn danh mục"
+                                            optionFilterProp="children"
+                                            filterOption={(input, option) => option.children.includes(input)}
+                                            filterSort={(optionA, optionB) =>
+                                                optionA.children
+                                                    .toLowerCase()
+                                                    .localeCompare(optionB.children.toLowerCase())
+                                            }
+                                        >
+                                            {menu
+                                                ? menu.map((v) => {
+                                                      return <Option value={v.id}>{v.name}</Option>;
+                                                  })
+                                                : ''}
+                                        </Select>
                                     </Form.Item>
-                                    <Form.Item label="Giá" name="price">
+                                    <Form.Item
+                                        label="Giá"
+                                        name="price"
+                                        rules={[{ required: true, message: 'Vui lòng nhập giá!' }]}
+                                    >
                                         <input
                                             type="number"
                                             min={1}
@@ -77,7 +121,12 @@ const FormAddDish = React.forwardRef(({ form, onFinish }, ref) => {
                             </Col>
                             <Col span={12}>
                                 <div className="add-dish__form-right">
-                                    <Form.Item label="Trạng thái" style={{ marginBottom: '20px' }} name="statusCode">
+                                    <Form.Item
+                                        label="Trạng thái"
+                                        style={{ marginBottom: '20px' }}
+                                        name="statusCode"
+                                        rules={[{ required: true, message: 'Vui lòng chọn trạng thái!' }]}
+                                    >
                                         {/* <Radio status={'Còn món'} checked={true} />
                                         <Radio status={'Hết món'} /> */}
                                         <Radio.Group>
@@ -88,7 +137,11 @@ const FormAddDish = React.forwardRef(({ form, onFinish }, ref) => {
                                                 : ''}
                                         </Radio.Group>
                                     </Form.Item>
-                                    <Form.Item label="Định lượng" name="estimate">
+                                    <Form.Item
+                                        label="Định lượng"
+                                        name="estimate"
+                                        rules={[{ required: true, message: 'Vui lòng nhập định lượng!' }]}
+                                    >
                                         <input
                                             type="text"
                                             className="add-dish__form__input add-dish__form__input-quantitative"
@@ -106,7 +159,11 @@ const FormAddDish = React.forwardRef(({ form, onFinish }, ref) => {
                                 </div>
                             </Col>
                             <Col span={24}>
-                                <Form.Item label="Mô tả" name="description">
+                                <Form.Item
+                                    label="Mô tả"
+                                    name="description"
+                                    rules={[{ required: true, message: 'Vui lòng nhập mô tả!' }]}
+                                >
                                     <textarea
                                         className="add-dish__form-area"
                                         placeholder="Nhập thông tin mô tả món ăn"
@@ -120,6 +177,15 @@ const FormAddDish = React.forwardRef(({ form, onFinish }, ref) => {
                         <Dragger fileList={fileList} setFileList={setFileList} />
                     </Col>
                 </Row>
+                <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
+                    <Button type="primary" onClick={() => setVisible(false)} className="modal__btn modal__btn-cancel">
+                        Hủy
+                    </Button>
+
+                    <Button type="primary" htmlType="submit" className="modal__btn modal__btn-save">
+                        Lưu
+                    </Button>
+                </div>
             </Form>
         </div>
     );
