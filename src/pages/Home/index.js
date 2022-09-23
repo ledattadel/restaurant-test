@@ -34,11 +34,11 @@ const columns = [
     {
         title: 'Tên món',
         dataIndex: 'name',
-        key: 'name',
+        // key: 'name',
         render: (text, record) => {
             return (
                 <div className="recent_dish-column">
-                    <img className="recent_dish-column--img" src={record.image} alt=''/>
+                    <img className="recent_dish-column--img" src={record.image} alt="" />
                     <span className="recent_dish-column--name">{record.name}</span>
                 </div>
             );
@@ -47,7 +47,7 @@ const columns = [
     {
         title: 'Mã ID',
         dataIndex: 'id',
-        key: 'id',
+        // key: 'id',
         render: (text, record) => {
             return (
                 <div className="recent_dish-cell">
@@ -59,7 +59,7 @@ const columns = [
     {
         title: 'Giá',
         dataIndex: 'price',
-        key: 'price',
+        // key: 'price',
         render: (text, record) => {
             return (
                 <div className="recent_dish-cell">
@@ -71,24 +71,28 @@ const columns = [
 ];
 const data = [
     {
+        key: 1489,
         id: '1489',
         name: 'Pizza',
         price: 32,
         image: `${picture.pizza}`,
     },
     {
+        key: 1490,
         id: '1490',
         name: 'My y',
         price: 32,
         image: `${picture.mi}`,
     },
     {
+        key: 1491,
         id: '1491',
         name: 'Dau Hu',
         price: 32,
         image: `${picture.dauhu}`,
     },
     {
+        key: 1492,
         id: '1493',
         name: 'Tom',
         price: 32,
@@ -107,7 +111,7 @@ const Home = () => {
                     <Row className="home_fav-percent">
                         {items.map((v) => {
                             return (
-                                <Col className="home_fav-percent--item" xs={24} lg={12} xl={6} xxl={4}>
+                                <Col key={v.name} className="home_fav-percent--item" xs={24} lg={12} xl={6} xxl={4}>
                                     <span className="home_fav-item--name">{v.name}</span>
                                     <div className="home_fav-item--circle">
                                         <CircularProgressbar
@@ -208,7 +212,7 @@ const Home = () => {
                     </div>
                     <Row className="most-ordered-list">
                         <Col className="most-ordered-item">
-                            <img src={picture.top} alt='Mỳ ý đặc biệt'/>
+                            <img src={picture.top} alt="Mỳ ý đặc biệt" />
                             <div className="most-ordered-item--info">
                                 <div className="most-ordered-item--info-1">
                                     <span className="info-name">Mỳ ý đặc biệt</span>
@@ -220,7 +224,7 @@ const Home = () => {
                             </div>
                         </Col>
                         <Col className="most-ordered-item">
-                            <img src={picture.top} alt='Mỳ ý đặc biệt'/>
+                            <img src={picture.top} alt="Mỳ ý đặc biệt" />
                             <div className="most-ordered-item--info">
                                 <div className="most-ordered-item--info-1">
                                     <span className="info-name">Mỳ ý đặc biệt</span>
@@ -232,7 +236,7 @@ const Home = () => {
                             </div>
                         </Col>
                         <Col className="most-ordered-item">
-                            <img src={picture.top} alt='Mỳ ý đặc biệt'/>
+                            <img src={picture.top} alt="Mỳ ý đặc biệt" />
                             <div className="most-ordered-item--info">
                                 <div className="most-ordered-item--info-1">
                                     <span className="info-name">Mỳ ý đặc biệt</span>
@@ -244,7 +248,7 @@ const Home = () => {
                             </div>
                         </Col>
                         <Col className="most-ordered-item">
-                            <img src={picture.top} alt='Mỳ ý đặc biệt'/>
+                            <img src={picture.top} alt="Mỳ ý đặc biệt" />
                             <div className="most-ordered-item--info">
                                 <div className="most-ordered-item--info-1">
                                     <span className="info-name">Mỳ ý đặc biệt</span>

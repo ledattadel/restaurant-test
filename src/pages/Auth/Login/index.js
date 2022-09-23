@@ -14,7 +14,7 @@ import './index.scss';
 
 let logoComponent = (
     <svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="60" cy="60" r="59.25" fill="#D9D9D9" stroke="#C5C5C5" stroke-width="1.5" />
+        <circle cx="60" cy="60" r="59.25" fill="#D9D9D9" stroke="#C5C5C5" strokeWidth="1.5" />
     </svg>
 );
 const Login = () => {

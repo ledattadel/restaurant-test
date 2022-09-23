@@ -93,7 +93,7 @@ const Breadcrumber = ({ title, setRouteBreadcumRender }) => {
     const [findTitle, setFindTitle] = React.useState('');
     const [{ route }] = matchRoutes(constants.breadcrumb, location);
     useEffect(() => {
-        setFindTitle(constants.breadcrumb.find((v) => v.path === route.path).label);
+        setFindTitle(constants?.breadcrumb?.find((v) => v.path === route.path).label);
     }, [findTitle]);
 
     const routeToHome = () => {

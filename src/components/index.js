@@ -33,6 +33,7 @@ export { default as FormShowOrder } from '@/components/Form/FormShowOrder';
 
 // Table
 export { default as DataTable } from '@/components/Table/DataTable';
+export { default as SizeChanger } from '@/components/Table/SizeChanger';
 
 // Card
 export { default as AreaCard } from '@/components/Card/Area';

@@ -6,7 +6,7 @@ import { FormAddArea, FormAddCategory, FormAddDish } from '@/components';
 
 const DefaultModal = ({ trigger, handleTrigger }) => {
     const location = useLocation();
-    const labelForm = constants.breadcrumb.find((v) => v.key === location.pathname);
+    const labelForm = constants?.breadcrumb?.find((v) => v.key === location.pathname);
 
     const switchWidthForm = (route) => {
         switch (route) {

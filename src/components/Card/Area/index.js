@@ -1,6 +1,5 @@
 import React from 'react';
-import DeleteIcon from '@/assets/table-icon/delete.icon';
-import EditIcon from '@/assets/table-icon/edit.icon';
+import * as TableIcon from '@/assets/table-icon';
 import { useNavigate } from 'react-router-dom';
 
 const AreaCard = ({ name, sum, status, id }) => {
@@ -16,8 +15,8 @@ const AreaCard = ({ name, sum, status, id }) => {
             <div className="table_area--head">
                 <span className="table_area--name">{name}</span>
                 <div className="table_area--head-handing">
-                    <EditIcon></EditIcon>
-                    <DeleteIcon></DeleteIcon>
+                    <TableIcon.EditIcon color={'#F78B2D'}/>
+                    <TableIcon.DeleteIcon/>
                 </div>
             </div>
 

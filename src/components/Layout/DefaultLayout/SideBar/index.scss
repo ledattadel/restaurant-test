@@ -1,21 +1,29 @@
 @import url(../../../../sass//_variables.scss);
 
 .siderbar {
-    background: url(https://images.unsplash.com/photo-1578474846511-04ba529f0b88?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1887&q=80)
-        rgba(0, 0, 0, 0.7) !important;
+    background: url(https://images.unsplash.com/photo-1578474846511-04ba529f0b88?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1887&q=80) rgba(0, 0, 0, 0.7) !important;
     background-size: cover !important;
 
     .siderbar_logo {
-        width: 100% !important;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
         text-align: center;
+        width: 100% !important;
         height: 76px;
+        background-image: url('https://pvssolution.com/wp-content/uploads/2020/04/logo-black-.png');
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
     }
+
     .siderbar_menu {
         border-right: none !important;
         width: 85% !important;
         margin: 0 auto;
         background: transparent;
         text-align: start;
+
         span {
             margin-left: 20px !important;
             font-family: 'Nunito';
@@ -30,11 +38,13 @@
             margin-bottom: 15px !important;
             border-radius: 6px;
             position: relative;
+
             svg {
                 position: absolute;
                 top: 7px;
                 left: 21px;
             }
+
             span {
                 position: absolute;
                 left: 45px;
@@ -48,6 +58,7 @@
     border-right: none;
     background-color: #f78b2d !important;
 }
+
 // .ant-menu-item:hover {
 //     border-right: none;
 //     background-color: #f78b2d !important;
@@ -56,7 +67,7 @@
     border-right: none !important;
 }
 
-#root > div > section > aside > div > ul > li.ant-menu-item {
+#root>div>section>aside>div>ul>li.ant-menu-item {
     margin: auto;
     padding-top: 5px;
     // width: 44px;
@@ -64,6 +75,7 @@
     line-height: 44px !important;
     position: relative;
 }
+
 // #root > div > section > aside > div > ul > li.ant-menu-submenu.ant-menu-submenu-inline.ant-menu-submenu-selected > div {
 //     margin-left: -12px;
 // }
@@ -77,23 +89,16 @@
 //     background: none !important;
 //     margin-top: -40px !important;
 // }
-#root
-    > div
-    > section
-    > aside
-    > div
-    > ul
-    > li.ant-menu-submenu.ant-menu-submenu-inline.ant-menu-submenu-active
-    > div
-    > i {
+#root>div>section>aside>div>ul>li.ant-menu-submenu.ant-menu-submenu-inline.ant-menu-submenu-active>div>i {
     color: white !important;
     margin-left: 20px !important;
 }
 
-.ant-menu-submenu-popup > .ant-menu {
+.ant-menu-submenu-popup>.ant-menu {
     background-color: #fff !important;
     margin-left: 20px !important;
     height: 100px !important;
+
     &:hover span {
         color: black !important;
     }
@@ -101,7 +106,8 @@
     svg {
         display: none !important;
     }
-    & > .ant-menu-item-selected {
+
+    &>.ant-menu-item-selected {
         color: white !important;
     }
 }
@@ -113,10 +119,10 @@
     z-index: 20 !important;
 }
 
-#rc-menu-uuid-51764-2--popup {
-}
+#rc-menu-uuid-51764-2--popup {}
+
 .ant-menu-submenu {
-    > ul {
+    >ul {
         background: transparent !important;
         margin-left: 20px !important;
         margin-top: 10px !important;
