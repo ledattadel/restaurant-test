@@ -2,7 +2,7 @@ import React from 'react';
 import { Avatar } from 'antd';
 import { IoIosArrowDown, IoIosArrowUp } from 'react-icons/io';
 
-const SelectBox = ({ setMenuId }) => {
+const SelectBox = ({ menu, setCategory }) => {
     const [select, setSelect] = React.useState('Chọn tên danh mục');
     const [toggle, setToggle] = React.useState(false);
     const [choose, setChoose] = React.useState(false);
@@ -35,19 +35,22 @@ const SelectBox = ({ setMenuId }) => {
                 {toggle ? <IoIosArrowUp /> : <IoIosArrowDown />}
             </div>
             <ul id="list" className={toggle ? '' : 'hide'}>
-                {array &&
-                    array.map((item) => (
+                {menu &&
+                    menu.map((item) => (
                         <li
-                            key={item.name}
+                            key={item.id}
                             className="options"
                             onClick={() => {
                                 setSelect(item.name);
-                                setMenuId(item.name);
                                 setChoose(true);
                                 setToggle(false);
+                                setCategory(item.id);
                             }}
                         >
-                            <Avatar size={18} src="https://joeschmoe.io/api/v1/random" />
+                            <Avatar
+                                size={18}
+                                src={`https://api-fnb.pvssolution.com/fnb-api/api/media/menu/${item.image}`}
+                            />
                             <p>{item.name}</p>
                         </li>
                     ))}

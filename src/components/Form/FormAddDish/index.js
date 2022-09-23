@@ -20,6 +20,8 @@ const FormAddDish = React.forwardRef((props, ref) => {
     const [value, setValue] = React.useState('');
     const [status, setStatus] = React.useState(null);
     const [isLoading, setIsLoading] = React.useState(false);
+
+    const [category, setCategory] = React.useState(null);
     const dispatch = ReactRedux.useDispatch();
     // React.useImperativeHandle(ref, () => ({
     //     addDish,
@@ -29,6 +31,7 @@ const FormAddDish = React.forwardRef((props, ref) => {
         values.image = fileList[0].originFileObj;
         values.companyId = 0;
         values.adminId = 1;
+        values.menuId = category;
         const api = await dispatch(DishAction.submitDish(values));
 
         console.log(api);
@@ -55,10 +58,12 @@ const FormAddDish = React.forwardRef((props, ref) => {
         console.log('res.status', res.status);
         // if (res.status === 201) {
         setVisible(false);
+        setCategory(null);
         // }
     };
     const onFinishFailed = (errorInfo) => {
         console.log('Failed:', errorInfo);
+        setCategory(null);
     };
 
     return (
@@ -84,26 +89,7 @@ const FormAddDish = React.forwardRef((props, ref) => {
                                         />
                                     </Form.Item>
                                     <Form.Item label="Danh mục" name="menuId">
-                                        <Select
-                                            showSearch
-                                            style={{
-                                                width: 200,
-                                            }}
-                                            placeholder="Chọn danh mục"
-                                            optionFilterProp="children"
-                                            filterOption={(input, option) => option.children.includes(input)}
-                                            filterSort={(optionA, optionB) =>
-                                                optionA.children
-                                                    .toLowerCase()
-                                                    .localeCompare(optionB.children.toLowerCase())
-                                            }
-                                        >
-                                            {menu
-                                                ? menu.map((v) => {
-                                                      return <Option value={v.id}>{v.name}</Option>;
-                                                  })
-                                                : ''}
-                                        </Select>
+                                        <SelectBox menu={menu} setCate={setCategory}></SelectBox>
                                     </Form.Item>
                                     <Form.Item
                                         label="Giá"
