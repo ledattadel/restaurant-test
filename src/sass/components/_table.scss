@@ -1,6 +1,7 @@
 .data-table {
     box-shadow: $bs-table;
     padding: 12px 24px;
+    background-color: $white;
 
     &__header {
         padding-bottom: 12px;
@@ -13,9 +14,7 @@
 
             @include lg {
                 justify-content: center;
-
             }
-
         }
 
         &__filter {
@@ -27,7 +26,6 @@
 
             @include lg {
                 justify-content: center;
-
             }
         }
     }
@@ -92,6 +90,5 @@
                 align-items: center;
             }
         }
-
     }
 }

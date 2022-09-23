@@ -43,7 +43,7 @@ const Dish = React.memo(() => {
     return (
         <div className="dish">
             {dish.data && (
-                <Row justify="space-around" align="middle" gutter={[window.innerWidth / 60, window.innerWidth / 60]}>
+                <Row gutter={[window.innerWidth / 60, window.innerWidth / 60]}>
                     {dish.data.map((v) => {
                         return (
                             <Col

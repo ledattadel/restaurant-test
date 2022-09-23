@@ -11,7 +11,7 @@
     overflow: hidden;
     display: flex;
     align-items: center;
-    border-radius: $br-img  !important;
+    border-radius: $br-img !important;
 }
 
 // Tag
@@ -153,12 +153,12 @@
 
 // Table
 .ant-table-container,
-.ant-table-container table>thead>tr:first-child th:first-child {
+.ant-table-container table > thead > tr:first-child th:first-child {
     border-top-left-radius: 4px;
 }
 
 .ant-table-container,
-.ant-table-container table>thead>tr:first-child th:last-child {
+.ant-table-container table > thead > tr:first-child th:last-child {
     border-top-right-radius: 4px;
 }
 
@@ -176,15 +176,14 @@
         /* identical to box height, or 18px */
         letter-spacing: 0.001em;
         color: $white;
-
     }
 }
 
-.ant-table-tbody>tr>td {
+.ant-table-tbody > tr > td {
     border-bottom: 1px solid $gray;
 }
 
-.ant-table-tbody>tr:last-of-type>td {
+.ant-table-tbody > tr:last-of-type > td {
     border-bottom: none;
 }
 
@@ -215,6 +214,7 @@
     border: 1px solid #d9d9d9;
     width: 70px;
     height: 32px;
+    background-color: $white;
 
     /* Subtitle 2/nunito/regular 14px */
     font-family: 'Nunito';
@@ -233,7 +233,7 @@
 
 .ant-pagination-item:hover {
     border-color: $main-color;
-    transition: all .3s;
+    transition: all 0.3s;
 }
 
 .ant-pagination-item:hover a {
