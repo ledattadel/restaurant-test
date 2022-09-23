@@ -40,7 +40,7 @@ const Sidebar = ({ collapsed, setBreadcum, renderBreadcum }) => {
     const onClick = (e) => {
         console.log(e.key);
         navigate(e.key);
-        let titleBreadcum = constants.sidebar.find((v) => v.key === e.key).label;
+        let titleBreadcum = constants?.sidebar?.find((v) => v.key === e.key).label;
         setBreadcum(titleBreadcum);
         setCurrent(e.key);
     };
@@ -48,7 +48,7 @@ const Sidebar = ({ collapsed, setBreadcum, renderBreadcum }) => {
     return (
         <Sider collapsedWidth={76} width={283} trigger={null} collapsible collapsed={collapsed} className="siderbar">
             <Link to="/">
-                <div className="siderbar_logo">LOGO</div>
+                <div className="siderbar_logo"></div>
             </Link>
             <Menu
                 className="siderbar_menu"

@@ -1,0 +1,97 @@
+.data-table {
+    box-shadow: $bs-table;
+    padding: 12px 24px;
+
+    &__header {
+        padding-bottom: 12px;
+
+        &__title {
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            align-items: center;
+
+            @include lg {
+                justify-content: center;
+
+            }
+
+        }
+
+        &__filter {
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-end;
+            align-items: center;
+            gap: 12px;
+
+            @include lg {
+                justify-content: center;
+
+            }
+        }
+    }
+
+    &__datas {
+        width: 100% !important;
+
+        &__number {
+            font-family: 'Nunito';
+            font-style: normal;
+            font-weight: 600;
+            font-size: 14px;
+            line-height: 127%;
+
+            /* identical to box height, or 18px */
+            letter-spacing: 0.001em;
+            text-transform: capitalize;
+
+            /* text */
+            color: $txt-main-color;
+        }
+
+        &__text {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            padding: 0px;
+            gap: 4px;
+
+            /* Subtitle 2/nunito/regular 14px */
+            font-family: 'Nunito';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 88%;
+
+            /* or 12px */
+            letter-spacing: 0.001em;
+
+            /* text */
+            color: $txt-main-color;
+        }
+
+        &__actions {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+
+            &__button {
+                box-sizing: border-box;
+                width: 24px;
+                height: 24px;
+                border: none;
+                border-radius: $br-menu;
+                background-color: $white;
+
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+        }
+
+    }
+}

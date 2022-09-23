@@ -9,25 +9,28 @@
 @import './pages/category';
 
 // Component
-@import './components/header';
-@import './components/sidebar';
 @import './components/breadcrumb';
+@import './components/dragger';
+@import './components/header';
 @import './components/modal';
 @import './components/select-box';
-@import './components/dragger';
+@import './components/sidebar';
 @import './components/input';
 @import './components/text-area';
+@import './components/table';
+@import './components/size-changer';
+@import './components/pagination';
 
 // Form
-@import './components/form/add-dish';
 @import './components/form/add-area';
 @import './components/form/add-category';
+@import './components/form/add-dish';
 
 // Card
-@import './components/card/product';
 @import './components/card/area';
-@import './components/card/table';
 @import './components/card/category';
+@import './components/card/product';
+@import './components/card/table';
 
 // Button
 @import './components/button/sort';

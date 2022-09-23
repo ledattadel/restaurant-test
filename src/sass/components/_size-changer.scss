@@ -1,0 +1,69 @@
+.size-changer {
+    /* Auto layout */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+
+    height: 24px;
+
+    @include xs {
+        display: none;
+    }
+
+    p {
+        height: 12px;
+
+        /* Subtitle 2/nunito/regular 14px */
+        font-family: 'Nunito';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 88%;
+
+        /* or 12px */
+        text-align: center;
+        letter-spacing: 0.001em;
+        color: $dark-gray;
+    }
+
+    input {
+        box-sizing: border-box;
+        width: 75px;
+        height: 24px;
+        padding: 6px 12px;
+
+        /* Auto layout */
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+
+        /* gray */
+        border: 0.5px solid $gray;
+        border-radius: 4px;
+
+        /* Subtitle 2/nunito/regular 14px */
+        font-family: 'Nunito';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 88%;
+
+        /* or 12px */
+        text-align: center;
+        letter-spacing: 0.001em;
+
+        /* dark gray */
+        color: $dark-gray;
+    }
+
+    input:hover {
+        border: 1px solid $border-main-color;
+        box-shadow: 0px 0px 4px $border-main-color;
+    }
+
+    input:focus {
+        border: 1px solid $border-main-color;
+    }
+}

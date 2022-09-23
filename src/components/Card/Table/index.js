@@ -1,15 +1,14 @@
 import React from 'react';
 import './index.scss';
-import DeleteIcon from '@/assets/table-icon/delete.icon';
-import EditIcon from '@/assets/table-icon/edit.icon';
-import { useNavigate } from 'react-router-dom';
-import TableIcon from '@/assets/table-icon/table.icon';
+
+import * as TableIcon from '@/assets/table-icon';
+
 
 const TableCard = ({ name, status, id }) => {
     return (
         <div className="table_card">
             <div className="table_cardLeft">
-                <TableIcon></TableIcon>
+                <TableIcon.TableIcon/>
             </div>
 
             <div className="table_cardRight">
@@ -22,8 +21,8 @@ const TableCard = ({ name, status, id }) => {
                         Mã ID: <span className="table_right--id-2">{id}</span>
                     </span>
                     <div className="table_right--handing">
-                        <EditIcon></EditIcon>
-                        <DeleteIcon></DeleteIcon>
+                        <TableIcon.EditIcon color={'#F78B2D'}/>
+                        <TableIcon.DeleteIcon/>
                     </div>
                 </div>
             </div>

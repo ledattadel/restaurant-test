@@ -1,13 +1,24 @@
 import { Col, Row, Table } from 'antd';
 import React, { useState } from 'react';
-import { Search } from '@/components';
-import './index.scss';
+import { Search, SizeChanger } from '@/components';
 
 const DataTable = ({ columns, data }) => {
     const [selectedRowKeys, setSelectedRowKeys] = useState([]);
 
     const onSelectChange = (newSelectedRowKeys) => {
         setSelectedRowKeys(newSelectedRowKeys);
+    };
+
+    const itemRender = (_, type, originalElement) => {
+        if (type === 'prev') {
+            return <button className="pagination__button pagination__button__prev">Previous</button>;
+        }
+
+        if (type === 'next') {
+            return <button className="pagination__button pagination__button__next">Next</button>;
+        }
+
+        return originalElement;
     };
 
     const rowSelection = {
@@ -50,16 +61,22 @@ const DataTable = ({ columns, data }) => {
         ],
     };
     return (
-        <div className={'data-table'}>
-            <Row className={'data-table__header'}>
-                <Col span={8}>
+        <div className="data-table">
+            <Row className="data-table__header">
+                <Col xs={24} lg={12} className="data-table__header__title">
                     <p>Danh sách khách hàng</p>
                 </Col>
-                <Col span={8} offset={8} className={'data-table__header-filter'}>
+                <Col xs={24} lg={12} className="data-table__header__filter">
                     <Search />
+                    <SizeChanger />
                 </Col>
             </Row>
-            <Table className={'data-table__datas'} columns={columns} dataSource={data} />;
+            <Table
+                className="data-table__datas"
+                columns={columns}
+                dataSource={data}
+                pagination={{ itemRender: itemRender }}
+            />
         </div>
     );
 };
