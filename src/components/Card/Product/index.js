@@ -13,6 +13,7 @@ const ProductCard = ({ DeleteDish, product, img }) => {
         DeleteDish(product.id);
         message.info('Xóa thành công');
     };
+    console.log(product);
     return (
         <Card
             hoverable
@@ -39,32 +40,22 @@ const ProductCard = ({ DeleteDish, product, img }) => {
                 </Row>
                 <Row justify="space-between">
                     <Col className="product-card__info__col">
-                        <span className="product-card__info__sale-number">
-                            Đã bán: {product.saleNumber ? product.saleNumber : ''}
-                        </span>
-                        <Tag className="product-card__info__status">{product.status ? product.status : ''}</Tag>
+                        <span className="product-card__info__sale-number">Mã ID: {product.id}</span>
+                        <Tag className="product-card__info__status">Có món</Tag>
                     </Col>
                     <Col className="product-card__info__col">
                         <span className="product-card__info__price">
-                            {product.price && product.price.length > 6 ? (
-                                <p>
-                                    {product.price.substring(0, 5).toLocaleString('vi-VN', {
+                            <p>
+                                {product.price &&
+                                    parseInt(product.price).toLocaleString('vi-VN', {
                                         style: 'currency',
                                         currency: 'VND',
                                     })}
-                                </p>
-                            ) : (
-                                <p>
-                                    {product.price.toLocaleString('vi-VN', {
-                                        style: 'currency',
-                                        currency: 'VND',
-                                    })}
-                                </p>
-                            )}
+                            </p>
                         </span>
                         <span className="product-card__info__discount">
-                            {product.discount &&
-                                product.discount.toLocaleString('vi-VN', {
+                            {product.priceDiscount &&
+                                parseInt(product.priceDiscount).toLocaleString('vi-VN', {
                                     style: 'currency',
                                     currency: 'VND',
                                 })}
