@@ -2,85 +2,60 @@
 // import * as React from 'react';
 
 const constants = {
-    sidebar: [
-        {
-            key: '/',
-
-            label: 'Trang chủ',
-        },
-        {
-            key: '/dish',
-
-            label: 'Quản lý menu',
-        },
-        {
-            key: '/category',
-
-            label: 'Quản lý danh mục',
-        },
-        {
-            key: '/area',
-
-            label: 'Quản lý bàn ăn',
-        },
-        {
-            key: '/discount',
-
-            label: 'Khuyến mãi',
-        },
-        {
-            key: '/account',
-
-            label: 'Quản lý nhân viên',
-        },
-        {
-            key: '/customer',
-
-            label: 'Quản lý Khách hàng',
-        },
-    ],
-
     breadcrumb: [
         {
             key: '/',
             label: 'Trang chủ',
-            buttonLabel: '',
+            button: '',
+            table: '',
         },
         {
             key: '/category',
             label: 'Quản lý danh mục',
-            buttonLabel: 'Thêm danh mục',
+            button: 'Thêm danh mục',
+            table: '',
         },
         {
             key: '/dish',
             label: 'Quản lý món ăn',
-            buttonLabel: 'Tạo món mới',
+            button: 'Tạo món mới',
+            table: '',
         },
         {
             key: '/area',
             label: 'Quản lý khu vực bàn',
-            buttonLabel: 'Tạo khu vực',
+            button: 'Tạo khu vực',
+            table: '',
         },
         {
             key: '/area/table',
             label: 'Quản lý khu vực bàn / Chi tiết bàn',
-            buttonLabel: 'Tạo bàn',
-        },
-
-        {
-            key: '/discount',
-            label: 'Khuyến mãi',
-            buttonLabel: 'Thêm khuyến mãi',
+            button: 'Tạo bàn',
+            table: '',
         },
         {
             key: '/account',
             label: 'Quản lý nhân viên',
-            buttonLabel: 'Thêm nhân viên',
+            button: 'Thêm nhân viên',
+            table: 'Danh sách nhân viên',
         },
         {
             key: '/customer',
             label: 'Quản lý khách hàng',
-            buttonLabel: 'Thêm khách hàng',
+            button: 'Thêm khách hàng',
+            table: 'Danh sách khách hàng',
+        },
+        {
+            key: '/promotion',
+            label: 'Khuyến mãi',
+            button: 'Thêm khuyến mãi',
+            table: 'Danh sách khuyến mãi',
+        },
+        {
+            key: '/invoice',
+            label: 'Hóa đơn',
+            button: '',
+            table: 'Danh sách hóa đơn',
         },
     ],
 };

@@ -68,7 +68,7 @@ const FormAddCategory = ({ visible, setVisible, setAddnew }) => {
                         <Dragger fileList={fileList} setFileList={setFileList} />
                     </Col>
                 </Row>
-                <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
+                <div className="modal__controll">
                     <Button type="primary" onClick={() => setVisible(false)} className="modal__btn modal__btn-cancel">
                         Hủy
                     </Button>

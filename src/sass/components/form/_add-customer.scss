@@ -1,4 +1,4 @@
-.add-category {
+.add-customer {
     &__title {
         /* heading 3/Subtitle 1/Heading 1/heading 2/nunito/semibold 24px */
         font-family: 'Nunito';
@@ -80,27 +80,4 @@
     &__form-area:focus {
         border: 1px solid $border-main-color;
     }
-}
-
-.ant-form-item {
-    margin-bottom: 16px;
-}
-
-.ant-form-item:only-of-type {
-    margin-bottom: 0;
-}
-
-.ant-form-item-label {
-    font-family: 'Nunito';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 88%;
-
-    /* or 12px */
-    letter-spacing: 0.001em;
-
-    /* text */
-
-    color: #38424B;
 }

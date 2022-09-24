@@ -26,6 +26,8 @@ export { default as EditToolbar } from '@/components/Form/EditToolBar';
 export { default as FormAddArea } from '@/components/Form/FormAddArea';
 export { default as FormAddDish } from '@/components/Form/FormAddDish';
 export { default as FormAddCategory } from '@/components/Form/FormAddCategory';
+export { default as FormAddCustomer } from '@/components/Form/FormAddCustomer';
+export { default as FormAddPromotion } from '@/components/Form/FormAddPromotion';
 export { default as FormAddOffer } from '@/components/Form/FormAddOffer';
 export { default as FormEditDish } from '@/components/Form/FormEditDish';
 export { default as FormMenu } from '@/components/Form/FormMenu';
