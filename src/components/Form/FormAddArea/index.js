@@ -1,9 +1,11 @@
 import React from 'react';
-import { Col, Form, Row, Typography } from 'antd';
+import { Button, Col, Form, Row, Typography } from 'antd';
 import Radio from '@/components/Button/Radio';
 const { Title } = Typography;
 
-const formAddDish = () => {
+const formAddDish = React.forwardRef((props, ref) => {
+    const { visible, setVisible } = props;
+
     return (
         <div className="add-dish">
             <Title level={3} className="add-dish__title">
@@ -26,8 +28,8 @@ const formAddDish = () => {
                             <Col span={12}>
                                 <div className="add-dish__form-right">
                                     <Form.Item label="Trạng thái" style={{ marginBottom: '20px' }}>
-                                        <Radio status={'Đang mở'} checked={true}/>
-                                        <Radio status={'Tạm đóng'} />
+                                        <Radio status={'Đang mở'} name={'status'} checked={true} />
+                                        <Radio status={'Tạm đóng'} name={'status'} />
                                     </Form.Item>
                                 </div>
                             </Col>
@@ -43,9 +45,18 @@ const formAddDish = () => {
                         </Row>
                     </Col>
                 </Row>
+                <div className="modal__controll">
+                    <Button type="primary" onClick={() => setVisible(false)} className="modal__btn modal__btn-cancel">
+                        Hủy
+                    </Button>
+
+                    <Button type="primary" htmlType="submit" className="modal__btn modal__btn-save">
+                        Lưu
+                    </Button>
+                </div>
             </Form>
         </div>
     );
-};
+});
 
 export default formAddDish;

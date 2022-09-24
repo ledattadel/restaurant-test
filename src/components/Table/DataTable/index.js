@@ -1,13 +1,18 @@
+import React from 'react';
 import { Col, Row, Table } from 'antd';
-import React, { useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import { Search, SizeChanger } from '@/components';
+import constants from '@/constants';
 
 const DataTable = ({ columns, data }) => {
-    const [selectedRowKeys, setSelectedRowKeys] = useState([]);
+    const location = useLocation();
+    const [selectedRowKeys, setSelectedRowKeys] = React.useState([]);
 
     const onSelectChange = (newSelectedRowKeys) => {
         setSelectedRowKeys(newSelectedRowKeys);
     };
+
+    const address = constants?.breadcrumb?.find((v) => v.key === location.pathname);
 
     const itemRender = (_, type, originalElement) => {
         if (type === 'prev') {
@@ -64,7 +69,7 @@ const DataTable = ({ columns, data }) => {
         <div className="data-table">
             <Row className="data-table__header">
                 <Col xs={24} lg={12} className="data-table__header__title">
-                    <p>Danh sách khách hàng</p>
+                    <p>{address.table}</p>
                 </Col>
                 <Col xs={24} lg={12} className="data-table__header__filter">
                     <Search />

@@ -72,15 +72,16 @@
         &__actions {
             display: flex;
             flex-direction: row;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
             gap: 12px;
 
             &__button {
                 box-sizing: border-box;
-                width: 24px;
-                height: 24px;
-                border: none;
+                width: auto;
+                height: auto;
+                padding: 4px;
+                border: 1px solid $white;
                 border-radius: $br-menu;
                 background-color: $white;
 
@@ -88,7 +89,19 @@
                 flex-direction: column;
                 justify-content: center;
                 align-items: center;
+
+                &-edit:hover {
+                    border: 1px solid $blue;
+                    box-shadow: 0px 0px 4px $blue;
+                }
+
+                &-delete:hover {
+                    border: 1px solid $red;
+                    box-shadow: 0px 0px 4px $red;
+                }
             }
+
+
         }
     }
 }

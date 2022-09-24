@@ -1,7 +1,7 @@
-import * as React from 'react';
-import { ContentFnB } from '@/components/Layout/Content';
+import React from 'react';
 import { DataTable } from '@/components';
 import * as TableIcon from '@/assets/table-icon';
+import moment from 'moment';
 
 const columns = [
     {
@@ -39,6 +39,8 @@ const columns = [
                 </div>
             );
         },
+        sorter: (a, b) => a.name.toLowerCase().localeCompare(b.name.toLowerCase()),
+        sortDirections: ['descend'],
     },
     {
         title: 'Số điện thoại',
@@ -50,6 +52,8 @@ const columns = [
                 </div>
             );
         },
+        sorter: (a, b) => a.phone.localeCompare(b.phone),
+        sortDirections: ['descend'],
     },
     {
         title: 'Sinh nhật',
@@ -61,6 +65,8 @@ const columns = [
                 </div>
             );
         },
+        sorter: (a, b) => new Date(a.birthday) - new Date(b.birthday),
+        sortDirections: ['descend'],
     },
     {
         title: 'Thao tác',
@@ -68,10 +74,10 @@ const columns = [
         width: 100,
         render: () => (
             <div className="data-table__datas__actions">
-                <button className="data-table__datas__actions__button">
+                <button className="data-table__datas__actions__button data-table__datas__actions__button-edit">
                     <TableIcon.EditIcon color={'#413ED4'} />
                 </button>
-                <button className="data-table__datas__actions__button">
+                <button className="data-table__datas__actions__button data-table__datas__actions__button-delete">
                     <TableIcon.DeleteIcon />
                 </button>
             </div>
@@ -87,16 +93,12 @@ for (let i = 0; i < 46; i++) {
         id: i,
         name: `Edward King ${i}`,
         phone: `037834493${i}`,
-        birthday: `14/09/202${i}`,
+        birthday: moment('8-10-2019').format('L'),
     });
 }
 
 const Customer = () => {
-    return (
-        // <ContentFnB className={'customer-management'}>
-            <DataTable columns={columns} data={data} />
-        // </ContentFnB>
-    );
+    return <DataTable columns={columns} data={data} />;
 };
 
 export default Customer;

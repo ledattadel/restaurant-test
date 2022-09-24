@@ -4,7 +4,7 @@ import DefaultModal from '@/components/Modal';
 import { Button } from 'antd';
 import { BsPlusCircle } from 'react-icons/bs';
 
-const BreadcrumbMenu = ({ address, btn }) => {
+const BreadcrumbMenu = ({ address, button }) => {
     const [visible, setVisible] = React.useState(false);
     const showModal = () => {
         setVisible(true);
@@ -14,7 +14,7 @@ const BreadcrumbMenu = ({ address, btn }) => {
         <div className="breadcrumb__menu">
             <Button className="breadcrumb__menu__btn breadcrumb__menu__btn-add" onClick={() => showModal()}>
                 <BsPlusCircle />
-                <p>{btn}</p>
+                <p>{button}</p>
             </Button>
             {address && address === '/dish' && <Sort />}
             <DefaultModal visible={visible} setVisible={setVisible} />

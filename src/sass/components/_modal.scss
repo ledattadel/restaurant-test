@@ -3,14 +3,16 @@
 }
 
 .ant-modal-body {
-    padding: 14px 24px 24px 24px;
-}
-
-.ant-modal-footer {
-    padding: 18px 24px;
+    padding: 14px 24px 10px 24px;
 }
 
 .modal {
+    &__controll {
+        display: flex;
+        justify-content: flex-end;
+        padding-top: 12px;
+    }
+
     &__btn {
         width: 78px;
         border-radius: $br-btn;

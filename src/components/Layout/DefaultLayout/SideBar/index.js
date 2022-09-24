@@ -26,10 +26,9 @@ const items = [
         getItem('Quản lý món ăn', '/dish', <MenuIcon.CategoryIcon />),
     ]),
     getItem('Quản lý bàn ăn', '/area', <MenuIcon.TableIcon />),
-    getItem('Khuyến mãi', '/discount', <MenuIcon.DiscountIcon />),
     getItem('Quản lý nhân viên', '/account', <MenuIcon.AccountIcon />),
     getItem('Quản lý khách hàng', '/customer', <MenuIcon.AccountIcon />),
-
+    getItem('Khuyến mãi', '/promotion', <MenuIcon.DiscountIcon />),
 ];
 
 const Sidebar = ({ collapsed, setBreadcum, renderBreadcum }) => {
@@ -40,7 +39,7 @@ const Sidebar = ({ collapsed, setBreadcum, renderBreadcum }) => {
     const onClick = (e) => {
         console.log(e.key);
         navigate(e.key);
-        let titleBreadcum = constants?.sidebar?.find((v) => v.key === e.key).label;
+        let titleBreadcum = constants?.breadcrumb?.find((v) => v.key === e.key).label;
         setBreadcum(titleBreadcum);
         setCurrent(e.key);
     };

@@ -1,4 +1,4 @@
-import { Area, Blank, Category, Customer, Dish, Home, Login, Table } from '@/pages/index';
+import { Area, Blank, Category, Customer, Dish, Home, Login, Promotion, Table } from '@/pages/index';
 
 // Public routes
 const privateRoutes = [
@@ -11,6 +11,7 @@ const privateRoutes = [
     { path: '/area', component: Area },
     { path: '/area/table', component: Table },
     { path: '/customer', component: Customer },
+    { path: '/promotion', component: Promotion },
     { path: '*', component: Blank },
 ];
 const publicRoutes = [

@@ -29,7 +29,7 @@ const Breadcrumber = ({ title, setRouteBreadcumRender }) => {
                     {address.label === 'Trang chủ' ? '' : address.label}
                 </li>
             </ul>
-            <Menu address={address.key} btn={address.buttonLabel} />
+            <Menu address={address.key} button={address.button} />
         </div>
     );
 };

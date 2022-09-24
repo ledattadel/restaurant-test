@@ -1,13 +1,8 @@
 import * as React from 'react';
-import { Button, Modal } from 'antd';
+import { Form, Modal } from 'antd';
 import { useLocation } from 'react-router-dom';
+import { FormAddArea, FormAddCategory, FormAddCustomer, FormAddDish, FormAddPromotion } from '@/components';
 import constants from '@/constants';
-import { Form } from 'antd';
-import * as DishAction from '@/redux/actions/dishAction';
-import FormAddArea from '@/components/Form/FormAddArea';
-import FormAddDish from '@/components/Form/FormAddDish';
-import FormAddCategory from '@/components/Form/FormAddCategory';
-import * as ReactRedux from 'react-redux';
 
 const DefaultModal = ({ visible, setVisible }) => {
     const location = useLocation();
@@ -48,6 +43,10 @@ const DefaultModal = ({ visible, setVisible }) => {
                 return window.innerWidth / 2.5;
             case '/category':
                 return window.innerWidth / 2;
+            case '/customer':
+                return window.innerWidth / 2.5;
+            case '/promotion':
+                return window.innerWidth / 2.5;
             default:
                 return '300px';
         }
@@ -57,12 +56,14 @@ const DefaultModal = ({ visible, setVisible }) => {
         switch (route) {
             case '/dish':
                 return <FormAddDish visible={visible} setVisible={setVisible} />;
-            //
             case '/area':
-                return <FormAddArea />;
+                return <FormAddArea visible={visible} setVisible={setVisible} />;
             case '/category':
                 return <FormAddCategory visible={visible} setVisible={setVisible} />;
-
+            case '/customer':
+                return <FormAddCustomer visible={visible} setVisible={setVisible} />;
+            case '/promotion':
+                return <FormAddPromotion visible={visible} setVisible={setVisible} />;
             default:
                 return <></>;
         }
