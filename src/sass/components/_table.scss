@@ -55,18 +55,24 @@
             padding: 0px;
             gap: 4px;
 
-            /* Subtitle 2/nunito/regular 14px */
-            font-family: 'Nunito';
-            font-style: normal;
-            font-weight: 400;
-            font-size: 14px;
-            line-height: 88%;
+            span {
+                /* Subtitle 2/nunito/regular 14px */
+                font-family: 'Nunito';
+                font-style: normal;
+                font-weight: 400;
+                font-size: 14px;
+                line-height: 88%;
 
-            /* or 12px */
-            letter-spacing: 0.001em;
+                /* or 12px */
+                letter-spacing: 0.001em;
 
-            /* text */
-            color: $txt-main-color;
+                /* text */
+                color: $txt-main-color;
+            }
+
+            svg {
+                margin-bottom: 3px;
+            }
         }
 
         &__actions {
@@ -98,6 +104,11 @@
                 &-delete:hover {
                     border: 1px solid $red;
                     box-shadow: 0px 0px 4px $red;
+                }
+
+                &-view:hover {
+                    border: 1px solid $darker-gray;
+                    box-shadow: 0px 0px 4px $darker-gray;
                 }
             }
 

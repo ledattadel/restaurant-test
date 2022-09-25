@@ -23,6 +23,7 @@ export { default as DefaultHeader } from '@/components/Layout/DefaultLayout/Head
 
 // Form
 export { default as EditToolbar } from '@/components/Form/EditToolBar';
+export { default as FormAddAccount } from '@/components/Form/FormAddAccount';
 export { default as FormAddArea } from '@/components/Form/FormAddArea';
 export { default as FormAddDish } from '@/components/Form/FormAddDish';
 export { default as FormAddCategory } from '@/components/Form/FormAddCategory';

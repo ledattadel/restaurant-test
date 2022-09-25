@@ -15,10 +15,6 @@
     }
 
     &__form {
-        // &-left {}
-
-        // &-right {}
-
         &__input {
             box-sizing: border-box;
 
@@ -41,15 +37,6 @@
             align-self: stretch;
             flex-grow: 0;
 
-            // &-name {}
-
-            // &-price {}
-
-            // &-status {}
-
-            // &-quantitative {}
-
-            // &-discount {}
         }
 
         &__input:hover {
@@ -113,11 +100,10 @@
     letter-spacing: 0.001em;
 
     /* text */
-
     color: #38424b;
 }
 
 .select_dish {
-    border: 1px solid $light-gray !important;
-    border-radius: $br-btn !important;
+    border: 1px solid $light-gray  !important;
+    border-radius: $br-btn  !important;
 }

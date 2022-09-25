@@ -15,12 +15,6 @@
     }
 
     &__form {
-        &-left {
-        }
-
-        &-right {
-        }
-
         &__input {
             box-sizing: border-box;
             /* Auto layout */
@@ -43,21 +37,6 @@
             order: 1;
             align-self: stretch;
             flex-grow: 0;
-
-            &-name {
-            }
-
-            &-price {
-            }
-
-            &-status {
-            }
-
-            &-quantitative {
-            }
-
-            &-discount {
-            }
         }
 
         &__input:hover {
@@ -118,11 +97,10 @@
     font-weight: 400;
     font-size: 14px;
     line-height: 88%;
+    
     /* or 12px */
-
     letter-spacing: 0.001em;
 
     /* text */
-
     color: #38424b;
 }

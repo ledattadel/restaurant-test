@@ -51,6 +51,25 @@
     box-shadow: 0px 0px 4px $border-main-color;
 }
 
+// Selector
+.ant-select:not(.ant-select-disabled):hover .ant-select-selector {
+    border-color: $main-color;
+}
+
+.ant-select-focused:not(.ant-select-disabled).ant-select:not(.ant-select-customize-input) .ant-select-selector {
+    border-color: $main-color;
+    box-shadow: 0px 0px 4px $border-main-color;
+}
+
+.ant-select-item-option-selected:not(.ant-select-item-option-disabled) .ant-select-item-option-state {
+    color: $main-color;
+}
+
+.ant-select-item-option-selected:not(.ant-select-item-option-disabled) {
+    background: $main-background;
+    color: $main-color;
+}
+
 // Date Picker
 .ant-picker-today-btn {
     color: $border-main-color;
@@ -151,12 +170,12 @@
 
 // Table
 .ant-table-container,
-.ant-table-container table > thead > tr:first-child th:first-child {
+.ant-table-container table>thead>tr:first-child th:first-child {
     border-top-left-radius: 4px;
 }
 
 .ant-table-container,
-.ant-table-container table > thead > tr:first-child th:last-child {
+.ant-table-container table>thead>tr:first-child th:last-child {
     border-top-right-radius: 4px;
 }
 
@@ -177,11 +196,11 @@
     }
 }
 
-.ant-table-tbody > tr > td {
+.ant-table-tbody>tr>td {
     border-bottom: 1px solid $gray;
 }
 
-.ant-table-tbody > tr:last-of-type > td {
+.ant-table-tbody>tr:last-of-type>td {
     border-bottom: none;
 }
 

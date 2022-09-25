@@ -18,7 +18,7 @@ const FormAddPromotion = React.forwardRef((props, ref) => {
                         <Form.Item
                             label="Sự kiện"
                             name="event"
-                            rules={[{ required: true, message: 'Vui lòng nhập tên Sự kiện!' }]}
+                            rules={[{ required: true, message: 'Vui lòng nhập tên sự kiện!' }]}
                         >
                             <input
                                 type="text"
