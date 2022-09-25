@@ -5,4 +5,5 @@ import AccountIcon from './account.icon';
 import TableIcon from './table.icon';
 import MenuIcon from './menu.icon';
 import CategoryIcon from './category.icon';
-export { HomeIcon, DiscountIcon, DishIcon, AccountIcon, TableIcon, MenuIcon, CategoryIcon };
+import BillIcon from './bill.icon';
+export { BillIcon, HomeIcon, DiscountIcon, DishIcon, AccountIcon, TableIcon, MenuIcon, CategoryIcon };

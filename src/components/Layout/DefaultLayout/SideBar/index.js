@@ -28,6 +28,7 @@ const items = [
     getItem('Quản lý bàn ăn', '/area', <MenuIcon.TableIcon />),
     getItem('Quản lý nhân viên', '/account', <MenuIcon.AccountIcon />),
     getItem('Quản lý khách hàng', '/customer', <MenuIcon.AccountIcon />),
+    getItem('Hóa đơn', '/invoice', <MenuIcon.BillIcon />),
     getItem('Khuyến mãi', '/promotion', <MenuIcon.DiscountIcon />),
 ];
 

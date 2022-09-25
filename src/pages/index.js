@@ -1,9 +1,11 @@
+export { default as Account } from '@/pages/Account';
 export { default as Area } from '@/pages/Area';
 export { default as Blank } from '@/pages/Blank';
 export { default as Category } from '@/pages/Category';
 export { default as Customer } from '@/pages/Customer';
 export { default as Dish } from '@/pages/Dish';
 export { default as Home } from '@/pages/Home';
+export { default as Invoice } from '@/pages/Invoice';
 export { default as Login } from '@/pages/Auth/Login';
 export { default as Menu } from '@/pages/Menu';
 export { default as Promotion } from '@/pages/Promotion';

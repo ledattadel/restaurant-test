@@ -1,7 +1,14 @@
 import * as React from 'react';
 import { Form, Modal } from 'antd';
 import { useLocation } from 'react-router-dom';
-import { FormAddArea, FormAddCategory, FormAddCustomer, FormAddDish, FormAddPromotion } from '@/components';
+import {
+    FormAddAccount,
+    FormAddArea,
+    FormAddCategory,
+    FormAddCustomer,
+    FormAddDish,
+    FormAddPromotion,
+} from '@/components';
 import constants from '@/constants';
 
 const DefaultModal = ({ visible, setVisible }) => {
@@ -47,6 +54,8 @@ const DefaultModal = ({ visible, setVisible }) => {
                 return window.innerWidth / 2.5;
             case '/promotion':
                 return window.innerWidth / 2.5;
+            case '/account':
+                return window.innerWidth / 2.5;
             default:
                 return '300px';
         }
@@ -54,14 +63,16 @@ const DefaultModal = ({ visible, setVisible }) => {
 
     const switchForm = (route) => {
         switch (route) {
-            case '/dish':
-                return <FormAddDish visible={visible} setVisible={setVisible} />;
             case '/area':
                 return <FormAddArea visible={visible} setVisible={setVisible} />;
+            case '/account':
+                return <FormAddAccount visible={visible} setVisible={setVisible} />;
             case '/category':
                 return <FormAddCategory visible={visible} setVisible={setVisible} />;
             case '/customer':
                 return <FormAddCustomer visible={visible} setVisible={setVisible} />;
+            case '/dish':
+                return <FormAddDish visible={visible} setVisible={setVisible} />;
             case '/promotion':
                 return <FormAddPromotion visible={visible} setVisible={setVisible} />;
             default:

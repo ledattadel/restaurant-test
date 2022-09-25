@@ -8,64 +8,79 @@ const columns = [
         title: 'STT',
         dataIndex: 'stt',
         width: 26,
-        render: (_, customer) => {
+        render: (_, invoice) => {
             return (
                 <div className="data-table__datas__number">
-                    <span>{customer.stt}</span>
+                    <span>{invoice.stt}</span>
                 </div>
             );
         },
     },
     {
-        title: 'ID',
-        dataIndex: 'id',
-        width: 50,
-        render: (_, customer) => {
+        title: 'Số hóa đơn',
+        dataIndex: 'orderId',
+        render: (_, invoice) => {
             return (
                 <div className="data-table__datas__number">
-                    <span>{customer.id}</span>
+                    <span>{invoice.orderId}</span>
                 </div>
             );
         },
+        sorter: (a, b) => a.orderId - b.orderId,
+        sortDirections: ['descend'],
     },
     {
         title: 'Họ và tên',
         dataIndex: 'name',
-        render: (_, customer) => {
+        render: (_, invoice) => {
             return (
                 <div className="data-table__datas__text">
                     <TableIcon.CacbonUserIcon />
-                    <span>{customer.name}</span>
+                    <span>{invoice.name}</span>
                 </div>
             );
         },
         sorter: (a, b) => a.name.toLowerCase().localeCompare(b.name.toLowerCase()),
         sortDirections: ['descend'],
     },
+
     {
-        title: 'Số điện thoại',
-        dataIndex: 'phone',
-        render: (_, customer) => {
+        title: 'Ngày tạo',
+        dataIndex: 'createAt',
+        render: (_, invoice) => {
             return (
                 <div className="data-table__datas__text">
-                    <span>{customer.phone}</span>
+                    <span>{invoice.createAt}</span>
                 </div>
             );
         },
-        sorter: (a, b) => a.phone.localeCompare(b.phone),
+        sorter: (a, b) => new Date(a.createAt) - new Date(b.createAt),
         sortDirections: ['descend'],
     },
     {
-        title: 'Sinh nhật',
-        dataIndex: 'birthday',
-        render: (_, customer) => {
+        title: 'Tổng món',
+        dataIndex: 'quantity',
+        render: (_, invoice) => {
             return (
                 <div className="data-table__datas__text">
-                    <span>{customer.birthday}</span>
+                    <span>{invoice.quantity}</span>
                 </div>
             );
         },
-        sorter: (a, b) => new Date(a.birthday) - new Date(b.birthday),
+        sorter: (a, b) => a.quantity - b.quantity,
+        sortDirections: ['descend'],
+    },
+    {
+        title: 'Tổng hóa đơn',
+        dataIndex: 'grandTotal',
+        render: (_, invoice) => {
+            return (
+                <div className="data-table__datas__text">
+                    <span>{invoice.grandTotal}</span>
+                </div>
+            );
+        },
+        sorter: (a, b) => a.grandTotal - b.grandTotal,
         sortDirections: ['descend'],
     },
     {
@@ -74,6 +89,9 @@ const columns = [
         width: 100,
         render: () => (
             <div className="data-table__datas__actions">
+                 <button className="data-table__datas__actions__button data-table__datas__actions__button-view">
+                    <TableIcon.EyeIcon/>
+                </button>
                 <button className="data-table__datas__actions__button data-table__datas__actions__button-edit">
                     <TableIcon.EditIcon color={'#413ED4'} />
                 </button>
@@ -90,15 +108,16 @@ for (let i = 0; i < 50; i++) {
     data.push({
         key: i,
         stt: i,
-        id: i,
-        name: `James Moriarty ${i}`,
-        phone: `037834493${i}`,
-        birthday: moment('8-10-2019').format('L'),
+        orderId: i,
+        name: `Sherlock Holmes ${i}`,
+        createAt: moment('8-10-2019').format('L'),
+        quantity: i,
+        grandTotal: i * 10000,
     });
 }
 
-const Customer = () => {
+const Invoice = () => {
     return <DataTable columns={columns} data={data} />;
 };
 
-export default Customer;
+export default Invoice;
