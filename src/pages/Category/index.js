@@ -16,7 +16,7 @@ const Category = () => {
     const getAllCates = async () => {
         let currentUser = JSON.parse(localStorage.getItem('user'));
         let { data } = await getWithParams({
-            path: `dishes/menus`,
+            path: `menus`,
             params: { companyId: currentUser.companyId },
         });
 

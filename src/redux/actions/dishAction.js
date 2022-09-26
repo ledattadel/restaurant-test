@@ -31,7 +31,7 @@ export const getAllDishes = (payload) => async (dispatch) => {
 export const getStatuses = async () => {
     try {
         const { data } = await getNoneParams({
-            path: `dishes/statuses`,
+            path: `dish-status`,
         });
 
         return data;
@@ -44,7 +44,7 @@ export const getMenu = async () => {
         const currentUser = JSON.parse(localStorage.getItem('user'));
 
         const { data } = await getWithParams({
-            path: `dishes/menus`,
+            path: `menus`,
             params: { companyId: currentUser.companyId },
         });
 
@@ -79,9 +79,9 @@ export const submitMenu = (payload) => async (dispatch) => {
         const currentUser = JSON.parse(localStorage.getItem('user'));
 
         console.log('payload', payload);
-        const api = await postDataAPIWithFile('dishes/menu', payload);
+        const api = await postDataAPIWithFile('menus', payload);
         const { data } = await getWithParams({
-            path: `dishes/menus`,
+            path: `menus`,
             params: { companyId: currentUser.companyId },
         });
         dispatch({
