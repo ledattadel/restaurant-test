@@ -5,6 +5,7 @@ import EditCategoryIcon from '@/assets/edit-category-icon';
 const CategoryCard = ({ category, img }) => {
     const [hoverBtn, setHoverBtn] = React.useState(false);
 
+    const updateCategory = (category) => {};
     return (
         <div className="category-card">
             <div className="category-card__cover">
@@ -25,6 +26,7 @@ const CategoryCard = ({ category, img }) => {
                             onMouseOut={() => {
                                 setHoverBtn(false);
                             }}
+                            onClick={() => updateCategory(category)}
                         >
                             <EditCategoryIcon color={hoverBtn ? '#F78B2D' : 'white'} />
                         </button>

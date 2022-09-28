@@ -5,6 +5,7 @@ import dish from './dishReducer';
 import order from './orderReducer';
 import routing from './routingReducer';
 import category from './categoryReducer';
+import areas from './areasReducer';
 
 export default combineReducers({
     auth,
@@ -13,4 +14,5 @@ export default combineReducers({
     order,
     routing,
     category,
+    areas,
 });

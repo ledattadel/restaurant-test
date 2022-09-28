@@ -28,7 +28,7 @@ const constants = {
             table: '',
         },
         {
-            key: '/area/table',
+            key: '/area/table/:id',
             label: 'Quản lý khu vực bàn / Chi tiết bàn',
             button: 'Tạo bàn',
             table: '',
