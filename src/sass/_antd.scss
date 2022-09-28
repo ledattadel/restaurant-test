@@ -24,6 +24,16 @@
     margin-left: 0px;
 }
 
+// Dropdown
+.ant-dropdown-menu {
+    padding: 8px 0px;
+}
+
+.ant-dropdown-menu-item,
+.ant-dropdown-menu-submenu-title {
+    padding: 0px 8px;
+}
+
 // Tag
 .ant-tag {
     margin: 0;

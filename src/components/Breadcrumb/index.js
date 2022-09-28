@@ -22,11 +22,11 @@ const breadcrumb = [
 ];
 
 const Breadcrumber = ({ title, setRouteBreadcumRender }) => {
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
     const location = useLocation();
     const [locationString, setLocationString] = React.useState(null);
     const [locationComponent, setLocationComponent] = React.useState(<></>);
-    const [breadcrumbString, setBreadcrumbString] = React.useState([]);
+    // const [breadcrumbString, setBreadcrumbString] = React.useState([]);
 
     React.useEffect(() => {
         if (location.pathname !== locationString) {
@@ -34,14 +34,14 @@ const Breadcrumber = ({ title, setRouteBreadcumRender }) => {
         }
     }, [location.pathname]);
 
-    const routeToHome = () => {
-        navigate('/');
-        setRouteBreadcumRender('/');
-    };
+    // const routeToHome = () => {
+    //     navigate('/');
+    //     setRouteBreadcumRender('/');
+    // };
 
-    const routeToLink = () => {
-        navigate(location.pathname);
-    };
+    // const routeToLink = () => {
+    //     navigate(location.pathname);
+    // };
     function isPositiveInteger(x) {
         return /^\+?\d+$/.test(x);
     }

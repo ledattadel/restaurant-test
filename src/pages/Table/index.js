@@ -23,9 +23,7 @@ const Table = () => {
 
     return (
         <div>
-            <Row justify="space-between" align="middle" gutter={[12, 16]}>
-                {products}
-            </Row>
+            <Row gutter={[12, 16]}>{products}</Row>
         </div>
     );
 };

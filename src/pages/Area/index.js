@@ -36,7 +36,7 @@ const AreaManagement = () => {
 
     return (
         <div>
-            <Row justify="space-between" align="middle" gutter={[12, 16]}>
+            <Row gutter={[12, 16]}>
                 {areas.data &&
                     areas.data.map((v) => {
                         return (
