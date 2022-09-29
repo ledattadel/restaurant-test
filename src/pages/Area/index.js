@@ -1,5 +1,7 @@
 import * as React from 'react';
 import * as ReactRedux from 'react-redux';
+import { useNavigate, Link, useLocation } from 'react-router-dom';
+
 import ProductCard from '@/components/Card/Product';
 import './index.scss';
 import { Col, Row } from 'antd';
@@ -12,6 +14,7 @@ import { GLOBALTYPES } from '@/redux/actions/globalTypes';
 const AreaManagement = () => {
     const [listArea, setListArea] = React.useState(null);
     const [isDelete, setIsDelete] = React.useState(false);
+    const location = useLocation();
     const dispatch = ReactRedux.useDispatch();
     const { areas } = ReactRedux.useSelector((state) => state);
 
@@ -27,7 +30,7 @@ const AreaManagement = () => {
             path: `areas`,
             params: { companyId: 0 },
         });
-
+        setListArea(data);
         dispatch({
             type: GLOBALTYPES.LOADAREAS,
             payload: data,
@@ -37,8 +40,8 @@ const AreaManagement = () => {
     return (
         <div>
             <Row justify="space-between" align="middle" gutter={[12, 16]}>
-                {areas.data &&
-                    areas.data.map((v) => {
+                {listArea &&
+                    listArea.map((v) => {
                         return (
                             <Col
                                 key={v.id}

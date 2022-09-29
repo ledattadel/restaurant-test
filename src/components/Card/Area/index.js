@@ -1,13 +1,19 @@
 import React from 'react';
 import * as TableIcon from '@/assets/table-icon';
 import { useNavigate, Link, useLocation } from 'react-router-dom';
+import { GLOBALTYPES } from '@/redux/actions/globalTypes';
+import * as ReactRedux from 'react-redux';
 
 const AreaCard = ({ product }) => {
     const navigate = useNavigate();
-
+    const dispatch = ReactRedux.useDispatch();
     const handleClick = (e) => {
         e.preventDefault();
         console.log(product);
+        dispatch({
+            type: GLOBALTYPES.LOADAREAS,
+            payload: product.id,
+        });
         navigate(`/area/table/${product.id}`);
     };
     return (

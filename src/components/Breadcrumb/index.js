@@ -27,6 +27,8 @@ const Breadcrumber = ({ title, setRouteBreadcumRender }) => {
     const [locationString, setLocationString] = React.useState(null);
     const [locationComponent, setLocationComponent] = React.useState(<></>);
     const [breadcrumbString, setBreadcrumbString] = React.useState([]);
+    const [address, setAddress] = React.useState(null);
+    const [btnName, setBtnName] = React.useState(null);
 
     React.useEffect(() => {
         if (location.pathname !== locationString) {
@@ -88,6 +90,7 @@ const Breadcrumber = ({ title, setRouteBreadcumRender }) => {
                             {breadcrumb[j].label}
                         </li>,
                     );
+
                     check = true;
                 } else if (i === arrRouter.length - 1 && arrRouter[i] === breadcrumb[j].link) {
                     arrComponent.push(
@@ -100,6 +103,8 @@ const Breadcrumber = ({ title, setRouteBreadcumRender }) => {
                             {breadcrumb[j].label}
                         </li>,
                     );
+                    setAddress(breadcrumb[j].link);
+                    setBtnName(breadcrumb[j].button);
                     break loop1;
                 } else if (arrRouter[i] === breadcrumb[j].link && !check) {
                     arr = arr + breadcrumb[j].label + '/';
@@ -151,8 +156,8 @@ const Breadcrumber = ({ title, setRouteBreadcumRender }) => {
                 </li> */}
                 {locationComponent}
             </ul>
-            {/* 
-            <Menu address={address.key} button={address.button} /> */}
+
+            <Menu address={address} button={btnName} />
         </div>
     );
 };

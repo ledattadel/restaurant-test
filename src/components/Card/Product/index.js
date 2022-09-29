@@ -13,7 +13,7 @@ const ProductCard = ({ DeleteDish, product, img }) => {
         DeleteDish(product.id);
         message.info('Xóa thành công');
     };
-    console.log(product);
+    // console.log(product);
     return (
         <Card
             hoverable

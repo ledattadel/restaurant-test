@@ -5,6 +5,7 @@ import { Col, Row } from 'antd';
 import { CategoryCard } from '@/components';
 import { postDataAPI, getDataAPI, getWithParams, deleteWithParams, putDataAPI, getImage } from '@/utils/fetchData';
 import { GLOBALTYPES } from '@/redux/actions/globalTypes';
+import ModalComponent from '@/components/ModalComponent';
 
 const Category = () => {
     const [listCate, setListCate] = React.useState(null);
@@ -40,7 +41,7 @@ const Category = () => {
     return (
         <div className="category">
             <Row gutter={[window.innerWidth / 60, window.innerWidth / 60]}>
-                {category.data &&
+                {category.data ? (
                     category.data.map((v) => {
                         return (
                             <Col
@@ -54,7 +55,10 @@ const Category = () => {
                                 <CategoryCard img={v.image} category={v} />
                             </Col>
                         );
-                    })}
+                    })
+                ) : (
+                    <></>
+                )}
             </Row>
         </div>
     );

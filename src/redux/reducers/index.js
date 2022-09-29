@@ -6,6 +6,8 @@ import order from './orderReducer';
 import routing from './routingReducer';
 import category from './categoryReducer';
 import areas from './areasReducer';
+import tables from './tableReducer';
+import functions from './functionReducer';
 
 export default combineReducers({
     auth,
@@ -15,4 +17,6 @@ export default combineReducers({
     routing,
     category,
     areas,
+    tables,
+    functions,
 });

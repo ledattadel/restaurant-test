@@ -33,6 +33,7 @@ export { default as FormAddOffer } from '@/components/Form/FormAddOffer';
 export { default as FormEditDish } from '@/components/Form/FormEditDish';
 export { default as FormMenu } from '@/components/Form/FormMenu';
 export { default as FormShowOrder } from '@/components/Form/FormShowOrder';
+export { default as FormAddTable } from '@/components/Form/FormAddTable';
 
 // Table
 export { default as DataTable } from '@/components/Table/DataTable';

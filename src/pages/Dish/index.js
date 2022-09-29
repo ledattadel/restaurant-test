@@ -10,30 +10,29 @@ import axios from 'axios';
 // test api
 import { postDataAPI, getDataAPI, getWithParams, deleteWithParams, putDataAPI, getImage } from '@/utils/fetchData';
 
-const Dish = React.memo(() => {
-    const [listDish, setListDish] = React.useState(null);
+const Dish = () => {
+    const [listDish, setListDish] = React.useState([]);
     const [isDelete, setIsDelete] = React.useState(false);
     const { dish } = ReactRedux.useSelector((state) => state);
 
     const dispatch = ReactRedux.useDispatch();
 
-    const getAllDishes = async () => {
-        let currentUser = JSON.parse(localStorage.getItem('user'));
-        let { data } = await getWithParams({
-            path: `dishes`,
-            params: { companyId: currentUser.companyId },
-        });
-        dispatch({
-            type: GLOBALTYPES.LOADDISH,
-            payload: data,
-        });
-    };
-
     React.useEffect(() => {
-        if (listDish === null || isDelete) {
-            getAllDishes();
+        const getAllDishes = async () => {
+            let currentUser = JSON.parse(localStorage.getItem('user'));
+            let { data } = await getWithParams({
+                path: `dishes`,
+                params: { companyId: currentUser.companyId },
+            });
+            console.log(data);
+            setListDish(data);
+            dispatch({
+                type: GLOBALTYPES.LOADDISH,
+                payload: data,
+            });
             setIsDelete(false);
-        }
+        };
+        getAllDishes();
     }, [isDelete]);
     const DeleteDish = (id) => {
         dispatch(DishAction.deleteDish(id));
@@ -42,9 +41,9 @@ const Dish = React.memo(() => {
 
     return (
         <div className="dish">
-            {dish.data && (
-                <Row gutter={[window.innerWidth / 60, window.innerWidth / 60]}>
-                    {dish.data.map((v) => {
+            <Row gutter={[window.innerWidth / 60, window.innerWidth / 60]}>
+                {dish.data ? (
+                    dish.data.map((v) => {
                         return (
                             <Col
                                 key={v.id}
@@ -57,11 +56,13 @@ const Dish = React.memo(() => {
                                 <ProductCard DeleteDish={DeleteDish} product={v} img={v.image} />
                             </Col>
                         );
-                    })}
-                </Row>
-            )}
+                    })
+                ) : (
+                    <></>
+                )}
+            </Row>
         </div>
     );
-});
+};
 
 export default Dish;
