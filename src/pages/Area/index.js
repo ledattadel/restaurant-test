@@ -39,9 +39,9 @@ const AreaManagement = () => {
 
     return (
         <div>
-            <Row justify="space-between" align="middle" gutter={[12, 16]}>
-                {listArea &&
-                    listArea.map((v) => {
+            <Row gutter={[12, 16]}>
+                {areas.data &&
+                    areas.data.map((v) => {
                         return (
                             <Col
                                 key={v.id}

@@ -19,7 +19,7 @@ const BreadcrumbMenu = ({ address, button }) => {
                 </Button>
             )}
             {address && address === 'dish' && <Sort />}
-            <DefaultModal visible={visible} setVisible={setVisible} />
+            <DefaultModal visible={visible} setVisible={setVisible} userProfile={false} />
         </div>
     );
 };

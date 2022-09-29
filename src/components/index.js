@@ -22,7 +22,6 @@ export { default as UserSetting } from '@/components/Layout/DefaultLayout/Header
 export { default as DefaultHeader } from '@/components/Layout/DefaultLayout/Header';
 
 // Form
-export { default as EditToolbar } from '@/components/Form/EditToolBar';
 export { default as FormAddAccount } from '@/components/Form/FormAddAccount';
 export { default as FormAddArea } from '@/components/Form/FormAddArea';
 export { default as FormAddDish } from '@/components/Form/FormAddDish';
@@ -31,6 +30,7 @@ export { default as FormAddCustomer } from '@/components/Form/FormAddCustomer';
 export { default as FormAddPromotion } from '@/components/Form/FormAddPromotion';
 export { default as FormAddOffer } from '@/components/Form/FormAddOffer';
 export { default as FormEditDish } from '@/components/Form/FormEditDish';
+export { default as FormEditProfile } from '@/components/Form/FormEditProfile';
 export { default as FormMenu } from '@/components/Form/FormMenu';
 export { default as FormShowOrder } from '@/components/Form/FormShowOrder';
 export { default as FormAddTable } from '@/components/Form/FormAddTable';

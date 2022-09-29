@@ -8,37 +8,11 @@ import {
     FormAddCustomer,
     FormAddDish,
     FormAddPromotion,
-    FormAddTable,
+    FormEditProfile,
 } from '@/components';
 import constants from '@/constants';
 
-const breadcrumb = [
-    {
-        key: 1,
-        link: '/',
-        label: 'Trang chủ',
-        button: '',
-        table: '',
-    },
-    { key: 2, link: '/category', label: 'Quản lý danh mục', button: 'Thêm danh mục', table: '' },
-    { key: 3, link: '/dish', label: 'Quản lý món ăn', button: 'Tạo món mới', table: '' },
-    { key: 4, link: '/area', label: 'Quản lý khu vực bàn', button: 'Tạo khu vực', table: '' },
-    { key: 5, link: '/table', label: 'Chi tiết bàn', button: 'Tạo bàn', table: '' },
-    { key: 6, link: '/account', label: 'Quản lý nhân viên', button: 'Thêm nhân viên', table: 'Danh sách nhân viên' },
-    {
-        key: 7,
-        link: '/customer',
-        label: 'Quản lý khách hàng',
-        button: 'Thêm khách hàng',
-        table: 'Danh sách khách hàng',
-    },
-    { key: 8, link: '/promotion', label: 'Khuyến mãi', button: 'Thêm khuyến mãi', table: 'Danh sách khuyến mãi' },
-    { key: 9, link: '/invoice', label: 'Hóa đơn', button: '', table: 'Danh sách hóa đơn' },
-];
-
-const DefaultModal = ({ visible, setVisible }) => {
-    const [locationString, setLocationString] = React.useState(null);
-    const [numberArea, setNumberArea] = React.useState(null);
+const DefaultModal = ({ visible, setVisible, userProfile }) => {
     const location = useLocation();
 
     // const addDishRef = React.useRef(null);
@@ -46,33 +20,7 @@ const DefaultModal = ({ visible, setVisible }) => {
     // const dispatch = ReactRedux.useDispatch();
     // // dish
 
-    React.useEffect(() => {
-        if (location.pathname !== locationString) {
-            getRoute();
-        }
-    }, [location.pathname]);
-
-    const getRoute = () => {
-        let arrLocation = location.pathname.split('/');
-        let elementExactlyLocation = arrLocation[arrLocation.length - 1];
-
-        if (isPositiveInteger(elementExactlyLocation)) {
-            setNumberArea(parseInt(elementExactlyLocation));
-            setLocationString('/table');
-            return;
-        } else {
-            const labelForm = breadcrumb.find((v) => v.link === location.pathname).link;
-            setNumberArea(null);
-            setLocationString(labelForm);
-            return;
-        }
-        setLocationString('/');
-    };
-
-    function isPositiveInteger(x) {
-        return /^\+?\d+$/.test(x);
-    }
-
+    const labelForm = constants?.breadcrumb?.find((v) => v.key === location.pathname);
     const [form] = Form.useForm();
 
     const handleSubmitDish = (values) => {
@@ -109,8 +57,6 @@ const DefaultModal = ({ visible, setVisible }) => {
                 return window.innerWidth / 2.5;
             case '/account':
                 return window.innerWidth / 2.5;
-            case '/table':
-                return window.innerWidth / 2.5;
             default:
                 return '300px';
         }
@@ -128,8 +74,6 @@ const DefaultModal = ({ visible, setVisible }) => {
                 return <FormAddCustomer visible={visible} setVisible={setVisible} />;
             case '/dish':
                 return <FormAddDish visible={visible} setVisible={setVisible} />;
-            case '/table':
-                return <FormAddTable visible={visible} setVisible={setVisible} id={numberArea} />;
             case '/promotion':
                 return <FormAddPromotion visible={visible} setVisible={setVisible} />;
             default:
@@ -147,7 +91,7 @@ const DefaultModal = ({ visible, setVisible }) => {
             // onCancel={handleCancel}
             // onOk={form.submit}
             footer={null}
-            width={switchWidthForm(locationString)}
+            width={userProfile ? window.innerWidth / 2.5 : switchWidthForm(labelForm.key)}
             // footer={[
             //     <Button type="primary" className="modal__btn modal__btn-cancel" onClick={handleCancel}>
             //         Hủy
@@ -157,7 +101,13 @@ const DefaultModal = ({ visible, setVisible }) => {
             //     </Button>,
             // ]}
         >
-            {locationString ? switchForm(locationString) : <></>}
+            {userProfile ? (
+                <FormEditProfile visible={visible} setVisible={setVisible} />
+            ) : labelForm.label.length > 0 ? (
+                switchForm(labelForm.key)
+            ) : (
+                <></>
+            )}
         </Modal>
     );
 };
