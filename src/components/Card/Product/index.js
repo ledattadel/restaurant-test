@@ -4,14 +4,28 @@ import { message, Popconfirm } from 'antd';
 import * as fetchData from '@/utils/fetchData';
 import * as ReactRedux from 'react-redux';
 import * as DishAction from '@/redux/actions/dishAction';
+import ModalComponent from '@/components/ModalComponent';
+import FormEditDish from '@/components/Form/FormEditDish';
+import { GLOBALTYPES } from '@/redux/actions/globalTypes';
+
+import { postDataAPI, getDataAPI, getWithParams, deleteWithParams, putDataAPI, getImage } from '@/utils/fetchData';
 
 const text = 'Bạn muốn xóa món này?';
 const ProductCard = ({ DeleteDish, product, img }) => {
+    const [openModalUpdate, setOpenModalUpdate] = React.useState(false);
+    const [hoverBtn, setHoverBtn] = React.useState(false);
+    const [visible, setVisible] = React.useState(false);
+
     const dispatch = ReactRedux.useDispatch();
 
     const confirm = () => {
         DeleteDish(product.id);
         message.info('Xóa thành công');
+    };
+
+    const updateDish = (product) => {
+        console.log(product);
+        setVisible(true);
     };
     // console.log(product);
     return (
@@ -81,10 +95,21 @@ const ProductCard = ({ DeleteDish, product, img }) => {
                         </Popconfirm>
                     </Col>
                     <Col className="space-btn">
-                        <Button className="product-card__info__btn product-card__info__btn-edit">Chỉnh sửa</Button>
+                        <Button
+                            onClick={() => updateDish(product)}
+                            className="product-card__info__btn product-card__info__btn-edit"
+                        >
+                            Chỉnh sửa
+                        </Button>
                     </Col>
                 </Row>
             </div>
+            <ModalComponent
+                visible={visible}
+                setVisible={setVisible}
+                width={window.innerWidth / 2}
+                componentForm={<FormEditDish data={product} visible={visible} setVisible={setVisible}></FormEditDish>}
+            />
         </Card>
     );
 };

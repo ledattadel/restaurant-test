@@ -74,21 +74,34 @@ export const submitDish = (payload) => async (dispatch) => {
     }
 };
 
-export const submitMenu = (payload) => async (dispatch) => {
+export const submitMenu = (payload, event) => async (dispatch) => {
     try {
         const currentUser = JSON.parse(localStorage.getItem('user'));
 
         console.log('payload', payload);
-        const api = await postDataAPIWithFile('menus', payload);
-        const { data } = await getWithParams({
-            path: `menus`,
-            params: { companyId: currentUser.companyId },
-        });
-        dispatch({
-            type: GLOBALTYPES.LOADCATE,
-            payload: data,
-        });
-        return api;
+        if (event === 'add') {
+            const api = await postDataAPIWithFile('menus', payload);
+            const { data } = await getWithParams({
+                path: `menus`,
+                params: { companyId: currentUser.companyId },
+            });
+            dispatch({
+                type: GLOBALTYPES.LOADCATE,
+                payload: data,
+            });
+            return api;
+        } else if (event === 'edit') {
+            const api = await postDataAPIWithFile('menus', payload);
+            const { data } = await getWithParams({
+                path: `menus`,
+                params: { companyId: currentUser.companyId },
+            });
+            dispatch({
+                type: GLOBALTYPES.LOADCATE,
+                payload: data,
+            });
+            return api;
+        }
     } catch (error) {
         console.log(error);
     }

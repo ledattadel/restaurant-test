@@ -3,6 +3,7 @@ import * as React from 'react';
 import EditCategoryIcon from '@/assets/edit-category-icon';
 import ModalComponent from '@/components/ModalComponent';
 import FormAddCategory from '@/components/Form/FormAddCategory';
+import FormEditCategory from '@/components/Form/FormEditCategory';
 import * as ReactRedux from 'react-redux';
 import { postDataAPI, getDataAPI, getWithParams, deleteWithParams, putDataAPI, getImage } from '@/utils/fetchData';
 import { GLOBALTYPES } from '@/redux/actions/globalTypes';
@@ -11,6 +12,8 @@ import { useRef } from 'react';
 const CategoryCard = ({ category, img }) => {
     const [openModalUpdate, setOpenModalUpdate] = React.useState(false);
     const [hoverBtn, setHoverBtn] = React.useState(false);
+    const [visible, setVisible] = React.useState(false);
+
     const { functions } = ReactRedux.useSelector((state) => state);
     const modalRef = useRef();
     const dispatch = ReactRedux.useDispatch();
@@ -19,7 +22,7 @@ const CategoryCard = ({ category, img }) => {
 
     const updateCategory = (category) => {
         console.log(category);
-        modalRef.current.showModal();
+        setVisible(true);
     };
     return (
         <div className="category-card">
@@ -64,6 +67,14 @@ const CategoryCard = ({ category, img }) => {
                     </Col>
                 </Row>
             </div>
+            <ModalComponent
+                visible={visible}
+                setVisible={setVisible}
+                width={window.innerWidth / 2}
+                componentForm={
+                    <FormEditCategory data={category} visible={visible} setVisible={setVisible}></FormEditCategory>
+                }
+            />
         </div>
     );
 };

@@ -34,6 +34,7 @@ export { default as FormEditProfile } from '@/components/Form/FormEditProfile';
 export { default as FormMenu } from '@/components/Form/FormMenu';
 export { default as FormShowOrder } from '@/components/Form/FormShowOrder';
 export { default as FormAddTable } from '@/components/Form/FormAddTable';
+export { default as FormEditCategory } from '@/components/Form/FormEditCategory';
 
 // Table
 export { default as DataTable } from '@/components/Table/DataTable';

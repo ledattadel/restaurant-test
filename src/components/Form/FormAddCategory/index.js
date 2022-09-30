@@ -13,7 +13,7 @@ const FormAddCategory = ({ visible, setVisible, setAddnew }) => {
     const addCate = async (values) => {
         values.image = fileList[0].originFileObj;
         values.companyId = 0;
-        const api = await dispatch(DishAction.submitMenu(values));
+        const api = await dispatch(DishAction.submitMenu(values, 'add'));
 
         console.log(api);
     };

@@ -39,8 +39,10 @@
 import { Button, Modal } from 'antd';
 import React, { useState } from 'react';
 
-const App = () => {
+const App = (props) => {
     const [isModalOpen, setIsModalOpen] = useState(false);
+
+    const { componentForm, visible, setVisible, width, data } = props;
 
     const showModal = () => {
         setIsModalOpen(true);
@@ -56,13 +58,8 @@ const App = () => {
 
     return (
         <>
-            <Button type="primary" onClick={showModal}>
-                Open Modal
-            </Button>
-            <Modal title="Basic Modal" open={isModalOpen} onOk={handleOk} onCancel={handleCancel}>
-                <p>Some contents...</p>
-                <p>Some contents...</p>
-                <p>Some contents...</p>
+            <Modal centered closable={false} footer={null} visible={visible} width={width ? width : ''}>
+                {componentForm}
             </Modal>
         </>
     );
