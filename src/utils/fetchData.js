@@ -47,7 +47,15 @@ export const deleteWithParamsId = async ({ path = '', params = {} }, id) => {
     let response = await httpRequest.delete(`/api/${path}/${id}?`, options);
     return response;
 };
-
+export const putDataAPIWithFile = async (path, id, data) => {
+    const config = {
+        baseURL: httpRequest.baseUrl,
+        withCredentials: false,
+        headers: { 'Content-Type': 'multipart/form-data', Authorization: 'Bearer ' + getToken() },
+    };
+    let response = await httpRequest.put(`/api/${path}/${id}?`, data, config);
+    return response;
+};
 export const putWithParamsId = async ({ path = '', params = {} }, id) => {
     const options = {
         params,
