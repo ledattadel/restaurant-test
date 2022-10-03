@@ -1,6 +1,5 @@
 import constants from '@/redux/constants/customer';
 import fetch from '@/service/customer';
-const currentUser = JSON.parse(localStorage.getItem('user'));
 
 const actions = {
     getCustomers: (search, take, page, sortName) => async (dispatch, getState) => {
@@ -8,7 +7,7 @@ const actions = {
             dispatch({ type: constants.CUSTOMER_ALL_REQUEST });
 
             const { data } = await fetch.GetCustomerALL({
-                companyId: currentUser.companyId || "137",
+                companyId: 137,
                 search,
                 take,
                 page,
