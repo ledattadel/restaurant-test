@@ -26,12 +26,12 @@ export const CustomerDetailReducer = (state = { customer: {} }, action) => {
     }
 };
 
-export const CustomerCreateReducer = (state = { customer: {} }, action) => {
+export const CustomerCreateReducer = (state = {}, action) => {
     switch (action.type) {
         case constants.CUSTOMER_CREATE_REQUEST:
             return { loading: true };
         case constants.CUSTOMER_CREATE_SUCCESS:
-            return { loading: false, success: true, customer: action.payload };
+            return { loading: false, success: true };
         case constants.CUSTOMER_CREATE_FAIL:
             return { loading: false, error: action.payload };
         case constants.CUSTOMER_CREATE_RESET:

@@ -107,7 +107,7 @@ const ProductCard = ({ DeleteDish, product, img }) => {
             <ModalComponent
                 visible={visible}
                 setVisible={setVisible}
-                width={window.innerWidth / 2}
+                width={window.innerWidth / 1.7}
                 componentForm={<FormEditDish data={product} visible={visible} setVisible={setVisible}></FormEditDish>}
             />
         </Card>

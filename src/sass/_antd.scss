@@ -6,6 +6,13 @@
     background: $main-color;
 }
 
+.ant-btn:focus,
+.ant-btn:hover {
+    color: $white;
+    border-color: $main-color;
+    background: $main-color;
+}
+
 // Card
 .ant-card-body {
     width: 100%;

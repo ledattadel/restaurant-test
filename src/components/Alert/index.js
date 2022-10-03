@@ -5,9 +5,8 @@ import toast, { Toaster } from 'react-hot-toast';
 import { GLOBALTYPES } from '@/redux/actions/globalTypes';
 
 const Alert = () => {
-    const { alert } = useSelector((state) => state);
-
     const dispatch = useDispatch();
+    const { alert } = useSelector((state) => state);
     const killNotify = () => dispatch({ type: GLOBALTYPES.ALERT, payload: {} });
 
     return (

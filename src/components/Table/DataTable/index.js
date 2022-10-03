@@ -7,12 +7,11 @@ import constants from '@/constants';
 
 const DataTable = ({ columns, data }) => {
     const location = useLocation();
-    const [selectedRowKeys, setSelectedRowKeys] = React.useState([]);
+    // const [selectedRowKeys, setSelectedRowKeys] = React.useState([]);
 
-    const onSelectChange = (newSelectedRowKeys) => {
-        setSelectedRowKeys(newSelectedRowKeys);
-    };
-
+    // const onSelectChange = (newSelectedRowKeys) => {
+    //     setSelectedRowKeys(newSelectedRowKeys);
+    // };
     const address = constants?.breadcrumb?.find((v) => v.key === location.pathname);
 
     const itemRender = (_, type, originalElement) => {
@@ -27,45 +26,45 @@ const DataTable = ({ columns, data }) => {
         return originalElement;
     };
 
-    const rowSelection = {
-        selectedRowKeys,
-        onChange: onSelectChange,
-        selections: [
-            Table.SELECTION_ALL,
-            Table.SELECTION_INVERT,
-            Table.SELECTION_NONE,
-            {
-                key: 'odd',
-                text: 'Select Odd Row',
-                onSelect: (changableRowKeys) => {
-                    let newSelectedRowKeys = [];
-                    newSelectedRowKeys = changableRowKeys.filter((_, index) => {
-                        if (index % 2 !== 0) {
-                            return false;
-                        }
+    // const rowSelection = {
+    //     selectedRowKeys,
+    //     onChange: onSelectChange,
+    //     selections: [
+    //         Table.SELECTION_ALL,
+    //         Table.SELECTION_INVERT,
+    //         Table.SELECTION_NONE,
+    //         {
+    //             key: 'odd',
+    //             text: 'Select Odd Row',
+    //             onSelect: (changableRowKeys) => {
+    //                 let newSelectedRowKeys = [];
+    //                 newSelectedRowKeys = changableRowKeys.filter((_, index) => {
+    //                     if (index % 2 !== 0) {
+    //                         return false;
+    //                     }
 
-                        return true;
-                    });
-                    setSelectedRowKeys(newSelectedRowKeys);
-                },
-            },
-            {
-                key: 'even',
-                text: 'Select Even Row',
-                onSelect: (changableRowKeys) => {
-                    let newSelectedRowKeys = [];
-                    newSelectedRowKeys = changableRowKeys.filter((_, index) => {
-                        if (index % 2 !== 0) {
-                            return true;
-                        }
+    //                     return true;
+    //                 });
+    //                 setSelectedRowKeys(newSelectedRowKeys);
+    //             },
+    //         },
+    //         {
+    //             key: 'even',
+    //             text: 'Select Even Row',
+    //             onSelect: (changableRowKeys) => {
+    //                 let newSelectedRowKeys = [];
+    //                 newSelectedRowKeys = changableRowKeys.filter((_, index) => {
+    //                     if (index % 2 !== 0) {
+    //                         return true;
+    //                     }
 
-                        return false;
-                    });
-                    setSelectedRowKeys(newSelectedRowKeys);
-                },
-            },
-        ],
-    };
+    //                     return false;
+    //                 });
+    //                 setSelectedRowKeys(newSelectedRowKeys);
+    //             },
+    //         },
+    //     ],
+    // };
     return (
         <div className="data-table">
             <Row className="data-table__header">
@@ -82,6 +81,7 @@ const DataTable = ({ columns, data }) => {
                 columns={columns}
                 dataSource={data}
                 pagination={{ itemRender: itemRender }}
+                rowKey={(record) => record.id}
             />
         </div>
     );

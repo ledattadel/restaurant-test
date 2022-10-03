@@ -1,5 +1,22 @@
 import constants from '@/redux/constants/customer';
 import fetch from '@/service/customer';
+import { notification } from 'antd';
+
+const openNotificationError = (message) => {
+    notification.error({
+        message: `Faild`,
+        description: `${message}`,
+        placement: 'topRight',
+    });
+};
+
+const openNotificationSucces = (message) => {
+    notification.success({
+        message: `Success`,
+        description: `${message}`,
+        placement: 'topRight',
+    });
+};
 
 const actions = {
     getCustomers: (search, take, page, sortName) => async (dispatch, getState) => {
@@ -23,6 +40,9 @@ const actions = {
                 type: constants.CUSTOMER_ALL_FAIL,
                 payload: error.response && error.response.data.message ? error.response.data.message : error.message,
             });
+            error.response && error.response.data.message
+                ? openNotificationError(error.response.data.message)
+                : openNotificationError(error.message);
         }
     },
 
@@ -41,6 +61,9 @@ const actions = {
                 type: constants.CUSTOMER_DETAIL_FAIL,
                 payload: error.response && error.response.data.message ? error.response.data.message : error.message,
             });
+            error.response && error.response.data.message
+                ? openNotificationError(error.response.data.message)
+                : openNotificationError(error.message);
         }
     },
 
@@ -54,13 +77,16 @@ const actions = {
 
             dispatch({
                 type: constants.CUSTOMER_CREATE_SUCCESS,
-                payload: data,
             });
+            openNotificationSucces('Create customer success.');
         } catch (error) {
             dispatch({
                 type: constants.CUSTOMER_CREATE_FAIL,
                 payload: error.response && error.response.data.message ? error.response.data.message : error.message,
             });
+            error.response && error.response.data.message
+                ? openNotificationError(error.response.data.message)
+                : openNotificationError(error.message);
         }
     },
 
@@ -72,15 +98,18 @@ const actions = {
 
             const { data } = await fetch.DeleteCustomer(id);
 
-            console.log(data);
             dispatch({
                 type: constants.CUSTOMER_DELETE_SUCCESS,
             });
+            openNotificationSucces('Delete customer success.');
         } catch (error) {
             dispatch({
                 type: constants.CUSTOMER_DELETE_FAIL,
                 payload: error.response && error.response.data.message ? error.response.data.message : error.message,
             });
+            error.response && error.response.data.message
+                ? openNotificationError(error.response.data.message)
+                : openNotificationError(error.message);
         }
     },
 
@@ -96,11 +125,15 @@ const actions = {
                 type: constants.CUSTOMER_UPDATE_SUCCESS,
                 payload: data,
             });
+            openNotificationSucces('Update customer success.');
         } catch (error) {
             dispatch({
                 type: constants.CUSTOMER_UPDATE_FAIL,
                 payload: error.response && error.response.data.message ? error.response.data.message : error.message,
             });
+            error.response && error.response.data.message
+                ? openNotificationError(error.response.data.message)
+                : openNotificationError(error.message);
         }
     },
 };
