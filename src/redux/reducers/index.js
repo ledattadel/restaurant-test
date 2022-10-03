@@ -27,7 +27,6 @@ export default combineReducers({
     tables,
     functions,
 
-    // Customer Reducer
     CustomerAll: CustomerAllReducer,
     CustomerCreate: CustomerCreateReducer,
     CustomerDelete: CustomerDeleteReducer,

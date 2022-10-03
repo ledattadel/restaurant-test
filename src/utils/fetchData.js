@@ -94,17 +94,6 @@ export const postDataAPI = async (url, post) => {
     console.log('res', res);
     return res;
 };
-
-export const putDataAPIWithFile = async (url, post, id) => {
-    console.log('path', url);
-    console.log('params', post);
-    const res = await httpRequest.put(`/api/${url}/${id}`, post, {
-        headers: { 'Content-Type': 'multipart/form-data', authorization: 'Bearer ' + getToken() },
-    });
-    console.log('res', res);
-    return res;
-};
-
 export const postDataAPIWithFile = async (url, post) => {
     console.log('path', url);
     console.log('params', post);
