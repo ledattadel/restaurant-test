@@ -4,15 +4,12 @@
     align-items: flex-start;
     width: 100%;
     min-height: 260px;
-    background: #FFFFFF;
+    background: #ffffff;
     box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.25);
     border-radius: $br-card;
 
     &__img {
-        max-height: 200px;
-        min-width: 100%;
-        min-height: 100%;
-        border-radius: $br-img  !important;
+        border-radius: $br-img !important;
     }
 
     &__info {

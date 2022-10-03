@@ -1,10 +1,29 @@
 import { Col, Row } from 'antd';
-import React from 'react';
+import * as React from 'react';
 import EditCategoryIcon from '@/assets/edit-category-icon';
+import ModalComponent from '@/components/ModalComponent';
+import FormAddCategory from '@/components/Form/FormAddCategory';
+import FormEditCategory from '@/components/Form/FormEditCategory';
+import * as ReactRedux from 'react-redux';
+import { postDataAPI, getDataAPI, getWithParams, deleteWithParams, putDataAPI, getImage } from '@/utils/fetchData';
+import { GLOBALTYPES } from '@/redux/actions/globalTypes';
+import { useRef } from 'react';
 
 const CategoryCard = ({ category, img }) => {
+    const [openModalUpdate, setOpenModalUpdate] = React.useState(false);
     const [hoverBtn, setHoverBtn] = React.useState(false);
+    const [visible, setVisible] = React.useState(false);
 
+    const { functions } = ReactRedux.useSelector((state) => state);
+    const modalRef = useRef();
+    const dispatch = ReactRedux.useDispatch();
+
+    React.useEffect(() => {}, [openModalUpdate]);
+
+    const updateCategory = (category) => {
+        console.log('category', category);
+        setVisible(true);
+    };
     return (
         <div className="category-card">
             <div className="category-card__cover">
@@ -25,6 +44,7 @@ const CategoryCard = ({ category, img }) => {
                             onMouseOut={() => {
                                 setHoverBtn(false);
                             }}
+                            onClick={() => updateCategory(category)}
                         >
                             <EditCategoryIcon color={hoverBtn ? '#F78B2D' : 'white'} />
                         </button>
@@ -47,6 +67,14 @@ const CategoryCard = ({ category, img }) => {
                     </Col>
                 </Row>
             </div>
+            <ModalComponent
+                visible={visible}
+                setVisible={setVisible}
+                width={window.innerWidth / 2}
+                componentForm={
+                    <FormEditCategory data={category} visible={visible} setVisible={setVisible}></FormEditCategory>
+                }
+            />
         </div>
     );
 };

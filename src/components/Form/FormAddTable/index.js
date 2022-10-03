@@ -3,6 +3,7 @@ import { Button, Col, Form, Row, Typography, Radio } from 'antd';
 // import Radio from '@/components/Button/Radio';
 import * as ReactRedux from 'react-redux';
 import * as AreaAction from '@/redux/actions/areaAction';
+import * as TableAction from '@/redux/actions/tableAction';
 import { SettingsBrightnessOutlined } from '@mui/icons-material';
 const { Title } = Typography;
 
@@ -50,7 +51,7 @@ const FormAddArea = ({ visible, setVisible, setAddnew }) => {
     return (
         <div className="add-dish">
             <Title level={3} className="add-dish__title">
-                Tạo khu vực bàn
+                Tạo bàn
             </Title>
             <Form onFinish={onFinish} onFinishFailed={onFinishFailed} className="add-dish__form" layout="vertical">
                 <Row gutter={[24, 0]}>
@@ -59,9 +60,9 @@ const FormAddArea = ({ visible, setVisible, setAddnew }) => {
                             <Col span={12}>
                                 <div className="add-dish__form-left">
                                     <Form.Item
-                                        label="Tên khu vực"
+                                        label="Tên bàn"
                                         name="name"
-                                        rules={[{ required: true, message: 'Vui lòng nhập tên khu vực!' }]}
+                                        rules={[{ required: true, message: 'Vui lòng nhập tên bàn!' }]}
                                     >
                                         <input
                                             className="add-dish__form__input add-dish__form__input-name"

@@ -13,6 +13,7 @@ import dish from './dishReducer';
 import order from './orderReducer';
 import routing from './routingReducer';
 
+
 export default combineReducers({
     auth,
     alert,
@@ -21,10 +22,10 @@ export default combineReducers({
     order,
     routing,
 
-    // Customer Reducer
     CustomerAll: CustomerAllReducer,
     CustomerCreate: CustomerCreateReducer,
     CustomerDelete: CustomerDeleteReducer,
     CustomerDetail: CustomerDetailReducer,
     CustomerUpdate: CustomerUpdateReducer,
+
 });

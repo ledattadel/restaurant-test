@@ -28,8 +28,8 @@ const constants = {
             table: '',
         },
         {
-            key: '/area/table',
-            label: 'Quản lý khu vực bàn / Chi tiết bàn',
+            key: '/area/table/',
+            label: 'Chi tiết bàn',
             button: 'Tạo bàn',
             table: '',
         },

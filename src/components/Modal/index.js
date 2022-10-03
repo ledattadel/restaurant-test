@@ -8,10 +8,11 @@ import {
     FormAddCustomer,
     FormAddDish,
     FormAddPromotion,
+    FormEditProfile,
 } from '@/components';
 import constants from '@/constants';
 
-const DefaultModal = ({ visible, setVisible }) => {
+const DefaultModal = ({ visible, setVisible, userProfile }) => {
     const location = useLocation();
 
     // const addDishRef = React.useRef(null);
@@ -19,7 +20,9 @@ const DefaultModal = ({ visible, setVisible }) => {
     // const dispatch = ReactRedux.useDispatch();
     // // dish
 
-    const labelForm = constants?.breadcrumb?.find((v) => v.key === location.pathname);
+    const labelForm = constants?.breadcrumb?.find((v) => v.key === location.pathname)
+        ? constants?.breadcrumb?.find((v) => v.key === location.pathname)
+        : '';
     const [form] = Form.useForm();
 
     const handleSubmitDish = (values) => {
@@ -90,7 +93,7 @@ const DefaultModal = ({ visible, setVisible }) => {
             // onCancel={handleCancel}
             // onOk={form.submit}
             footer={null}
-            width={switchWidthForm(labelForm.key)}
+            width={userProfile ? window.innerWidth / 2.5 : switchWidthForm(labelForm.key)}
             // footer={[
             //     <Button type="primary" className="modal__btn modal__btn-cancel" onClick={handleCancel}>
             //         Hủy
@@ -100,7 +103,13 @@ const DefaultModal = ({ visible, setVisible }) => {
             //     </Button>,
             // ]}
         >
-            {labelForm.label.length > 0 ? switchForm(labelForm.key) : <></>}
+            {userProfile ? (
+                <FormEditProfile visible={visible} setVisible={setVisible} />
+            ) : labelForm ? (
+                switchForm(labelForm.key)
+            ) : (
+                <></>
+            )}
         </Modal>
     );
 };

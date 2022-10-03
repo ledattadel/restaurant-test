@@ -4,7 +4,7 @@ import PhotoIcon from '@/assets/photo-icon';
 import UploadIcon from '@/assets/upload-icon';
 import { Upload, Button } from 'antd';
 
-const Dragger = ({ fileList, setFileList }) => {
+const Dragger = ({ fileList, setFileList, img }) => {
     const onChange = ({ fileList: newFileList }) => {
         setFileList(newFileList);
     };
@@ -33,7 +33,7 @@ const Dragger = ({ fileList, setFileList }) => {
                             <PhotoIcon />
                             <div className="dragger__button">
                                 <UploadIcon />
-                                <p> Tải ảnh món ăn</p>
+                                <p> Thay ảnh món ăn</p>
                             </div>
                         </div>
                     )}

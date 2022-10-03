@@ -7,6 +7,8 @@ import {
     postDataAPIWithFile,
     getNoneParams,
     deleteWithParamsId,
+    putWithParamsId,
+    putDataAPIWithFile,
 } from '@/utils/fetchData';
 import * as DishReducer from '../reducers/dishReducer';
 import { GLOBALTYPES } from './globalTypes';
@@ -31,7 +33,7 @@ export const getAllDishes = (payload) => async (dispatch) => {
 export const getStatuses = async () => {
     try {
         const { data } = await getNoneParams({
-            path: `dishes/statuses`,
+            path: `dish-status`,
         });
 
         return data;
@@ -44,7 +46,7 @@ export const getMenu = async () => {
         const currentUser = JSON.parse(localStorage.getItem('user'));
 
         const { data } = await getWithParams({
-            path: `dishes/menus`,
+            path: `menus`,
             params: { companyId: currentUser.companyId },
         });
 
@@ -65,23 +67,24 @@ export const submitDish = (payload) => async (dispatch) => {
             params: { companyId: currentUser.companyId },
         });
 
-        dispatch({ type: GLOBALTYPES.LOADDISH, payload: data });
+        dispatch({ type: GLOBALTYPES.LOADDISH, payload: true });
 
         return api;
     } catch (error) {
         console.log(error);
-        dispatch({ type: GLOBALTYPES.LOADDISH, payload: { loaddish: false } });
+        dispatch({ type: GLOBALTYPES.LOADDISH, payload: false });
     }
 };
 
-export const submitMenu = (payload) => async (dispatch) => {
+export const submitMenu = (payload, event) => async (dispatch) => {
     try {
         const currentUser = JSON.parse(localStorage.getItem('user'));
 
         console.log('payload', payload);
-        const api = await postDataAPIWithFile('dishes/menu', payload);
+
+        const api = await postDataAPIWithFile('menus', payload);
         const { data } = await getWithParams({
-            path: `dishes/menus`,
+            path: `menus`,
             params: { companyId: currentUser.companyId },
         });
         dispatch({
@@ -93,26 +96,27 @@ export const submitMenu = (payload) => async (dispatch) => {
         console.log(error);
     }
 };
+export const editMenu = (payload, id) => async (dispatch) => {
+    try {
+        const currentUser = JSON.parse(localStorage.getItem('user'));
 
-// export const deleteImage = (imgName) => async dispatch => {
-//     try {
-//         const response = await deletePhotoApi(imgName);
-//         dispatch({ type: DELETE_IMAGE_SUCCESS, payload: response });
-//         return response;
-//     } catch(error) {
-//         dispatch({type: DELETE_IMAGE_ERROR, payload: error.data});
-//     }
-// }
+        console.log('payload', payload);
 
-// export const uploadImage = (payload) => async dispatch => {
-//     try {
-//         const response = await uploadImageApi(payload.picture);
-//         dispatch({ type: UPLOAD_IMAGE_SUCCESS, payload: response });
-//         return response;
-//     } catch(error) {
-//         dispatch({type: UPLOAD_IMAGE_ERROR, payload: error.data});
-//     }
-// }
+        const api = await putDataAPIWithFile('menus', payload, id);
+        console.log('isUpdateSuccess:', api);
+        const { data } = await getWithParams({
+            path: `menus`,
+            params: { companyId: currentUser.companyId },
+        });
+        dispatch({
+            type: GLOBALTYPES.LOADCATE,
+            payload: data,
+        });
+        return api;
+    } catch (error) {
+        console.log(error);
+    }
+};
 
 export const deleteDish = (id) => async (dispatch) => {
     try {
@@ -135,7 +139,3 @@ export const deleteDish = (id) => async (dispatch) => {
         });
     }
 };
-
-// export const initFormData = (payload) => dispatch => {
-//     // dispatch({ type: payload.id ? EDIT_DISH : INIT_DISH, payload: mapToViewModel(payload) });
-// }

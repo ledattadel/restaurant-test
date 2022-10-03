@@ -1,13 +1,15 @@
 import { Button, DatePicker, Form, Typography, Row, Col, Select, Radio } from 'antd';
+import { EyeOpen, EyeClosed } from 'akar-icons';
 import React from 'react';
 
 const { Title } = Typography;
 const { Option } = Select;
 
-const FormAddAccount = React.forwardRef((props, ref) => {
+const FormEditProfile = React.forwardRef((props, ref) => {
     const { visible, setVisible } = props;
-
     const [value, setValue] = React.useState([]);
+    const [typePass, setTypePass] = React.useState(false);
+
     const selectProps = {
         mode: 'multiple',
         value,
@@ -23,7 +25,7 @@ const FormAddAccount = React.forwardRef((props, ref) => {
     return (
         <div className="add-account">
             <Title level={3} className="add-account__title">
-                Thêm khuyến mãi
+                Thông tin nhân viên
             </Title>
             <Form onFinish={onFinish} onFinishFailed={onFinishFailed} className="add-category__form" layout="vertical">
                 <Row gutter={[18, 0]}>
@@ -117,16 +119,31 @@ const FormAddAccount = React.forwardRef((props, ref) => {
                     </Col>
                     <Col xs={24} lg={12}>
                         <Form.Item
-                            label="Vị trí"
-                            name="positionY"
-                            rules={[{ required: true, message: 'Vui lòng chọn vị Trí!' }]}
+                            label="Mật khẩu"
+                            name="password"
+                            rules={[{ required: true, message: 'Vui lòng nhập mật khẩu!' }]}
                         >
-                            <Select placeholder="Chọn vị Trí">
-                                <Option value="Quản lý">Quản lý</Option>
-                                <Option value="Thu ngân">Thu ngân</Option>
-                                <Option value="Phục vụ">Phục vụ</Option>
-                                <Option value="Đầu bếp">Đầu bếp</Option>
-                            </Select>
+                            <div className="pass">
+                                <input
+                                    name="password"
+                                    type={typePass ? 'text' : 'password'}
+                                    className="add-promotion__form__input add-promotion__form__input-discount"
+                                    placeholder="Mật khẩu"
+                                />
+
+                                <div
+                                    className="icon-showPassword"
+                                    onClick={() => {
+                                        setTypePass(!typePass);
+                                    }}
+                                >
+                                    {typePass ? (
+                                        <EyeOpen className="add-promotion__form__icon" style={{ color: 'F78B2D' }} />
+                                    ) : (
+                                        <EyeClosed className="add-promotion__form__icon" style={{ color: 'A3A3A3' }} />
+                                    )}
+                                </div>
+                            </div>
                         </Form.Item>
                     </Col>
                 </Row>
@@ -161,4 +178,4 @@ const FormAddAccount = React.forwardRef((props, ref) => {
     );
 });
 
-export default FormAddAccount;
+export default FormEditProfile;

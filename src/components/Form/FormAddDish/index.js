@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Col, Form, Row, Typography, Button, Radio, Select  } from 'antd';
+import { Col, Form, Row, Typography, Button, Radio, Select } from 'antd';
 import Dragger from '@/components/Dragger';
 import RadioComponent from '@/components/Button/Radio';
 import SelectBox from '@/components/SelectBox';
@@ -28,10 +28,12 @@ const FormAddDish = React.forwardRef((props, ref) => {
     // }));
 
     const addDish = async (values) => {
-        values.image = fileList[0].originFileObj;
-        values.companyId = 0;
-        values.adminId = 1;
+        const currentUser = JSON.parse(localStorage.getItem('user'));
         values.menuId = category;
+        values.adminId = 1;
+
+        values.image = fileList[0].originFileObj;
+        values.companyId = currentUser.companyId;
         const api = await dispatch(DishAction.submitDish(values));
 
         console.log(api);
@@ -163,7 +165,7 @@ const FormAddDish = React.forwardRef((props, ref) => {
                         <Dragger fileList={fileList} setFileList={setFileList} />
                     </Col>
                 </Row>
-                <div className='modal__controll' style={{  }}>
+                <div className="modal__controll" style={{}}>
                     <Button type="primary" onClick={() => setVisible(false)} className="modal__btn modal__btn-cancel">
                         Hủy
                     </Button>

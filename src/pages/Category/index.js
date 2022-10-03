@@ -5,6 +5,8 @@ import { Col, Row } from 'antd';
 import { CategoryCard } from '@/components';
 import { postDataAPI, getDataAPI, getWithParams, deleteWithParams, putDataAPI, getImage } from '@/utils/fetchData';
 import { GLOBALTYPES } from '@/redux/actions/globalTypes';
+import ModalComponent from '@/components/ModalComponent';
+import _ from 'lodash';
 
 const Category = () => {
     const [listCate, setListCate] = React.useState(null);
@@ -16,10 +18,10 @@ const Category = () => {
     const getAllCates = async () => {
         let currentUser = JSON.parse(localStorage.getItem('user'));
         let { data } = await getWithParams({
-            path: `dishes/menus`,
+            path: `menus`,
             params: { companyId: currentUser.companyId },
         });
-
+        setListCate(data);
         dispatch({
             type: GLOBALTYPES.LOADCATE,
             payload: data,
@@ -27,11 +29,11 @@ const Category = () => {
     };
 
     React.useEffect(() => {
-        if (listCate === null || isDelete) {
+        if (listCate === null || isDelete || !_.isEqual(category.data, listCate)) {
             getAllCates();
             setIsDelete(false);
         }
-    }, [isDelete]);
+    }, [category.data]);
     // const DeleteDish = (id) => {
     //     dispatch(DishAction.deleteDish(id));
     //     setIsDelete(true);
@@ -40,8 +42,8 @@ const Category = () => {
     return (
         <div className="category">
             <Row gutter={[window.innerWidth / 60, window.innerWidth / 60]}>
-                {category.data &&
-                    category.data.map((v) => {
+                {listCate &&
+                    listCate.map((v) => {
                         return (
                             <Col
                                 key={v.id}

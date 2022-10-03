@@ -7,7 +7,7 @@ export const login = (data) => async (dispatch) => {
         // console.log(res);
         const data = {
             adminId: 0,
-            companyId: 0,
+            companyId: 137,
         };
         localStorage.setItem('firstLogin', true);
         localStorage.setItem(
@@ -15,7 +15,7 @@ export const login = (data) => async (dispatch) => {
             'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEyMywiY29tcGFueUlkIjoxMzcsImlhdCI6MTY2NDcwNjg1NywiZXhwIjoxNjY0NzkzMjU3fQ.goyKv2I6nG6hU_-VYPdDrUW5mShEHjbFpk2SVSFP51E',
         );
         localStorage.setItem('user', JSON.stringify(data));
-        localStorage.setItem('table', []);
+        localStorage.setItem('dish', []);
 
         dispatch({
             type: GLOBALTYPES.AUTH,

@@ -12,14 +12,14 @@ const BreadcrumbMenu = ({ address, button }) => {
 
     return (
         <div className="breadcrumb__menu">
-            {address && address !== '/invoice' && (
+            {address && address !== 'invoice' && (
                 <Button className="breadcrumb__menu__btn breadcrumb__menu__btn-add" onClick={() => showModal()}>
                     <BsPlusCircle />
                     <p>{button}</p>
                 </Button>
             )}
-            {address && address === '/dish' && <Sort />}
-            <DefaultModal visible={visible} setVisible={setVisible} />
+            {address && address === 'dish' && <Sort />}
+            <DefaultModal visible={visible} setVisible={setVisible} userProfile={false} />
         </div>
     );
 };

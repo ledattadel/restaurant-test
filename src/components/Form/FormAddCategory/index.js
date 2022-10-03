@@ -11,8 +11,9 @@ const FormAddCategory = ({ visible, setVisible, setAddnew }) => {
 
     const dispatch = ReactRedux.useDispatch();
     const addCate = async (values) => {
+        const currentUser = JSON.parse(localStorage.getItem('user'));
         values.image = fileList[0].originFileObj;
-        values.companyId = 0;
+        values.companyId = currentUser.companyId;
         const api = await dispatch(DishAction.submitMenu(values));
 
         console.log(api);
