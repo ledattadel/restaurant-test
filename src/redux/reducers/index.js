@@ -1,7 +1,6 @@
 import { combineReducers } from 'redux';
 import auth from './authReducer';
 import alert from './alertReducer';
-import category from './categoryReducer';
 import {
     CustomerAllReducer,
     CustomerCreateReducer,
@@ -12,7 +11,10 @@ import {
 import dish from './dishReducer';
 import order from './orderReducer';
 import routing from './routingReducer';
-
+import category from './categoryReducer';
+import areas from './areasReducer';
+import tables from './tableReducer';
+import functions from './functionReducer';
 
 export default combineReducers({
     auth,
@@ -21,11 +23,13 @@ export default combineReducers({
     dish,
     order,
     routing,
+    areas,
+    tables,
+    functions,
 
     CustomerAll: CustomerAllReducer,
     CustomerCreate: CustomerCreateReducer,
     CustomerDelete: CustomerDeleteReducer,
     CustomerDetail: CustomerDetailReducer,
     CustomerUpdate: CustomerUpdateReducer,
-
 });
