@@ -20,7 +20,9 @@ const DefaultModal = ({ visible, setVisible, userProfile }) => {
     // const dispatch = ReactRedux.useDispatch();
     // // dish
 
-    const labelForm = constants?.breadcrumb?.find((v) => v.key === location.pathname);
+    const labelForm = constants?.breadcrumb?.find((v) => v.key === location.pathname)
+        ? constants?.breadcrumb?.find((v) => v.key === location.pathname)
+        : '';
     const [form] = Form.useForm();
 
     const handleSubmitDish = (values) => {
@@ -103,7 +105,7 @@ const DefaultModal = ({ visible, setVisible, userProfile }) => {
         >
             {userProfile ? (
                 <FormEditProfile visible={visible} setVisible={setVisible} />
-            ) : labelForm.label.length > 0 ? (
+            ) : labelForm ? (
                 switchForm(labelForm.key)
             ) : (
                 <></>

@@ -4,6 +4,7 @@ import * as DishAction from '@/redux/actions/dishAction';
 import { Col, Row } from 'antd';
 import ProductCard from '@/components/Card/Product';
 import { GLOBALTYPES } from '@/redux/actions/globalTypes';
+import _ from 'lodash';
 
 import axios from 'axios';
 
@@ -11,29 +12,31 @@ import axios from 'axios';
 import { postDataAPI, getDataAPI, getWithParams, deleteWithParams, putDataAPI, getImage } from '@/utils/fetchData';
 
 const Dish = () => {
-    const [listDish, setListDish] = React.useState([]);
+    const [listDish, setListDish] = React.useState(null);
     const [isDelete, setIsDelete] = React.useState(false);
     const { dish } = ReactRedux.useSelector((state) => state);
 
     const dispatch = ReactRedux.useDispatch();
-
+    const getAllDishes = async () => {
+        let currentUser = JSON.parse(localStorage.getItem('user'));
+        let { data } = await getWithParams({
+            path: `dishes`,
+            params: { companyId: currentUser.companyId },
+        });
+        console.log(data);
+        setListDish(data);
+        dispatch({
+            type: GLOBALTYPES.LOADDISH,
+            payload: false,
+        });
+        setIsDelete(false);
+    };
     React.useEffect(() => {
-        const getAllDishes = async () => {
-            let currentUser = JSON.parse(localStorage.getItem('user'));
-            let { data } = await getWithParams({
-                path: `dishes`,
-                params: { companyId: currentUser.companyId },
-            });
-            console.log(data);
-            setListDish(data);
-            dispatch({
-                type: GLOBALTYPES.LOADDISH,
-                payload: data,
-            });
+        if (listDish === null || isDelete || dish.data === true) {
+            getAllDishes();
             setIsDelete(false);
-        };
-        getAllDishes();
-    }, [isDelete]);
+        }
+    }, [dish.data, isDelete]);
     const DeleteDish = (id) => {
         dispatch(DishAction.deleteDish(id));
         setIsDelete(true);
@@ -42,8 +45,8 @@ const Dish = () => {
     return (
         <div className="dish">
             <Row gutter={[window.innerWidth / 60, window.innerWidth / 60]}>
-                {dish.data ? (
-                    dish.data.map((v) => {
+                {listDish ? (
+                    listDish.map((v) => {
                         return (
                             <Col
                                 key={v.id}

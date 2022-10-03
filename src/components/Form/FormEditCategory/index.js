@@ -11,11 +11,18 @@ const FormEditCategory = ({ visible, setVisible, data }) => {
 
     const dispatch = ReactRedux.useDispatch();
     const addCate = async (values) => {
-        values.image = fileList[0].originFileObj;
-        values.companyId = 0;
-        const api = await dispatch(DishAction.submitMenu(values, 'edit'));
+        console.log('values.image', values.image);
+        if (fileList.length > 0) {
+            values.image = fileList[0].originFileObj;
+        }
+        const currentUser = JSON.parse(localStorage.getItem('user'));
 
-        console.log(api);
+        values.companyId = currentUser.companyId;
+
+        console.log('edit values', values);
+        const api = await dispatch(DishAction.editMenu(values, data.id));
+
+        console.log('api', api);
     };
 
     const onFinish = (values) => {

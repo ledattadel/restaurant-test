@@ -7,12 +7,12 @@ export const login = (data) => async (dispatch) => {
         // console.log(res);
         const data = {
             adminId: 0,
-            companyId: 0,
+            companyId: 137,
         };
         localStorage.setItem('firstLogin', true);
         localStorage.setItem('token', '123');
         localStorage.setItem('user', JSON.stringify(data));
-        localStorage.setItem('table', []);
+        localStorage.setItem('dish', []);
 
         dispatch({
             type: GLOBALTYPES.AUTH,

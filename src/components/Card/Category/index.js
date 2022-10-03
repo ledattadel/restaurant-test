@@ -21,7 +21,7 @@ const CategoryCard = ({ category, img }) => {
     React.useEffect(() => {}, [openModalUpdate]);
 
     const updateCategory = (category) => {
-        console.log(category);
+        console.log('category', category);
         setVisible(true);
     };
     return (

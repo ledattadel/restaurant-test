@@ -28,7 +28,7 @@ const AreaManagement = () => {
         let currentUser = JSON.parse(localStorage.getItem('user'));
         let { data } = await getWithParams({
             path: `areas`,
-            params: { companyId: 0 },
+            params: { companyId: currentUser.companyId },
         });
         setListArea(data);
         dispatch({
@@ -40,8 +40,8 @@ const AreaManagement = () => {
     return (
         <div>
             <Row gutter={[12, 16]}>
-                {areas.data &&
-                    areas.data.map((v) => {
+                {listArea &&
+                    listArea.map((v) => {
                         return (
                             <Col
                                 key={v.id}

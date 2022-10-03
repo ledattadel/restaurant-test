@@ -28,10 +28,12 @@ const FormAddDish = React.forwardRef((props, ref) => {
     // }));
 
     const addDish = async (values) => {
-        values.image = fileList[0].originFileObj;
-        values.companyId = 0;
-        values.adminId = 1;
+        const currentUser = JSON.parse(localStorage.getItem('user'));
         values.menuId = category;
+        values.adminId = 1;
+
+        values.image = fileList[0].originFileObj;
+        values.companyId = currentUser.companyId;
         const api = await dispatch(DishAction.submitDish(values));
 
         console.log(api);

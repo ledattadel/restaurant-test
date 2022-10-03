@@ -25,11 +25,21 @@ const FormEditDish = ({ visible, setVisible, data }) => {
     // }));
 
     const addDish = async (values) => {
+        const currentUser = JSON.parse(localStorage.getItem('user'));
         values.image = fileList[0].originFileObj;
-        values.companyId = 0;
+        values.companyId = currentUser.companyId;
+
         values.adminId = 1;
-        values.menuId = category;
-        const api = await dispatch(DishAction.submitDish(values));
+        let newValue = {};
+
+        for (const prop in values) {
+            if (values[prop] !== undefined) {
+                newValue.prop = values.prop;
+            }
+        }
+        console.log('zzz', newValue);
+
+        const api = await dispatch(DishAction.submitDish(newValue));
 
         console.log(api);
     };
@@ -52,7 +62,7 @@ const FormEditDish = ({ visible, setVisible, data }) => {
     const onFinish = (values) => {
         console.log('Success:', values);
         const res = addDish(values);
-        console.log('res.status', res.status);
+        console.log('res.status', res);
         // if (res.status === 201) {
         setVisible(false);
         setCategory(null);
@@ -74,6 +84,7 @@ const FormEditDish = ({ visible, setVisible, data }) => {
                     ['description']: data.description,
                     ['price']: data.price,
                     ['statusCode']: data.statusCode,
+
                     ['estimate']: data.estimate,
                     ['priceDiscount']: data.priceDiscount,
                 }}
@@ -99,7 +110,7 @@ const FormEditDish = ({ visible, setVisible, data }) => {
                                         />
                                     </Form.Item>
                                     <Form.Item label="Danh mục" name="menuId">
-                                        <SelectBox menu={menu} setCate={setCategory}></SelectBox>
+                                        <SelectBox tBox menu={menu} setCategory={setCategory}></SelectBox>
                                     </Form.Item>
                                     <Form.Item
                                         label="Giá"

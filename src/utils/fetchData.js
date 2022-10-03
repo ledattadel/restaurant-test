@@ -5,7 +5,7 @@ export const httpRequest = axios.create({
 });
 
 const getToken = () => {
-    return 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEzOCwiY29tcGFueUlkIjoxMzksImlhdCI6MTY2NDQ1MTY1MCwiZXhwIjoxNjY0NTM4MDUwfQ.5OOZnh7p1yDS22-WyCrRyMpZ1UDdz8q1sIRtJhNERUU';
+    return 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEyMywiY29tcGFueUlkIjoxMzcsImlhdCI6MTY2NDcwNjg1NywiZXhwIjoxNjY0NzkzMjU3fQ.goyKv2I6nG6hU_-VYPdDrUW5mShEHjbFpk2SVSFP51E';
 };
 
 export const getImage = async (path, img) => {
@@ -48,6 +48,33 @@ export const deleteWithParamsId = async ({ path = '', params = {} }, id) => {
     return response;
 };
 
+export const putWithParamsId = async ({ path = '', params = {} }, id) => {
+    const options = {
+        params,
+        method: 'PUT',
+        baseURL: httpRequest.baseUrl,
+        withCredentials: false,
+        headers: { 'Access-Control-Allow-Origin': '*', authorization: 'Bearer ' + getToken() },
+    };
+    let response = await httpRequest.put(`/api/${path}/${id}?`, options);
+    return response;
+};
+
+export const putWithParamsIdAndFile = async ({ path = '', params = {} }, id) => {
+    const options = {
+        params,
+        method: 'PUT',
+        baseURL: httpRequest.baseUrl,
+        withCredentials: false,
+        headers: {
+            'Content-Type': 'multipart/form-data',
+            authorization: 'Bearer ' + getToken(),
+        },
+    };
+    let response = await httpRequest.put(`/api/${path}/${id}?`, options);
+    return response;
+};
+
 export const putDataAPI = async (url, post) => {
     console.log('path', url);
     console.log('params', post);
@@ -67,6 +94,17 @@ export const postDataAPI = async (url, post) => {
     console.log('res', res);
     return res;
 };
+
+export const putDataAPIWithFile = async (url, post, id) => {
+    console.log('path', url);
+    console.log('params', post);
+    const res = await httpRequest.put(`/api/${url}/${id}`, post, {
+        headers: { 'Content-Type': 'multipart/form-data', authorization: 'Bearer ' + getToken() },
+    });
+    console.log('res', res);
+    return res;
+};
+
 export const postDataAPIWithFile = async (url, post) => {
     console.log('path', url);
     console.log('params', post);
