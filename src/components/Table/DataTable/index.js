@@ -2,6 +2,7 @@ import React from 'react';
 import { Col, Row, Table } from 'antd';
 import { useLocation } from 'react-router-dom';
 import { Search, SizeChanger } from '@/components';
+import ReactPaginate from 'react-paginate';
 import constants from '@/constants';
 
 const DataTable = ({ columns, data }) => {

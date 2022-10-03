@@ -1,7 +1,9 @@
 import React from 'react';
+import * as Redux from 'react-redux';
 import { DataTable } from '@/components';
 import * as TableIcon from '@/assets/table-icon';
 import moment from 'moment';
+import actions from '@/redux/actions/customer';
 
 const columns = [
     {
@@ -30,29 +32,29 @@ const columns = [
     },
     {
         title: 'Họ và tên',
-        dataIndex: 'name',
+        dataIndex: 'fullName',
         render: (_, customer) => {
             return (
                 <div className="data-table__datas__text">
                     <TableIcon.CacbonUserIcon />
-                    <span>{customer.name}</span>
+                    <span>{customer.fullName}</span>
                 </div>
             );
         },
-        sorter: (a, b) => a.name.toLowerCase().localeCompare(b.name.toLowerCase()),
+        sorter: (a, b) => a.fullName.toLowerCase().localeCompare(b.fullName.toLowerCase()),
         sortDirections: ['descend'],
     },
     {
         title: 'Số điện thoại',
-        dataIndex: 'phone',
+        dataIndex: 'phoneNumber',
         render: (_, customer) => {
             return (
                 <div className="data-table__datas__text">
-                    <span>{customer.phone}</span>
+                    <span>{customer.phoneNumber}</span>
                 </div>
             );
         },
-        sorter: (a, b) => a.phone.localeCompare(b.phone),
+        sorter: (a, b) => a.phone.localeCompare(b.phoneNumber),
         sortDirections: ['descend'],
     },
     {
@@ -84,8 +86,14 @@ const columns = [
         ),
     },
 ];
-const data = [];
 
+const getParams = (params) => ({
+    results: params.pagination?.pageSize,
+    page: params.pagination?.current,
+    ...params,
+});
+
+const data = [];
 for (let i = 0; i < 50; i++) {
     data.push({
         key: i,
@@ -98,7 +106,48 @@ for (let i = 0; i < 50; i++) {
 }
 
 const Customer = () => {
-    return <DataTable columns={columns} data={data} />;
+    const dispatch = Redux.useDispatch();
+
+    const [take, setTake] = React.useState(10);
+    const [search, setSearch] = React.useState('');
+    const [page, setPage] = React.useState('');
+    const [sort, setSort] = React.useState('');
+    const [tableParams, setTableParams] = React.useState({
+        pagination: {
+            current: null,
+            pageSize: null,
+        },
+    });
+
+    const listCustomer = Redux.useSelector((state) => state.CustomerAll);
+    const { loading, error, customers } = listCustomer;
+    console.log(customers);
+    console.log('====================================');
+    console.log(error);
+    console.log('====================================');
+    React.useEffect(() => {
+        if (sort) {
+            dispatch(actions.getCustomers(search, take, page, sort));
+        }
+        dispatch(actions.getCustomers(search, take, page));
+    }, [dispatch, search, take, page, sort]);
+
+    const handleTableChange = (pagination, sorter) => {
+        setTableParams({
+            pagination,
+            ...sorter,
+        });
+    };
+
+    return (
+        <DataTable
+            columns={columns}
+            data={customers.data}
+            pagination={tableParams.pagination}
+            loading={loading}
+            onChange={handleTableChange}
+        />
+    );
 };
 
 export default Customer;

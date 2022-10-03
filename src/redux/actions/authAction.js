@@ -10,7 +10,10 @@ export const login = (data) => async (dispatch) => {
             companyId: 137,
         };
         localStorage.setItem('firstLogin', true);
-        localStorage.setItem('token', '123');
+        localStorage.setItem(
+            'token',
+            'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEyMywiY29tcGFueUlkIjoxMzcsImlhdCI6MTY2NDcwNjg1NywiZXhwIjoxNjY0NzkzMjU3fQ.goyKv2I6nG6hU_-VYPdDrUW5mShEHjbFpk2SVSFP51E',
+        );
         localStorage.setItem('user', JSON.stringify(data));
         localStorage.setItem('dish', []);
 

@@ -129,7 +129,6 @@ export const deleteDish = (id) => async (dispatch) => {
             },
             id,
         );
-
         return data;
     } catch (error) {
         dispatch({
