@@ -48,15 +48,35 @@ export const deleteWithParamsId = async ({ path = '', params = {} }, id) => {
     return response;
 };
 
-export const putDataAPI = async (url, post) => {
-    console.log('path', url);
-    console.log('params', post);
-    const res = await httpRequest.put(`/api/${url}`, post, {
-        headers: { Authorization: 'Bearer ' + getToken() },
-    });
-    console.log('res', res);
-    return res;
+export const putDataAPI = async (path, id, data) => {
+    const config = {
+        baseURL: httpRequest.baseUrl,
+        withCredentials: false,
+        headers: { 'Content-Type': 'application/json', Authorization: 'Bearer ' + getToken() },
+    };
+    let response = await httpRequest.put(`/api/${path}/${id}?`, data, config);
+    return response;
 };
+
+export const putDataAPIWithFile = async (path, id, data) => {
+    const config = {
+        baseURL: httpRequest.baseUrl,
+        withCredentials: false,
+        headers: { 'Content-Type': 'multipart/form-data', Authorization: 'Bearer ' + getToken() },
+    };
+    let response = await httpRequest.put(`/api/${path}/${id}?`, data, config);
+    return response;
+};
+
+// export const putDataAPI = async (url, post) => {
+//     console.log('path', url);
+//     console.log('params', post);
+//     const res = await httpRequest.put(`/api/${url}`, post, {
+//         headers: { Authorization: 'Bearer ' + getToken() },
+//     });
+//     console.log('res', res);
+//     return res;
+// };
 
 export const postDataAPI = async (url, post) => {
     console.log('path', url);

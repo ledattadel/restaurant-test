@@ -7,7 +7,6 @@ export { default as Dish } from '@/pages/Dish';
 export { default as Home } from '@/pages/Home';
 export { default as Invoice } from '@/pages/Invoice';
 export { default as Login } from '@/pages/Auth/Login';
-export { default as Menu } from '@/pages/Menu';
 export { default as Promotion } from '@/pages/Promotion';
 export { default as Table } from '@/pages/Table';
 export { default as Order } from '@/pages/Order';

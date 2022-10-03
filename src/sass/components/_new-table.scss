@@ -1,0 +1,89 @@
+.new-table {
+    width: 100%;
+
+    &__head {
+
+        font-family: 'Nunito';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 127%;
+
+        /* identical to box height, or 18px */
+        letter-spacing: 0.001em;
+        text-align: left;
+        text-transform: capitalize;
+
+        /* white */
+        color: $white;
+
+        &__row {
+            th {
+                background: $main-color;
+                padding: 12px;
+
+                &:first-of-type {
+                    border-top-left-radius: 4px;
+                }
+
+                &:last-of-type {
+                    border-top-right-radius: 4px;
+                }
+            }
+
+            &__col-stt {
+                width: 30px;
+            }
+
+            &__col-id {
+                width: 50px;
+            }
+
+            &__col-active {
+                width: 70px;
+            }
+
+        }
+    }
+
+    &__body {
+        /* Subtitle 2/nunito/regular 14px */
+        font-family: 'Nunito';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        // line-height: 88%;
+
+        letter-spacing: 0.001em;
+        color: $txt-main-color;
+
+        &__row {
+
+            td {
+                background: $white;
+                padding: 12px;
+            }
+
+            &__col-stt {
+                font-weight: 600;
+                // line-height: 127%;
+                text-transform: capitalize;
+            }
+
+            &__col-id {
+                font-weight: 600;
+                // line-height: 127%;
+                text-transform: capitalize;
+            }
+        }
+
+        tr {
+            border-top: 1px solid;
+
+            &:first-of-type {
+                border-top: none;
+            }
+        }
+
+    }
+}
