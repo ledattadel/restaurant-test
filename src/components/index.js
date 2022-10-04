@@ -28,13 +28,14 @@ export { default as FormAddDish } from '@/components/Form/FormAddDish';
 export { default as FormAddCategory } from '@/components/Form/FormAddCategory';
 export { default as FormAddCustomer } from '@/components/Form/FormAddCustomer';
 export { default as FormAddPromotion } from '@/components/Form/FormAddPromotion';
+export { default as FormAddTable } from '@/components/Form/FormAddTable';
 export { default as FormAddOffer } from '@/components/Form/FormAddOffer';
+export { default as FormEditCategory } from '@/components/Form/FormEditCategory';
+export { default as FormEditCustomer } from '@/components/Form/FormEditCustomer';
 export { default as FormEditDish } from '@/components/Form/FormEditDish';
 export { default as FormEditProfile } from '@/components/Form/FormEditProfile';
 export { default as FormMenu } from '@/components/Form/FormMenu';
 export { default as FormShowOrder } from '@/components/Form/FormShowOrder';
-export { default as FormAddTable } from '@/components/Form/FormAddTable';
-export { default as FormEditCategory } from '@/components/Form/FormEditCategory';
 
 // Table
 export { default as DataTable } from '@/components/Table/DataTable';

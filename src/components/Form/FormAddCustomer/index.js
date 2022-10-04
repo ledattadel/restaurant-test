@@ -1,4 +1,4 @@
-import { Button, DatePicker, Form, Typography, notification } from 'antd';
+import { Button, DatePicker, Form, Typography } from 'antd';
 import actions from '@/redux/actions/customer';
 import * as Redux from 'react-redux';
 import React from 'react';
@@ -8,7 +8,7 @@ const { Title } = Typography;
 const FormAddCustomer = React.forwardRef((props, ref) => {
     const dispatch = Redux.useDispatch();
 
-    const { visible, setVisible } = props;
+    const { setVisible } = props;
     const [fullName, setFullName] = React.useState('');
     const [birthday, setBirthday] = React.useState(new Date());
     const [phoneNumber, setPhoneNumber] = React.useState('');

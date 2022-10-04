@@ -1,30 +1,47 @@
-import React from 'react';
-import { Col, Row } from 'antd';
 import { Search, SizeChanger } from '@/components';
-import * as TableIcon from '@/assets/table-icon';
+import actions from '@/redux/actions/customer';
+import { Col, Row, Space, Spin } from 'antd';
 import Table from '@/components/Table/Table';
-import moment from 'moment';
+import ReactPaginate from 'react-paginate';
+import * as Redux from 'react-redux';
+import React from 'react';
 
 const column = [
-    { heading: 'STT', value: 'stt' },
+    { heading: 'STT', value: 'id' },
     { heading: 'ID', value: 'id' },
-    { heading: 'Họ và tên', value: 'name' },
-    { heading: 'Phone', value: 'phone' },
+    { heading: 'Họ và tên', value: 'fullName' },
+    { heading: 'Phone', value: 'phoneNumber' },
     { heading: 'Ngày sinh', value: 'birthday' },
 ];
-const data = [];
-for (let i = 0; i < 10; i++) {
-    data.push({
-        key: i,
-        stt: i,
-        id: i,
-        name: `James Moriarty ${i}`,
-        phone: `037834493${i}`,
-        birthday: moment('8-10-2019').format('L'),
-    });
-}
 
 const Customer = () => {
+    const dispatch = Redux.useDispatch();
+
+    const listCustomer = Redux.useSelector((state) => state.CustomerAll);
+    const { loading, customers } = listCustomer;
+
+    const customerCreate = Redux.useSelector((state) => state.CustomerCreate);
+    const { success } = customerCreate;
+
+    const [take, setTake] = React.useState(10);
+    const [search, setSearch] = React.useState('');
+    const [page, setPage] = React.useState(1);
+    const [sortOrder, setSortOrder] = React.useState('');
+
+    React.useEffect(() => {
+        if (sortOrder !== '') {
+            console.log('sort');
+            dispatch(actions.getCustomers(search, take, page, sortOrder));
+        } else {
+            console.log('not sort');
+            dispatch(actions.getCustomers(search, take, page));
+        }
+    }, [dispatch, success, search, take, page, sortOrder]);
+
+    const handlePageClick = (pages) => {
+        setPage(pages.selected + 1);
+    };
+
     return (
         <div className="data-table">
             <Row className="data-table__header">
@@ -32,11 +49,36 @@ const Customer = () => {
                     <p>Danh sách khách hàng</p>
                 </Col>
                 <Col xs={24} lg={12} className="data-table__header__filter">
-                    <Search />
-                    <SizeChanger />
+                    <Search search={search} setSearch={setSearch} />
+                    <SizeChanger take={take} setTake={setTake} />
                 </Col>
             </Row>
-            <Table data={data} column={column} />
+            {loading ? (
+                <Space direction="vertical" size="middle" style={{ width: '100%' }} align="center">
+                    <Spin size="large" />
+                </Space>
+            ) : (
+                <Table data={customers.data || []} column={column} sortOrder={sortOrder} setSortOrder={setSortOrder} />
+            )}
+
+            <ReactPaginate
+                previousLabel={'Quay lại'}
+                nextLabel={'Tiếp tục'}
+                breakLabel={'...'}
+                pageCount={customers.lastPage}
+                marginPagesDisplayed={3}
+                pageRangeDisplayed={6}
+                onPageChange={handlePageClick}
+                containerClassName={'new-pagination'}
+                pageClassName={'page-item'}
+                pageLinkClassName={'page-link'}
+                previousClassName={'page-item'}
+                previousLinkClassName={'page-link'}
+                nextClassName={'page-item'}
+                nextLinkClassName={'page-link'}
+                breakLinkClassName={'page-link'}
+                activeClassName={'active'}
+            />
         </div>
     );
 };
