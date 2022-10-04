@@ -5,7 +5,7 @@ export const httpRequest = axios.create({
 const getToken = () => {
     return (
         localStorage.getItem('token') ||
-        'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEyMywiY29tcGFueUlkIjoxMzcsImlhdCI6MTY2NDcwNjg1NywiZXhwIjoxNjY0NzkzMjU3fQ.goyKv2I6nG6hU_-VYPdDrUW5mShEHjbFpk2SVSFP51E'
+        'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEyMywiY29tcGFueUlkIjoxMzcsImlhdCI6MTY2NDc5NDg1NiwiZXhwIjoxNjY1Mzk5NjU2fQ.ieTvkgTAEjZGq3an0oKweB2lxM5ShmAP_9QIYFTSMDQ'
     );
 };
 const config = {

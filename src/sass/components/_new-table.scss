@@ -39,10 +39,27 @@
                 width: 50px;
             }
 
-            &__col-active {
+            &__col-active-2 {
                 width: 70px;
             }
 
+            &__col-fullName {
+                display: flex;
+                flex-direction: row;
+                justify-content: flex-start;
+                gap: 8px;
+
+                &__button {
+                    background-color: $main-color;
+                    border: 1px solid $main-color;
+
+                    :hover {
+                        svg {
+                            color: $gray;
+                        }
+                    }
+                }
+            }
         }
     }
 
@@ -52,7 +69,6 @@
         font-style: normal;
         font-weight: 400;
         font-size: 14px;
-        // line-height: 88%;
 
         letter-spacing: 0.001em;
         color: $txt-main-color;
@@ -62,26 +78,36 @@
             td {
                 background: $white;
                 padding: 12px;
+                line-height: 37px;
             }
 
             &__col-stt {
                 font-weight: 600;
-                // line-height: 127%;
                 text-transform: capitalize;
             }
 
             &__col-id {
                 font-weight: 600;
-                // line-height: 127%;
                 text-transform: capitalize;
+            }
+
+            &__col-fullName {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                gap: 4px;
+
+                svg {
+                    margin-bottom: 3px;
+                }
             }
         }
 
         tr {
-            border-top: 1px solid;
+            border-bottom: 0.5px solid;
 
-            &:first-of-type {
-                border-top: none;
+            &:last-of-type {
+                border-bottom: none;
             }
         }
 

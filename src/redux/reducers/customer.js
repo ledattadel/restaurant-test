@@ -5,7 +5,7 @@ export const CustomerAllReducer = (state = { customers: [] }, action) => {
         case constants.CUSTOMER_ALL_REQUEST:
             return { loading: true, customers: [] };
         case constants.CUSTOMER_ALL_SUCCESS:
-            return { loading: true, customers: action.payload };
+            return { loading: false, customers: action.payload };
         case constants.CUSTOMER_ALL_FAIL:
             return { loading: false, error: action.payload };
         default:

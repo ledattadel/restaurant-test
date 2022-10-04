@@ -1,22 +1,22 @@
-import React from 'react';
+import FormEditDish from '@/components/Form/FormEditDish';
+import ModalComponent from '@/components/ModalComponent';
 import { Button, Card, Col, Row, Tag } from 'antd';
 import { message, Popconfirm } from 'antd';
-import * as fetchData from '@/utils/fetchData';
-import * as ReactRedux from 'react-redux';
-import * as DishAction from '@/redux/actions/dishAction';
-import ModalComponent from '@/components/ModalComponent';
-import FormEditDish from '@/components/Form/FormEditDish';
-import { GLOBALTYPES } from '@/redux/actions/globalTypes';
+import React from 'react';
+// import * as fetchData from '@/utils/fetchData';
+// import * as ReactRedux from 'react-redux';
+// import * as DishAction from '@/redux/actions/dishAction';
+// import { GLOBALTYPES } from '@/redux/actions/globalTypes';
 
-import { postDataAPI, getDataAPI, getWithParams, deleteWithParams, putDataAPI, getImage } from '@/utils/fetchData';
+// import { postDataAPI, getDataAPI, getWithParams, deleteWithParams, putDataAPI, getImage } from '@/utils/fetchData';
 
 const text = 'Bạn muốn xóa món này?';
 const ProductCard = ({ DeleteDish, product, img }) => {
-    const [openModalUpdate, setOpenModalUpdate] = React.useState(false);
-    const [hoverBtn, setHoverBtn] = React.useState(false);
+    // const [openModalUpdate, setOpenModalUpdate] = React.useState(false);
+    // const [hoverBtn, setHoverBtn] = React.useState(false);
     const [visible, setVisible] = React.useState(false);
 
-    const dispatch = ReactRedux.useDispatch();
+    // const dispatch = ReactRedux.useDispatch();
 
     const confirm = () => {
         DeleteDish(product.id);
