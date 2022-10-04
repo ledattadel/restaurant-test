@@ -32,7 +32,7 @@ const Table = () => {
 
         let { data } = await getWithParams({
             path: `tables`,
-            params: { companyId: 0, areaId: parseInt(elementExactlyLocation) },
+            params: { companyId: 137, areaId: parseInt(elementExactlyLocation) },
         });
 
         dispatch({
