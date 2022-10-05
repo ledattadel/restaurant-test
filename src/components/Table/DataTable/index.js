@@ -1,11 +1,11 @@
 import React from 'react';
 import { Col, Row, Table } from 'antd';
 import { useLocation } from 'react-router-dom';
-import { Search, SizeChanger } from '@/components';
+import { SizeChanger, Search } from '@/components';
 import ReactPaginate from 'react-paginate';
 import constants from '@/constants';
 
-const DataTable = ({ columns, data }) => {
+const DataTable = ({ columns, data, search, setSearch, take, setTake, pagination, loading, onChange }) => {
     const location = useLocation();
     // const [selectedRowKeys, setSelectedRowKeys] = React.useState([]);
 
@@ -13,18 +13,6 @@ const DataTable = ({ columns, data }) => {
     //     setSelectedRowKeys(newSelectedRowKeys);
     // };
     const address = constants?.breadcrumb?.find((v) => v.key === location.pathname);
-
-    const itemRender = (_, type, originalElement) => {
-        if (type === 'prev') {
-            return <button className="pagination__button pagination__button__prev">Previous</button>;
-        }
-
-        if (type === 'next') {
-            return <button className="pagination__button pagination__button__next">Next</button>;
-        }
-
-        return originalElement;
-    };
 
     // const rowSelection = {
     //     selectedRowKeys,
@@ -72,15 +60,17 @@ const DataTable = ({ columns, data }) => {
                     <p>{address.table}</p>
                 </Col>
                 <Col xs={24} lg={12} className="data-table__header__filter">
-                    <Search />
-                    <SizeChanger />
+                    <Search search={search} setSearch={setSearch} />
+                    <SizeChanger take={take} setTake={setTake} />
                 </Col>
             </Row>
             <Table
                 className="data-table__datas"
                 columns={columns}
                 dataSource={data}
-                pagination={{ itemRender: itemRender }}
+                pagination={pagination}
+                loading={loading}
+                onChange={onChange}
                 rowKey={(record) => record.id}
             />
         </div>

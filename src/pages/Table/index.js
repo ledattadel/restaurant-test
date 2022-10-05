@@ -24,13 +24,13 @@ const Table = () => {
     const areasCreate = Redux.useSelector((state) => state.AreasCreate);
     const { success } = areasCreate;
 
-    React.useEffect(() => {
-        dispatch(actions.getAreas());
-    }, [dispatch, success]);
+    // React.useEffect(() => {
+    //     dispatch(actions.getAreas());
+    // }, [dispatch, success]);
 
     return (
         <div>
-            <Row justify="space-between" align="middle" gutter={[12, 16]}>
+            {/* <Row justify="space-between" align="middle" gutter={[12, 16]}>
                 {tables.data &&
                     tables.data.map((v) => {
                         return (
@@ -47,7 +47,7 @@ const Table = () => {
                             </Col>
                         );
                     })}
-            </Row>
+            </Row> */}
         </div>
     );
 };

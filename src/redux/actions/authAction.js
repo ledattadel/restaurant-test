@@ -21,6 +21,7 @@ export const login = (data) => async (dispatch) => {
             type: GLOBALTYPES.AUTH,
             payload: {
                 token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEyMywiY29tcGFueUlkIjoxMzcsImlhdCI6MTY2NDc5NDg1NiwiZXhwIjoxNjY1Mzk5NjU2fQ.ieTvkgTAEjZGq3an0oKweB2lxM5ShmAP_9QIYFTSMDQ',
+                user: data,
             },
         });
     } catch (err) {
