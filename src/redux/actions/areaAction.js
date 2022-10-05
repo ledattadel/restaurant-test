@@ -59,3 +59,25 @@ export const submitAreas = (payload) => async (dispatch) => {
         // dispatch({ type: GLOBALTYPES.LOADDISH, payload: { loaddish: false } });
     }
 };
+
+export const deleteArea = (id) => async (dispatch) => {
+    try {
+        const currentUser = JSON.parse(localStorage.getItem('user'));
+        console.log('id', id);
+        const { data } = await deleteWithParamsId(
+            {
+                path: 'areas',
+                params: { companyId: currentUser.companyId },
+            },
+            id,
+        );
+        return data;
+    } catch (error) {
+        dispatch({
+            type: GLOBALTYPES.ALERT,
+            payload: {
+                error: 'Delete error',
+            },
+        });
+    }
+};

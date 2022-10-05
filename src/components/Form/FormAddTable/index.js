@@ -5,11 +5,13 @@ import * as ReactRedux from 'react-redux';
 import * as AreaAction from '@/redux/actions/areaAction';
 import * as TableAction from '@/redux/actions/tableAction';
 import { SettingsBrightnessOutlined } from '@mui/icons-material';
+
 const { Title } = Typography;
 
 const FormAddArea = ({ visible, setVisible, setAddnew }) => {
     const [status, setStatus] = React.useState(null);
     const [form] = Form.useForm();
+    const { tables, areas } = ReactRedux.useSelector((state) => state);
 
     const dispatch = ReactRedux.useDispatch();
 
@@ -24,16 +26,17 @@ const FormAddArea = ({ visible, setVisible, setAddnew }) => {
         }
     }, [status]);
 
-    const addArea = async (values) => {
+    const addTable = async (values) => {
         // values.companyId = 0;
-        const api = await dispatch(AreaAction.submitAreas(values));
+
+        let table = { ...values, areaId: areas.id };
+        console.log('table', table);
+        const api = await dispatch(TableAction.submitTable(table));
         console.log(api);
     };
 
     const onFinish = (values) => {
-        console.log('Success:', values);
-        values.companyId = 0;
-        addArea(values);
+        addTable(values);
         // console.log('res.status', res.status);
         // if (res.status === 201) {
         form.resetFields();
@@ -61,7 +64,7 @@ const FormAddArea = ({ visible, setVisible, setAddnew }) => {
                                 <div className="add-dish__form-left">
                                     <Form.Item
                                         label="Tên bàn"
-                                        name="name"
+                                        name="code"
                                         rules={[{ required: true, message: 'Vui lòng nhập tên bàn!' }]}
                                     >
                                         <input
@@ -76,7 +79,7 @@ const FormAddArea = ({ visible, setVisible, setAddnew }) => {
                                     <Form.Item
                                         label="Trạng thái"
                                         style={{ marginBottom: '20px' }}
-                                        name="status"
+                                        name="statusId"
                                         rules={[{ required: true, message: 'Vui lòng chọn trạng thái!' }]}
                                     >
                                         <Radio.Group>

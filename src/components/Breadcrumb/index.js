@@ -21,7 +21,7 @@ const breadcrumb = [
     { key: 9, link: 'invoice', label: 'Hóa đơn', button: '', table: 'Danh sách hóa đơn' },
 ];
 
-const Breadcrumber = ({ title, setRouteBreadcumRender }) => {
+const Breadcrumber = () => {
     // const navigate = useNavigate();
     const location = useLocation();
     const [locationString, setLocationString] = React.useState(null);

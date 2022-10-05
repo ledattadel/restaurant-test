@@ -40,15 +40,21 @@ export const getStatuses = async () => {
     }
 };
 
-export const submitAreas = (payload) => async (dispatch) => {
+export const submitTable = (payload, areasid) => async (dispatch) => {
     try {
         const currentUser = JSON.parse(localStorage.getItem('user'));
 
         console.log('payload', payload);
-        const api = await postDataAPI('areas', payload);
+        const api = await postDataAPI('tables', payload);
+
         let { data } = await getWithParams({
-            path: `areas`,
-            params: { companyId: 0 },
+            path: `tables`,
+            params: { companyId: 137, areaId: areasid },
+        });
+
+        dispatch({
+            type: GLOBALTYPES.LOADTABLES,
+            payload: data,
         });
 
         dispatch({ type: GLOBALTYPES.LOADAREAS, payload: data });

@@ -11,35 +11,22 @@ import { PermPhoneMsg } from '@mui/icons-material';
 import * as AreaAction from '@/redux/actions/areaAction';
 import { postDataAPI, getDataAPI, getWithParams, deleteWithParams, putDataAPI, getImage } from '@/utils/fetchData';
 import { GLOBALTYPES } from '@/redux/actions/globalTypes';
+import * as Redux from 'react-redux';
 
 const Table = () => {
     const [listTable, setListTable] = React.useState(null);
     const [isDelete, setIsDelete] = React.useState(false);
     const location = useLocation();
     const dispatch = ReactRedux.useDispatch();
-    const { tables } = ReactRedux.useSelector((state) => state);
+    const listAreas = Redux.useSelector((state) => state.AreasAll);
+    const { loading, error, areas } = listAreas;
+
+    const areasCreate = Redux.useSelector((state) => state.AreasCreate);
+    const { success } = areasCreate;
 
     React.useEffect(() => {
-        if (listTable === null || isDelete) {
-            getAllTables();
-            setIsDelete(false);
-        }
-    }, []);
-    const getAllTables = async () => {
-        let currentUser = JSON.parse(localStorage.getItem('user'));
-        let arrLocation = location.pathname.split('/');
-        let elementExactlyLocation = arrLocation[arrLocation.length - 1];
-
-        let { data } = await getWithParams({
-            path: `tables`,
-            params: { companyId: 137, areaId: parseInt(elementExactlyLocation) },
-        });
-
-        dispatch({
-            type: GLOBALTYPES.LOADTABLES,
-            payload: data,
-        });
-    };
+        dispatch(actions.getAreas());
+    }, [dispatch, success]);
 
     return (
         <div>

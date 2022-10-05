@@ -12,7 +12,7 @@ export const login = (data) => async (dispatch) => {
         localStorage.setItem('firstLogin', true);
         localStorage.setItem(
             'token',
-            'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEyMywiY29tcGFueUlkIjoxMzcsImlhdCI6MTY2NDcwNjg1NywiZXhwIjoxNjY0NzkzMjU3fQ.goyKv2I6nG6hU_-VYPdDrUW5mShEHjbFpk2SVSFP51E',
+            'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEyMywiY29tcGFueUlkIjoxMzcsImlhdCI6MTY2NDc5NDg1NiwiZXhwIjoxNjY1Mzk5NjU2fQ.ieTvkgTAEjZGq3an0oKweB2lxM5ShmAP_9QIYFTSMDQ',
         );
         localStorage.setItem('user', JSON.stringify(data));
         localStorage.setItem('dish', []);
@@ -20,17 +20,9 @@ export const login = (data) => async (dispatch) => {
         dispatch({
             type: GLOBALTYPES.AUTH,
             payload: {
-                token: '123',
-                user: data,
+                token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEyMywiY29tcGFueUlkIjoxMzcsImlhdCI6MTY2NDc5NDg1NiwiZXhwIjoxNjY1Mzk5NjU2fQ.ieTvkgTAEjZGq3an0oKweB2lxM5ShmAP_9QIYFTSMDQ',
             },
         });
-
-        // dispatch({
-        //     type: GLOBALTYPES.ALERT,
-        //     payload: {
-        //         success: 'Đăng nhập thành công',
-        //     },
-        // });
     } catch (err) {
         console.log('err', err);
         dispatch({

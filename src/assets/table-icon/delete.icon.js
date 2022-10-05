@@ -1,8 +1,15 @@
 import React from 'react';
 
-const DeleteIcon = () => {
+const DeleteIcon = ({ onClick }) => {
     return (
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg
+            onClick={onClick}
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+        >
             <path d="M3 6H5H21" fill="#DC0000" />
             <path d="M3 6H5H21" stroke="#DC0000" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
             <path

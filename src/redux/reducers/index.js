@@ -8,6 +8,13 @@ import {
     CustomerDetailReducer,
     CustomerUpdateReducer,
 } from './customer';
+import {
+    AreasAllReducer,
+    AreasCreateReducer,
+    AreasDeleteReducer,
+    AreasDetailReducer,
+    AreasUpdateReducer,
+} from './areas';
 import dish from './dishReducer';
 import order from './orderReducer';
 import routing from './routingReducer';
@@ -32,4 +39,10 @@ export default combineReducers({
     CustomerDelete: CustomerDeleteReducer,
     CustomerDetail: CustomerDetailReducer,
     CustomerUpdate: CustomerUpdateReducer,
+
+    AreasAll: AreasAllReducer,
+    AreasCreate: AreasCreateReducer,
+    AreasDelete: AreasDeleteReducer,
+    AreasDetail: AreasDetailReducer,
+    AreasUpdate: AreasUpdateReducer,
 });

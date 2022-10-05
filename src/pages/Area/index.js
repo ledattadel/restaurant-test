@@ -1,7 +1,7 @@
 import * as React from 'react';
 import * as ReactRedux from 'react-redux';
 import { useNavigate, Link, useLocation } from 'react-router-dom';
-
+import actions from '@/redux/actions/areas';
 import ProductCard from '@/components/Card/Product';
 import './index.scss';
 import { Col, Row } from 'antd';
@@ -10,38 +10,35 @@ import { PermPhoneMsg } from '@mui/icons-material';
 import * as AreaAction from '@/redux/actions/areaAction';
 import { postDataAPI, getDataAPI, getWithParams, deleteWithParams, putDataAPI, getImage } from '@/utils/fetchData';
 import { GLOBALTYPES } from '@/redux/actions/globalTypes';
+import * as Redux from 'react-redux';
+
+import _ from 'lodash';
 
 const AreaManagement = () => {
     const [listArea, setListArea] = React.useState(null);
     const [isDelete, setIsDelete] = React.useState(false);
     const location = useLocation();
     const dispatch = ReactRedux.useDispatch();
-    const { areas } = ReactRedux.useSelector((state) => state);
+    const listAreas = Redux.useSelector((state) => state.AreasAll);
+    const { loading, error, areas } = listAreas;
+
+    const areasCreate = Redux.useSelector((state) => state.AreasCreate);
+    const { success } = areasCreate;
 
     React.useEffect(() => {
-        if (listArea === null || isDelete) {
-            getAllAreas();
-            setIsDelete(false);
-        }
-    }, []);
-    const getAllAreas = async () => {
-        let currentUser = JSON.parse(localStorage.getItem('user'));
-        let { data } = await getWithParams({
-            path: `areas`,
-            params: { companyId: currentUser.companyId },
-        });
-        setListArea(data);
-        dispatch({
-            type: GLOBALTYPES.LOADAREAS,
-            payload: data,
-        });
+        dispatch(actions.getAreas());
+    }, [dispatch, success]);
+
+    const DeleteArea = (id) => {
+        dispatch(AreaAction.deleteArea(id));
+        setIsDelete(true);
     };
 
     return (
         <div>
             <Row gutter={[12, 16]}>
-                {listArea &&
-                    listArea.map((v) => {
+                {areas &&
+                    areas.map((v) => {
                         return (
                             <Col
                                 key={v.id}
@@ -52,7 +49,7 @@ const AreaManagement = () => {
                                 sm={{ span: 12 }}
                                 xs={{ span: 24 }}
                             >
-                                <AreaCard product={v} />
+                                <AreaCard product={v} deleteArea={DeleteArea} />
                             </Col>
                         );
                     })}

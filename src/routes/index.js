@@ -10,7 +10,7 @@ const privateRoutes = [
     { path: '/order', component: Area },
     { path: '/area', component: Area },
     { path: '/area', component: Area },
-    { path: '/area/table/:id', component: Table },
+    { path: '/area/table', component: Table },
     { path: '/account', component: Account },
     { path: '/customer', component: Customer },
     { path: '/invoice', component: Invoice },

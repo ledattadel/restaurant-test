@@ -9,30 +9,25 @@ import {
     FormAddDish,
     FormAddPromotion,
     FormEditProfile,
+    FormAddTable,
 } from '@/components';
 import constants from '@/constants';
 
 const DefaultModal = ({ visible, setVisible, userProfile }) => {
     const location = useLocation();
 
-    // const addDishRef = React.useRef(null);
-    // const addCateRef = React.useRef(null);
-    // const dispatch = ReactRedux.useDispatch();
-    // // dish
-
     const labelForm = constants?.breadcrumb?.find((v) => v.key === location.pathname)
         ? constants?.breadcrumb?.find((v) => v.key === location.pathname)
         : '';
+
     const [form] = Form.useForm();
 
     const handleSubmitDish = (values) => {
         console.log(values);
-        // addDishRef.current.addDish(values);
         form.resetFields();
         setVisible(false);
     };
     const handleSubmitCategory = (values) => {
-        // addCateRef.current.addCate(values);
         form.resetFields();
         setVisible(false);
     };
@@ -78,6 +73,8 @@ const DefaultModal = ({ visible, setVisible, userProfile }) => {
                 return <FormAddDish visible={visible} setVisible={setVisible} />;
             case '/promotion':
                 return <FormAddPromotion visible={visible} setVisible={setVisible} />;
+            case '/area/table':
+                return <FormAddTable visible={visible} setVisible={setVisible} />;
             default:
                 return <></>;
         }

@@ -3,6 +3,7 @@ import { Button, Col, Form, Row, Typography, Radio } from 'antd';
 // import Radio from '@/components/Button/Radio';
 import * as ReactRedux from 'react-redux';
 import * as AreaAction from '@/redux/actions/areaAction';
+import actions from '@/redux/actions/areas';
 import { SettingsBrightnessOutlined } from '@mui/icons-material';
 const { Title } = Typography;
 
@@ -25,13 +26,12 @@ const FormAddArea = ({ visible, setVisible, setAddnew }) => {
 
     const addArea = async (values) => {
         // values.companyId = 0;
-        const api = await dispatch(AreaAction.submitAreas(values));
-        console.log(api);
+        const api = await dispatch(actions.createAreas(values));
     };
 
     const onFinish = (values) => {
         console.log('Success:', values);
-        values.companyId = 0;
+
         addArea(values);
         // console.log('res.status', res.status);
         // if (res.status === 201) {
