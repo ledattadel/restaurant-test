@@ -1,5 +1,4 @@
 import * as React from 'react';
-import * as ReactRedux from 'react-redux';
 import { useNavigate, Link, useLocation } from 'react-router-dom';
 import actions from '@/redux/actions/areas';
 import ProductCard from '@/components/Card/Product';
@@ -18,7 +17,7 @@ const AreaManagement = () => {
     const [listArea, setListArea] = React.useState(null);
     const [isDelete, setIsDelete] = React.useState(false);
     const location = useLocation();
-    const dispatch = ReactRedux.useDispatch();
+    const dispatch = Redux.useDispatch();
     const listAreas = Redux.useSelector((state) => state.AreasAll);
     const { loading, error, areas } = listAreas;
 

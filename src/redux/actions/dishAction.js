@@ -14,7 +14,26 @@ import * as DishReducer from '../reducers/dishReducer';
 import { GLOBALTYPES } from './globalTypes';
 import * as Model from '@/utils/ModelTransform';
 import * as MenuAction from '@/redux/actions/menuAction';
+import constantsCategory from '@/redux/constants/category';
+import { notification } from 'antd';
+
 import axios from 'axios';
+
+const openNotificationError = (message) => {
+    notification.error({
+        message: `Faild`,
+        description: `${message}`,
+        placement: 'topRight',
+    });
+};
+
+const openNotificationSucces = (message) => {
+    notification.success({
+        message: `Success`,
+        description: `${message}`,
+        placement: 'topRight',
+    });
+};
 
 export const getAllDishes = (payload) => async (dispatch) => {
     try {
@@ -78,22 +97,29 @@ export const submitDish = (payload) => async (dispatch) => {
 
 export const submitMenu = (payload, event) => async (dispatch) => {
     try {
+        dispatch({
+            type: constantsCategory.CATEGORY_CREATE_REQUEST,
+        });
         const currentUser = JSON.parse(localStorage.getItem('user'));
 
         console.log('payload', payload);
 
         const api = await postDataAPIWithFile('menus', payload);
-        const { data } = await getWithParams({
-            path: `menus`,
-            params: { companyId: currentUser.companyId },
-        });
+
         dispatch({
-            type: GLOBALTYPES.LOADCATE,
-            payload: data,
+            type: constantsCategory.CATEGORY_CREATE_SUCCESS,
         });
+        openNotificationSucces('Create category success.');
+
         return api;
     } catch (error) {
-        console.log(error);
+        dispatch({
+            type: constantsCategory.CATEGORY_CREATE_FAIL,
+            payload: error.response && error.response.data.message ? error.response.data.message : error.message,
+        });
+        error.response && error.response.data.message
+            ? openNotificationError(error.response.data.message)
+            : openNotificationError(error.message);
     }
 };
 export const editMenu = (payload, id) => async (dispatch) => {

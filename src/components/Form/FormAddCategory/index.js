@@ -3,6 +3,7 @@ import { Col, Form, Row, Typography, Button } from 'antd';
 import { Dragger, SelectBox, Radio } from '@/components';
 import * as ReactRedux from 'react-redux';
 import * as DishAction from '@/redux/actions/dishAction';
+import actions from '@/redux/actions/category';
 
 const { Title } = Typography;
 
@@ -14,7 +15,7 @@ const FormAddCategory = ({ visible, setVisible, setAddnew }) => {
         const currentUser = JSON.parse(localStorage.getItem('user'));
         values.image = fileList[0].originFileObj;
         values.companyId = currentUser.companyId;
-        const api = await dispatch(DishAction.submitMenu(values));
+        const api = await dispatch(actions.createCategory(values));
 
         console.log(api);
     };

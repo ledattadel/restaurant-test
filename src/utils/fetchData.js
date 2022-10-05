@@ -103,12 +103,10 @@ export const postDataAPI = async (url, post) => {
     return res;
 };
 export const postDataAPIWithFile = async (url, post) => {
-    console.log('path', url);
-    console.log('params', post);
     const res = await httpRequest.post(`/api/${url}`, post, {
         headers: { 'Content-Type': 'multipart/form-data', authorization: 'Bearer ' + getToken() },
     });
-    console.log('res', res);
+
     return res;
 };
 

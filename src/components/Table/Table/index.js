@@ -4,6 +4,7 @@ import { VscTriangleRight, VscTriangleUp, VscTriangleDown } from 'react-icons/vs
 import moment from 'moment';
 
 const Table = ({ data, column, sortOrder, setSortOrder }) => {
+    console.log('data co chua', data);
     return (
         <table className="new-table">
             <thead className="new-table__head">

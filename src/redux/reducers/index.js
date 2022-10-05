@@ -15,6 +15,14 @@ import {
     AreasDetailReducer,
     AreasUpdateReducer,
 } from './areas';
+import { UserAllReducer, UserCreateReducer, UserDeleteReducer, UserDetailReducer, UserUpdateReducer } from './account';
+import {
+    CategoryAllReducer,
+    CategoryCreateReducer,
+    CategoryDeleteReducer,
+    CategoryDetailReducer,
+    CategoryUpdateReducer,
+} from './category';
 import dish from './dishReducer';
 import order from './orderReducer';
 import routing from './routingReducer';
@@ -45,4 +53,16 @@ export default combineReducers({
     AreasDelete: AreasDeleteReducer,
     AreasDetail: AreasDetailReducer,
     AreasUpdate: AreasUpdateReducer,
+
+    UserAll: UserAllReducer,
+    UserCreate: UserCreateReducer,
+    UserDelete: UserDeleteReducer,
+    UserDetail: UserDetailReducer,
+    UserUpdate: UserUpdateReducer,
+
+    CategoryAll: CategoryAllReducer,
+    CategoryCreate: CategoryCreateReducer,
+    CategoryDelete: CategoryDeleteReducer,
+    CategoryDetail: CategoryDetailReducer,
+    CategoryUpdate: CategoryUpdateReducer,
 });
