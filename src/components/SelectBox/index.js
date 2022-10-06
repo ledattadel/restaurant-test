@@ -2,7 +2,7 @@ import React from 'react';
 import { Avatar } from 'antd';
 import { IoIosArrowDown, IoIosArrowUp } from 'react-icons/io';
 
-const SelectBox = ({ menu, setCategory }) => {
+const SelectBox = ({ menu, setCate }) => {
     const [select, setSelect] = React.useState('Chọn tên danh mục');
     const [toggle, setToggle] = React.useState(false);
     const [choose, setChoose] = React.useState(false);
@@ -44,7 +44,7 @@ const SelectBox = ({ menu, setCategory }) => {
                                 setSelect(item.name);
                                 setChoose(true);
                                 setToggle(false);
-                                setCategory(item.id);
+                                setCate(item.id);
                             }}
                         >
                             <Avatar

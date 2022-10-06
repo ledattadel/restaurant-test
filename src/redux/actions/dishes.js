@@ -1,5 +1,5 @@
-import constants from '@/redux/constants/areas';
-import fetch from '@/service/areas';
+import constants from '@/redux/constants/dishes';
+import fetch from '@/service/dishes';
 import { notification } from 'antd';
 
 const openNotificationError = (message) => {
@@ -19,20 +19,20 @@ const openNotificationSucces = (message) => {
 };
 
 const actions = {
-    getAreas: () => async (dispatch) => {
+    getDishes: () => async (dispatch) => {
         try {
-            dispatch({ type: constants.AREAS_ALL_REQUEST });
-            console.log('fetch');
-            const { data } = await fetch.GetAreasAll({
+            dispatch({ type: constants.DISHES_ALL_REQUEST });
+            // console.log('fetch');
+            const { data } = await fetch.GetDishesAll({
                 companyId: 137,
             });
             dispatch({
-                type: constants.AREAS_ALL_SUCCESS,
+                type: constants.DISHES_ALL_SUCCESS,
                 payload: data,
             });
         } catch (error) {
             dispatch({
-                type: constants.AREAS_ALL_FAIL,
+                type: constants.DISHES_ALL_FAIL,
                 payload: error.response && error.response.data.message ? error.response.data.message : error.message,
             });
             error.response && error.response.data.message
@@ -41,42 +41,21 @@ const actions = {
         }
     },
 
-    // getCustomerDetail: (id) => async (dispatch, getState) => {
-    //     try {
-    //         dispatch({ type: constants.CUSTOMER_DETAIL_REQUEST });
-
-    //         const { data } = await fetch.GetCustomerDetail(id);
-
-    //         dispatch({
-    //             type: constants.CUSTOMER_DETAIL_SUCCESS,
-    //             payload: data,
-    //         });
-    //     } catch (error) {
-    //         dispatch({
-    //             type: constants.CUSTOMER_DETAIL_FAIL,
-    //             payload: error.response && error.response.data.message ? error.response.data.message : error.message,
-    //         });
-    //         error.response && error.response.data.message
-    //             ? openNotificationError(error.response.data.message)
-    //             : openNotificationError(error.message);
-    //     }
-    // },
-
-    createAreas: (areas) => async (dispatch, getState) => {
+    createDishes: (dish) => async (dispatch, getState) => {
         try {
             dispatch({
-                type: constants.AREAS_CREATE_REQUEST,
+                type: constants.DISHES_CREATE_REQUEST,
             });
 
-            const { data } = await fetch.CreateAreas(areas);
+            const { data } = await fetch.CreateDishes(dish);
 
             dispatch({
-                type: constants.AREAS_CREATE_SUCCESS,
+                type: constants.DISHES_CREATE_SUCCESS,
             });
             openNotificationSucces('Create areas success.');
         } catch (error) {
             dispatch({
-                type: constants.AREAS_CREATE_FAIL,
+                type: constants.DISHES_CREATE_FAIL,
                 payload: error.response && error.response.data.message ? error.response.data.message : error.message,
             });
             error.response && error.response.data.message
@@ -85,21 +64,21 @@ const actions = {
         }
     },
 
-    deleteAreas: (id) => async (dispatch, getState) => {
+    deleteDishes: (id) => async (dispatch, getState) => {
         try {
             dispatch({
-                type: constants.CUSTOMER_DELETE_REQUEST,
+                type: constants.DISHES_DELETE_REQUEST,
             });
 
-            const { data } = await fetch.DeleteCustomer(id);
+            const { data } = await fetch.DeleteDishes(id);
 
             dispatch({
-                type: constants.CUSTOMER_DELETE_SUCCESS,
+                type: constants.DISHES_DELETE_SUCCESS,
             });
-            openNotificationSucces('Delete customer success.');
+            openNotificationSucces('Xóa món ăn thành công');
         } catch (error) {
             dispatch({
-                type: constants.CUSTOMER_DELETE_FAIL,
+                type: constants.DISHES_DELETE_FAIL,
                 payload: error.response && error.response.data.message ? error.response.data.message : error.message,
             });
             error.response && error.response.data.message
@@ -108,22 +87,22 @@ const actions = {
         }
     },
 
-    updatedAreas: (id, areas) => async (dispatch, getState) => {
+    updatedDishes: (id, dish) => async (dispatch, getState) => {
         try {
             dispatch({
-                type: constants.AREAS_UPDATE_REQUEST,
+                type: constants.DISHES_UPDATE_REQUEST,
             });
 
-            const { data } = await fetch.UpdateAreas(id, areas);
+            const { data } = await fetch.UpdateDishes(id, dish);
 
             dispatch({
-                type: constants.AREAS_UPDATE_SUCCESS,
+                type: constants.DISHES_UPDATE_SUCCESS,
                 payload: data,
             });
-            openNotificationSucces('Update customer success.');
+            openNotificationSucces('Cập nhật món ăn thành công');
         } catch (error) {
             dispatch({
-                type: constants.AREAS_UPDATE_FAIL,
+                type: constants.DISHES_UPDATE_FAIL,
                 payload: error.response && error.response.data.message ? error.response.data.message : error.message,
             });
             error.response && error.response.data.message

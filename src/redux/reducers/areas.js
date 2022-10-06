@@ -56,16 +56,16 @@ export const AreasDeleteReducer = (state = {}, action) => {
     }
 };
 
-export const AreasUpdateReducer = (state = { AREAS: {} }, action) => {
+export const AreasUpdateReducer = (state = { areas: {}, success: false }, action) => {
     switch (action.type) {
         case constants.AREAS_UPDATE_REQUEST:
             return { loading: true };
-        case constants.AREAS_DETAIL_SUCCESS:
-            return { loading: false, success: true, AREAS: action.payload };
+        case constants.AREAS_UPDATE_SUCCESS:
+            return { loading: false, success: true, areas: action.payload };
         case constants.AREAS_UPDATE_FAIL:
-            return { loading: false, error: action.payload };
+            return { loading: false, success: false, error: action.payload };
         case constants.AREAS_UPDATE_RESET:
-            return { AREAS: {} };
+            return { areas: {} };
         default:
             return state;
     }

@@ -109,9 +109,9 @@ export const submitMenu = (payload, event) => async (dispatch) => {
         dispatch({
             type: constantsCategory.CATEGORY_CREATE_SUCCESS,
         });
-        openNotificationSucces('Create category success.');
+        // openNotificationSucces('Create category success.');
 
-        return api;
+        // return api;
     } catch (error) {
         dispatch({
             type: constantsCategory.CATEGORY_CREATE_FAIL,

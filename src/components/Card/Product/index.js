@@ -20,11 +20,9 @@ const ProductCard = ({ DeleteDish, product, img }) => {
 
     const confirm = () => {
         DeleteDish(product.id);
-        message.info('Xóa thành công');
     };
 
     const updateDish = (product) => {
-        console.log(product);
         setVisible(true);
     };
     // console.log(product);
@@ -55,7 +53,11 @@ const ProductCard = ({ DeleteDish, product, img }) => {
                 <Row justify="space-between">
                     <Col className="product-card__info__col">
                         <span className="product-card__info__sale-number">Mã ID: {product.id}</span>
-                        <Tag className="product-card__info__status">Có món</Tag>
+                        {product.status.code === 'STOCKING' ? (
+                            <Tag className="product-card__info__status">Có món</Tag>
+                        ) : (
+                            <Tag className="product-card__info__status_not">Hết món</Tag>
+                        )}
                     </Col>
                     <Col className="product-card__info__col">
                         <span className="product-card__info__price">

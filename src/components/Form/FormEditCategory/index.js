@@ -3,6 +3,7 @@ import { Col, Form, Row, Typography, Button } from 'antd';
 import { Dragger, SelectBox, Radio } from '@/components';
 import * as ReactRedux from 'react-redux';
 import * as DishAction from '@/redux/actions/dishAction';
+import actions from '@/redux/actions/category';
 
 const { Title } = Typography;
 
@@ -10,28 +11,18 @@ const FormEditCategory = ({ visible, setVisible, data }) => {
     const [fileList, setFileList] = React.useState([]);
 
     const dispatch = ReactRedux.useDispatch();
-    const addCate = async (values) => {
-        console.log('values.image', values.image);
+    const updateCate = async (values) => {
         if (fileList.length > 0) {
             values.image = fileList[0].originFileObj;
         }
         const currentUser = JSON.parse(localStorage.getItem('user'));
-
         values.companyId = currentUser.companyId;
-
-        console.log('edit values', values);
-        const api = await dispatch(DishAction.editMenu(values, data.id));
-
-        console.log('api', api);
+        const api = await dispatch(actions.updateCategory(data.id, values));
     };
 
     const onFinish = (values) => {
-        console.log('Success:', values);
-        const res = addCate(values);
-        console.log('res.status', res.status);
-        // if (res.status === 201) {
+        const res = updateCate(values);
         setVisible(false);
-        // }
     };
     const onFinishFailed = (errorInfo) => {
         console.log('Failed:', errorInfo);

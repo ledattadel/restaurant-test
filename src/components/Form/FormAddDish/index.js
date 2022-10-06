@@ -5,6 +5,8 @@ import RadioComponent from '@/components/Button/Radio';
 import SelectBox from '@/components/SelectBox';
 import * as DishAction from '@/redux/actions/dishAction';
 import * as ReactRedux from 'react-redux';
+import actions from '@/redux/actions/dishes';
+
 // import checkValidate from '@/utils/checkValidate';
 const { Option } = Select;
 const { Title } = Typography;
@@ -34,9 +36,8 @@ const FormAddDish = React.forwardRef((props, ref) => {
 
         values.image = fileList[0].originFileObj;
         values.companyId = currentUser.companyId;
-        const api = await dispatch(DishAction.submitDish(values));
 
-        console.log(api);
+        const api = await dispatch(actions.createDishes(values));
     };
 
     React.useEffect(() => {

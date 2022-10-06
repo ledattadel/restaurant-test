@@ -4,57 +4,58 @@ import { useNavigate, Link, useLocation } from 'react-router-dom';
 import { GLOBALTYPES } from '@/redux/actions/globalTypes';
 import * as ReactRedux from 'react-redux';
 import { Button, message, Popconfirm, Tooltip, Modal } from 'antd';
-
+import ModalComponent from '@/components/ModalComponent';
+import FormEditArea from '@/components/Form/FormEditArea';
+import actions from '@/redux/actions/areas';
 const { confirm } = Modal;
-
 const text = 'Bạn muốn xóa khu vực này?';
 const textToolTip = 'Nhấn vào để chọn khu vực?';
-const AreaCard = ({ product, DeleteArea }) => {
+const AreaCard = ({ product, deleteArea }) => {
+    const [openModalUpdate, setOpenModalUpdate] = React.useState(false);
+    const [hoverBtn, setHoverBtn] = React.useState(false);
+    const [visible, setVisible] = React.useState(false);
+
     const navigate = useNavigate();
     const dispatch = ReactRedux.useDispatch();
     const handleClick = (e) => {
-        e.preventDefault();
         console.log(product);
-        dispatch({
-            type: GLOBALTYPES.LOADAREAID,
-            payload: product.id,
-        });
+        // dispatch({
+        //     type: GLOBALTYPES.LOADAREAID,
+        //     payload: product.id,
+        // });
         navigate(`/area/table`);
     };
 
     const confirm = () => {
-        message.info('Xóa thành công');
+        deleteArea(product.id);
+        // dispatch(actions.deleteCategory(product.id));
     };
-    const showConfirm = () => {
-        setTimeout(() => {
-            confirm({
-                content: 'Bạn muốn xóa khu vực này ???',
-
-                onOk() {
-                    console.log('OK');
-                },
-
-                onCancel() {
-                    console.log('Cancel');
-                },
-            });
-        }, 500);
-    };
+    const showConfirm = (event) => {};
     return (
         <div onClick={handleClick} className="table_area">
             <div className="table_area--head">
                 <span className="table_area--name">{product.name}</span>
                 <div
-                    style={{
-                        zIndex: '999',
-                    }}
+                    style={
+                        {
+                            // zIndex: '2',
+                        }
+                    }
                     className="table_area--head-handing"
                 >
-                    <TableIcon.EditIcon color={'#F78B2D'} />
-
-                    <Popconfirm placement="topLeft" title={text} okText="Yes" cancelText="No">
-                        <TableIcon.DeleteIcon onClick={showConfirm} />
-                    </Popconfirm>
+                    <div
+                        onClick={(e) => {
+                            e.stopPropagation();
+                            setVisible(true);
+                        }}
+                    >
+                        <TableIcon.EditIcon />
+                    </div>
+                    <div onClick={(e) => e.stopPropagation()}>
+                        <Popconfirm placement="topLeft" title={text} onConfirm={confirm} okText="Yes" cancelText="No">
+                            <TableIcon.DeleteIcon />
+                        </Popconfirm>
+                    </div>
                 </div>
             </div>
             {/* <Tooltip placement="topLeft" title={textToolTip}> */}
@@ -69,6 +70,13 @@ const AreaCard = ({ product, DeleteArea }) => {
             </span>
 
             {/* </Tooltip> */}
+            <ModalComponent
+                visible={visible}
+                setVisible={setVisible}
+                width={window.innerWidth / 2}
+                maskClosable={false}
+                componentForm={<FormEditArea data={product} visible={visible} setVisible={setVisible}></FormEditArea>}
+            />
         </div>
     );
 };

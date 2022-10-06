@@ -5,64 +5,47 @@ import { Col, Row } from 'antd';
 import ProductCard from '@/components/Card/Product';
 import { GLOBALTYPES } from '@/redux/actions/globalTypes';
 import _ from 'lodash';
+import actions from '@/redux/actions/dishes';
 
 import axios from 'axios';
-
-// test api
-import { postDataAPI, getDataAPI, getWithParams, deleteWithParams, putDataAPI, getImage } from '@/utils/fetchData';
 
 const Dish = () => {
     const [listDish, setListDish] = React.useState(null);
     const [isDelete, setIsDelete] = React.useState(false);
-    const { dish } = ReactRedux.useSelector((state) => state);
-
     const dispatch = ReactRedux.useDispatch();
-    const getAllDishes = async () => {
-        let currentUser = JSON.parse(localStorage.getItem('user'));
-        let { data } = await getWithParams({
-            path: `dishes`,
-            params: { companyId: currentUser.companyId },
-        });
-        console.log(data);
-        setListDish(data);
-        dispatch({
-            type: GLOBALTYPES.LOADDISH,
-            payload: false,
-        });
-        setIsDelete(false);
-    };
+    const listDishes = ReactRedux.useSelector((state) => state.DishesAll);
+    const { loading, error, dishes } = listDishes;
+
+    const DishesDelete = ReactRedux.useSelector((state) => state.DishesDelete);
+    const DishesCreate = ReactRedux.useSelector((state) => state.DishesCreate);
+    const DishesUpdate = ReactRedux.useSelector((state) => state.DishesUpdate);
+
     React.useEffect(() => {
-        if (listDish === null || isDelete || dish.data === true) {
-            getAllDishes();
-            setIsDelete(false);
-        }
-    }, [dish.data, isDelete]);
+        dispatch(actions.getDishes());
+    }, [dispatch, DishesCreate.success, DishesDelete.success, DishesUpdate.success]);
+
     const DeleteDish = (id) => {
-        dispatch(DishAction.deleteDish(id));
-        setIsDelete(true);
+        console.log('delete ,', id);
+        dispatch(actions.deleteDishes(id));
     };
 
     return (
         <div className="dish">
             <Row gutter={[window.innerWidth / 60, window.innerWidth / 60]}>
-                {listDish ? (
-                    listDish.map((v) => {
-                        return (
-                            <Col
-                                key={v.id}
-                                className="grid__col"
-                                xxl={{ span: 4 }}
-                                xl={{ span: 6 }}
-                                sm={{ span: 8 }}
-                                xs={{ span: 24 }}
-                            >
-                                <ProductCard DeleteDish={DeleteDish} product={v} img={v.image} />
-                            </Col>
-                        );
-                    })
-                ) : (
-                    <></>
-                )}
+                {dishes.map((v) => {
+                    return (
+                        <Col
+                            key={v.id}
+                            className="grid__col"
+                            xxl={{ span: 4 }}
+                            xl={{ span: 6 }}
+                            sm={{ span: 8 }}
+                            xs={{ span: 24 }}
+                        >
+                            <ProductCard DeleteDish={DeleteDish} product={v} img={v.image} />
+                        </Col>
+                    );
+                })}
             </Row>
         </div>
     );

@@ -16,41 +16,36 @@ const Category = () => {
     const listCategory = ReactRedux.useSelector((state) => state.CategoryAll);
     const { loading, error, categorys } = listCategory;
 
+    const CategoryDelete = ReactRedux.useSelector((state) => state.CategoryDelete);
     const CategoryCreate = ReactRedux.useSelector((state) => state.CategoryCreate);
-    const { success } = CategoryCreate;
+    const CategoryUpdate = ReactRedux.useSelector((state) => state.CategoryUpdate);
 
     React.useEffect(() => {
         dispatch(actions.GetCategory());
-    }, [dispatch, success]);
+    }, [dispatch, CategoryCreate.success, CategoryDelete.success, CategoryUpdate.success]);
 
-    const DeleteArea = (id) => {
+    const deleteCategory = (id) => {
         // dispatch(AreaAction.deleteArea(id));
-        setIsDelete(true);
+        dispatch(actions.deleteCategory(id));
     };
 
     return (
         <div className="category">
             <Row gutter={[window.innerWidth / 60, window.innerWidth / 60]}>
-                {loading ? (
-                    <Space direction="vertical" size="middle" style={{ width: '100%' }} align="center">
-                        <Spin size="large" />
-                    </Space>
-                ) : (
-                    categorys.map((v) => {
-                        return (
-                            <Col
-                                key={v.id}
-                                className="grid__col"
-                                xxl={{ span: 4 }}
-                                xl={{ span: 6 }}
-                                sm={{ span: 8 }}
-                                xs={{ span: 24 }}
-                            >
-                                <CategoryCard img={v.image} category={v} />
-                            </Col>
-                        );
-                    })
-                )}
+                {categorys.map((v) => {
+                    return (
+                        <Col
+                            key={v.id}
+                            className="grid__col"
+                            xxl={{ span: 4 }}
+                            xl={{ span: 6 }}
+                            sm={{ span: 8 }}
+                            xs={{ span: 24 }}
+                        >
+                            <CategoryCard img={v.image} category={v} deleteCategory={deleteCategory} />
+                        </Col>
+                    );
+                })}
             </Row>
         </div>
     );

@@ -23,6 +23,14 @@ import {
     CategoryDetailReducer,
     CategoryUpdateReducer,
 } from './category';
+import {
+    DishesAllReducer,
+    DishesCreateReducer,
+    DishesDeleteReducer,
+    DishesDetailReducer,
+    DishesUpdateReducer,
+} from './dishes';
+
 import dish from './dishReducer';
 import order from './orderReducer';
 import routing from './routingReducer';
@@ -65,4 +73,10 @@ export default combineReducers({
     CategoryDelete: CategoryDeleteReducer,
     CategoryDetail: CategoryDetailReducer,
     CategoryUpdate: CategoryUpdateReducer,
+
+    DishesAll: DishesAllReducer,
+    DishesCreate: DishesCreateReducer,
+    DishesDelete: DishesDeleteReducer,
+    DishesDetail: DishesDetailReducer,
+    DishesUpdate: DishesUpdateReducer,
 });

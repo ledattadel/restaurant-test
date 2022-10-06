@@ -5,7 +5,7 @@ import RadioComponent from '@/components/Button/Radio';
 import SelectBox from '@/components/SelectBox';
 import * as DishAction from '@/redux/actions/dishAction';
 import * as ReactRedux from 'react-redux';
-// import checkValidate from '@/utils/checkValidate';
+import actions from '@/redux/actions/dishes';
 const { Option } = Select;
 const { Title } = Typography;
 
@@ -26,7 +26,9 @@ const FormEditDish = ({ visible, setVisible, data }) => {
 
     const addDish = async (values) => {
         const currentUser = JSON.parse(localStorage.getItem('user'));
-        values.image = fileList[0].originFileObj;
+        if (fileList.length > 0) {
+            values.image = fileList[0].originFileObj;
+        }
         values.companyId = currentUser.companyId;
 
         values.adminId = 1;
@@ -37,11 +39,7 @@ const FormEditDish = ({ visible, setVisible, data }) => {
                 newValue.prop = values.prop;
             }
         }
-        console.log('zzz', newValue);
-
-        const api = await dispatch(DishAction.submitDish(newValue));
-
-        console.log(api);
+        const api = await dispatch(actions.updatedDishes(data.id, newValue));
     };
 
     React.useEffect(() => {

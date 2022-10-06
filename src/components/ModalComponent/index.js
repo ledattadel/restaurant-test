@@ -57,11 +57,11 @@ const App = (props) => {
     };
 
     return (
-        <>
+        <div onClick={(e) => e.stopPropagation()}>
             <Modal centered closable={false} footer={null} visible={visible} width={width ? width : ''}>
-                {componentForm}
+                <div onClick={(e) => e.stopPropagation()}>{componentForm}</div>
             </Modal>
-        </>
+        </div>
     );
 };
 

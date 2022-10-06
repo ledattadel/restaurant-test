@@ -16,17 +16,13 @@ const FormAddCategory = ({ visible, setVisible, setAddnew }) => {
         values.image = fileList[0].originFileObj;
         values.companyId = currentUser.companyId;
         const api = await dispatch(actions.createCategory(values));
-
-        console.log(api);
     };
 
     const onFinish = (values) => {
         console.log('Success:', values);
         const res = addCate(values);
         console.log('res.status', res.status);
-        // if (res.status === 201) {
         setVisible(false);
-        // }
     };
     const onFinishFailed = (errorInfo) => {
         console.log('Failed:', errorInfo);

@@ -22,7 +22,7 @@ const actions = {
     GetCategory: () => async (dispatch) => {
         try {
             dispatch({ type: constants.CATEGORY_ALL_REQUEST });
-            console.log('fetch');
+            // console.log('fetch');
             const { data } = await fetch.GetCategoryAll({
                 companyId: 137,
             });
@@ -73,7 +73,6 @@ const actions = {
             dispatch({
                 type: constants.CATEGORY_CREATE_SUCCESS,
             });
-            openNotificationSucces('Create category success.');
         } catch (error) {
             dispatch({
                 type: constants.CATEGORY_CREATE_FAIL,
@@ -88,15 +87,15 @@ const actions = {
     deleteCategory: (id) => async (dispatch, getState) => {
         try {
             dispatch({
-                type: constants.CUSTOMER_DELETE_REQUEST,
+                type: constants.CATEGORY_DELETE_REQUEST,
             });
 
             const { data } = await fetch.DeleteCategory(id);
 
             dispatch({
-                type: constants.CUSTOMER_DELETE_SUCCESS,
+                type: constants.CATEGORY_DELETE_SUCCESS,
             });
-            openNotificationSucces('Delete customer success.');
+            openNotificationSucces('Xoá danh mục thành công');
         } catch (error) {
             dispatch({
                 type: constants.CUSTOMER_DELETE_FAIL,
@@ -118,9 +117,8 @@ const actions = {
 
             dispatch({
                 type: constants.CATEGORY_UPDATE_SUCCESS,
-                payload: data,
             });
-            openNotificationSucces('Update category success.');
+            openNotificationSucces('Cập nhật danh mục thành công');
         } catch (error) {
             dispatch({
                 type: constants.CATEGORY_UPDATE_FAIL,

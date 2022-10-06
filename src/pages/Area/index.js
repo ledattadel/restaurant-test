@@ -10,7 +10,8 @@ import * as AreaAction from '@/redux/actions/areaAction';
 import { postDataAPI, getDataAPI, getWithParams, deleteWithParams, putDataAPI, getImage } from '@/utils/fetchData';
 import { GLOBALTYPES } from '@/redux/actions/globalTypes';
 import * as Redux from 'react-redux';
-
+import ModalComponent from '@/components/ModalComponent';
+import FormEditArea from '@/components/Form/FormEditArea';
 import _ from 'lodash';
 
 const AreaManagement = () => {
@@ -21,16 +22,16 @@ const AreaManagement = () => {
     const listAreas = Redux.useSelector((state) => state.AreasAll);
     const { loading, error, areas } = listAreas;
 
-    const areasCreate = Redux.useSelector((state) => state.AreasCreate);
-    const { success } = areasCreate;
+    const AreasDelete = Redux.useSelector((state) => state.AreasDelete);
+    const AreasCreate = Redux.useSelector((state) => state.AreasCreate);
+    const AreasUpdate = Redux.useSelector((state) => state.AreasUpdate);
 
     React.useEffect(() => {
         dispatch(actions.getAreas());
-    }, [dispatch, success]);
+    }, [dispatch, AreasCreate.success, AreasDelete.success, AreasUpdate.success]);
 
     const DeleteArea = (id) => {
-        dispatch(AreaAction.deleteArea(id));
-        setIsDelete(true);
+        dispatch(actions.deleteAreas(id));
     };
 
     return (

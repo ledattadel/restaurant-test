@@ -22,7 +22,7 @@ const actions = {
     getAreas: () => async (dispatch) => {
         try {
             dispatch({ type: constants.AREAS_ALL_REQUEST });
-            console.log('fetch');
+            // console.log('fetch');
             const { data } = await fetch.GetAreasAll({
                 companyId: 137,
             });
@@ -69,7 +69,7 @@ const actions = {
             });
 
             const { data } = await fetch.CreateAreas(areas);
-                
+
             dispatch({
                 type: constants.AREAS_CREATE_SUCCESS,
             });
@@ -88,18 +88,18 @@ const actions = {
     deleteAreas: (id) => async (dispatch, getState) => {
         try {
             dispatch({
-                type: constants.CUSTOMER_DELETE_REQUEST,
+                type: constants.AREAS_DELETE_REQUEST,
             });
 
-            const { data } = await fetch.DeleteCustomer(id);
+            const { data } = await fetch.DeleteAreas(id);
 
             dispatch({
-                type: constants.CUSTOMER_DELETE_SUCCESS,
+                type: constants.AREAS_DELETE_SUCCESS,
             });
-            openNotificationSucces('Delete customer success.');
+            openNotificationSucces('Delete areas success.');
         } catch (error) {
             dispatch({
-                type: constants.CUSTOMER_DELETE_FAIL,
+                type: constants.AREAS_DELETE_FAIL,
                 payload: error.response && error.response.data.message ? error.response.data.message : error.message,
             });
             error.response && error.response.data.message
@@ -120,7 +120,7 @@ const actions = {
                 type: constants.AREAS_UPDATE_SUCCESS,
                 payload: data,
             });
-            openNotificationSucces('Update customer success.');
+            openNotificationSucces('Update areas success.');
         } catch (error) {
             dispatch({
                 type: constants.AREAS_UPDATE_FAIL,

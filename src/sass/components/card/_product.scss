@@ -78,7 +78,26 @@
 
             padding-bottom: 4px;
         }
+        &__status_not {
+            display: flex;
+            flex-direction: row;
+            align-items: flex-start;
+            padding: 4px 6px;
+            background: red;
+            color: $white;
+            border-radius: $br-btn;
 
+            /* nunito/semibold 14 */
+            font-family: 'Nunito';
+            font-style: normal;
+            font-weight: 600;
+            font-size: 14px;
+            line-height: 127%;
+
+            /* identical to box height, or 18px */
+            text-align: center;
+            letter-spacing: 0.001em;
+        }
         &__status {
             display: flex;
             flex-direction: row;
