@@ -26,7 +26,8 @@ const Account = () => {
     const { loading, users } = listUser;
 
     const userCreate = Redux.useSelector((state) => state.UserCreate);
-    const { success } = userCreate;
+    const userDelete = Redux.useSelector((state) => state.UserDelete);
+    const userUpdate = Redux.useSelector((state) => state.UserUpdate);
 
     const [take, setTake] = React.useState(10);
     const [search, setSearch] = React.useState('');
@@ -42,7 +43,7 @@ const Account = () => {
             dispatch(actions.getUsers(search, take, page));
         }
         console.log('users.data', users.data, customers);
-    }, [dispatch, success, search, take, page, sortOrder]);
+    }, [dispatch, userCreate.success, userDelete.success, userUpdate.success, search, take, page, sortOrder]);
 
     const handlePageClick = (pages) => {
         setPage(pages.selected + 1);

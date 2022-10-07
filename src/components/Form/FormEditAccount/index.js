@@ -4,6 +4,8 @@ import * as Redux from 'react-redux';
 import actions from '@/redux/actions/account';
 import { EyeOpen, EyeClosed } from 'akar-icons';
 import { getNoneParams } from '@/utils/fetchData';
+import { VscTriangleRight, VscTriangleUp, VscTriangleDown } from 'react-icons/vsc';
+import moment from 'moment';
 const { Title } = Typography;
 const { Option } = Select;
 
@@ -12,7 +14,7 @@ const FormEditAccount = React.forwardRef(({ visible, setVisible, data }, ref) =>
     const [typePass, setTypePass] = React.useState(false);
     const [role, setRole] = React.useState(null);
     const [value, setValue] = React.useState([]);
-
+    const [dataRole, setDataRole] = React.useState([]);
     const [fullName, setFullName] = React.useState('');
     // address
     // identityCard
@@ -44,14 +46,24 @@ const FormEditAccount = React.forwardRef(({ visible, setVisible, data }, ref) =>
         placeholder: 'Select Item...',
         maxTagCount: 'responsive',
     };
-
+    console.log(data);
     const getRndInteger = (min, max) => {
         return Math.floor(Math.random() * (max - min)) + min;
     };
+
+    const dataWithRole = (arrRole) => {
+        // let arrRole = data.userWithRoles;
+        let rs = [];
+        for (let index = 0; index < arrRole.length; index++) {
+            rs.push(arrRole[index].code);
+        }
+
+        return rs;
+    };
     const onFinish = (values) => {
-        values.id = getRndInteger(100, 1000);
+        // values.id = getRndInteger(100, 1000);
         console.log('values', values);
-        dispatch(actions.createUser(values));
+        dispatch(actions.updatedUser(data.id, values));
         setVisible(false);
     };
 
@@ -60,9 +72,24 @@ const FormEditAccount = React.forwardRef(({ visible, setVisible, data }, ref) =>
     return (
         <div className="add-account">
             <Title level={3} className="add-account__title">
-                Thêm tài khoản
+                Sửa nhân viên
             </Title>
-            <Form onFinish={onFinish} onFinishFailed={onFinishFailed} className="add-category__form" layout="vertical">
+            <Form
+                initialValues={{
+                    ['fullName']: data.fullName,
+                    ['address']: data.address,
+                    ['identityCard']: data.identityCard,
+                    ['phoneNumber']: data.phoneNumber,
+                    ['role']: data.role.code,
+                    ['status']: data.status.code,
+                    ['timeStart']: moment(data.timeStart),
+                    ['userWithRoles']: dataWithRole(data.userWithRoles),
+                }}
+                onFinish={onFinish}
+                onFinishFailed={onFinishFailed}
+                className="add-category__form"
+                layout="vertical"
+            >
                 <Row gutter={[18, 0]}>
                     <Col span={24}>
                         <Form.Item
