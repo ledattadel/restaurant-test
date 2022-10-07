@@ -12,42 +12,51 @@ import * as AreaAction from '@/redux/actions/areaAction';
 import { postDataAPI, getDataAPI, getWithParams, deleteWithParams, putDataAPI, getImage } from '@/utils/fetchData';
 import { GLOBALTYPES } from '@/redux/actions/globalTypes';
 import * as Redux from 'react-redux';
+import actions from '@/redux/actions/areas';
 
 const Table = () => {
-    const [listTable, setListTable] = React.useState(null);
+    // const [listTable, setListTable] = React.useState(null);
     const [isDelete, setIsDelete] = React.useState(false);
     const location = useLocation();
     const dispatch = ReactRedux.useDispatch();
-    const listAreas = Redux.useSelector((state) => state.AreasAll);
-    const { loading, error, areas } = listAreas;
+    const { areas } = Redux.useSelector((state) => state.AreasDetail);
 
-    const areasCreate = Redux.useSelector((state) => state.AreasCreate);
-    const { success } = areasCreate;
+    const listTable = Redux.useSelector((state) => state.TableAll);
+    const { loading, error, table } = listTable;
 
-    // React.useEffect(() => {
-    //     dispatch(actions.getAreas());
-    // }, [dispatch, success]);
+    const TableDelete = Redux.useSelector((state) => state.TableDelete);
+    const TableCreate = Redux.useSelector((state) => state.TableCreate);
+    const TableUpdate = Redux.useSelector((state) => state.TableUpdate);
 
+    React.useEffect(() => {
+        dispatch(actions.getTable(areas.id));
+    }, [dispatch, TableCreate.success, TableDelete.success, TableUpdate.success]);
+
+    const DeleteTable = (id) => {
+        dispatch(actions.deleteTable(id));
+    };
+
+    console.log('areas in table', areas);
+    console.log('table', table);
     return (
         <div>
-            {/* <Row justify="space-between" align="middle" gutter={[12, 16]}>
-                {tables.data &&
-                    tables.data.map((v) => {
-                        return (
-                            <Col
-                                key={v.id}
-                                span={6}
-                                className="grid__col"
-                                xxl={{ span: 4 }}
-                                xl={{ span: 8 }}
-                                sm={{ span: 12 }}
-                                xs={{ span: 24 }}
-                            >
-                                <TableCard product={v} />
-                            </Col>
-                        );
-                    })}
-            </Row> */}
+            <Row justify="space-between" align="middle" gutter={[12, 16]}>
+                {table.map((v) => {
+                    return (
+                        <Col
+                            key={v.id}
+                            span={6}
+                            className="grid__col"
+                            xxl={{ span: 4 }}
+                            xl={{ span: 8 }}
+                            sm={{ span: 12 }}
+                            xs={{ span: 24 }}
+                        >
+                            <TableCard product={v} DeleteTable={DeleteTable} />
+                        </Col>
+                    );
+                })}
+            </Row>
         </div>
     );
 };

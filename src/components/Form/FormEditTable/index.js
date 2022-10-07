@@ -8,7 +8,7 @@ import { SettingsBrightnessOutlined } from '@mui/icons-material';
 import actions from '@/redux/actions/areas';
 const { Title } = Typography;
 
-const FormAddTable = ({ visible, setVisible }) => {
+const FormEditTable = ({ visible, setVisible, data }) => {
     const [status, setStatus] = React.useState(null);
     const [form] = Form.useForm();
     const { areas } = ReactRedux.useSelector((state) => state.AreasDetail);
@@ -25,15 +25,15 @@ const FormAddTable = ({ visible, setVisible }) => {
         }
     }, [status]);
 
-    const addTable = async (values) => {
+    const editTable = (values) => {
         let table = { ...values, areaId: areas.id };
-        console.log('table', table);
-        await dispatch(actions.createTable(table));
+        console.log('edit table', table);
+        dispatch(actions.updatedTable(data.id, table));
         // console.log(api);
     };
 
     const onFinish = (values) => {
-        addTable(values);
+        editTable(values);
         // console.log('res.status', res.status);
         // if (res.status === 201) {
         form.resetFields();
@@ -51,9 +51,19 @@ const FormAddTable = ({ visible, setVisible }) => {
     return (
         <div className="add-dish">
             <Title level={3} className="add-dish__title">
-                Tạo bàn khu vực {areas.id}
+                Chỉnh sửa bàn khu vực {areas.id}
             </Title>
-            <Form onFinish={onFinish} onFinishFailed={onFinishFailed} className="add-dish__form" layout="vertical">
+            <Form
+                initialValues={{
+                    ['code']: data.code,
+                    ['statusId']: data.status.code,
+                    ['description']: data.description,
+                }}
+                onFinish={onFinish}
+                onFinishFailed={onFinishFailed}
+                className="add-dish__form"
+                layout="vertical"
+            >
                 <Row gutter={[24, 0]}>
                     <Col span={24}>
                         <Row gutter={[12, 0]}>
@@ -118,4 +128,4 @@ const FormAddTable = ({ visible, setVisible }) => {
     );
 };
 
-export default FormAddTable;
+export default FormEditTable;

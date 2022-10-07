@@ -14,6 +14,11 @@ import {
     AreasDeleteReducer,
     AreasDetailReducer,
     AreasUpdateReducer,
+    TableAllReducer,
+    TableCreateReducer,
+    TableDeleteReducer,
+    TableDetailReducer,
+    TableUpdateReducer,
 } from './areas';
 import { UserAllReducer, UserCreateReducer, UserDeleteReducer, UserDetailReducer, UserUpdateReducer } from './account';
 import {
@@ -61,6 +66,12 @@ export default combineReducers({
     AreasDelete: AreasDeleteReducer,
     AreasDetail: AreasDetailReducer,
     AreasUpdate: AreasUpdateReducer,
+
+    TableAll: TableAllReducer,
+    TableCreate: TableCreateReducer,
+    TableDelete: TableDeleteReducer,
+    TableDetail: TableDetailReducer,
+    TableUpdate: TableUpdateReducer,
 
     UserAll: UserAllReducer,
     UserCreate: UserCreateReducer,

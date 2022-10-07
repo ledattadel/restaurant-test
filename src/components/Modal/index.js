@@ -54,6 +54,8 @@ const DefaultModal = ({ visible, setVisible, userProfile }) => {
                 return window.innerWidth / 2.5;
             case '/account':
                 return window.innerWidth / 2.5;
+            case '/area/table':
+                return window.innerWidth / 2.3;
             default:
                 return '300px';
         }

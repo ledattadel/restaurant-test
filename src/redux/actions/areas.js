@@ -41,27 +41,6 @@ const actions = {
         }
     },
 
-    // getCustomerDetail: (id) => async (dispatch, getState) => {
-    //     try {
-    //         dispatch({ type: constants.CUSTOMER_DETAIL_REQUEST });
-
-    //         const { data } = await fetch.GetCustomerDetail(id);
-
-    //         dispatch({
-    //             type: constants.CUSTOMER_DETAIL_SUCCESS,
-    //             payload: data,
-    //         });
-    //     } catch (error) {
-    //         dispatch({
-    //             type: constants.CUSTOMER_DETAIL_FAIL,
-    //             payload: error.response && error.response.data.message ? error.response.data.message : error.message,
-    //         });
-    //         error.response && error.response.data.message
-    //             ? openNotificationError(error.response.data.message)
-    //             : openNotificationError(error.message);
-    //     }
-    // },
-
     createAreas: (areas) => async (dispatch, getState) => {
         try {
             dispatch({
@@ -124,6 +103,99 @@ const actions = {
         } catch (error) {
             dispatch({
                 type: constants.AREAS_UPDATE_FAIL,
+                payload: error.response && error.response.data.message ? error.response.data.message : error.message,
+            });
+            error.response && error.response.data.message
+                ? openNotificationError(error.response.data.message)
+                : openNotificationError(error.message);
+        }
+    },
+
+    getTable: (areaId) => async (dispatch) => {
+        try {
+            dispatch({ type: constants.TABLE_ALL_REQUEST });
+            // console.log('fetch');
+            const { data } = await fetch.GetTableAll({
+                companyId: 137,
+                areaId: areaId,
+            });
+            dispatch({
+                type: constants.TABLE_ALL_SUCCESS,
+                payload: data,
+            });
+        } catch (error) {
+            dispatch({
+                type: constants.TABLE_ALL_FAIL,
+                payload: error.response && error.response.data.message ? error.response.data.message : error.message,
+            });
+            error.response && error.response.data.message
+                ? openNotificationError(error.response.data.message)
+                : openNotificationError(error.message);
+        }
+    },
+
+    createTable: (areas) => async (dispatch, getState) => {
+        try {
+            dispatch({
+                type: constants.TABLE_CREATE_REQUEST,
+            });
+
+            const { data } = await fetch.CreateTable(areas);
+
+            dispatch({
+                type: constants.TABLE_CREATE_SUCCESS,
+            });
+            openNotificationSucces('Create table success.');
+        } catch (error) {
+            dispatch({
+                type: constants.TABLE_CREATE_FAIL,
+                payload: error.response && error.response.data.message ? error.response.data.message : error.message,
+            });
+            error.response && error.response.data.message
+                ? openNotificationError(error.response.data.message)
+                : openNotificationError(error.message);
+        }
+    },
+
+    deleteTable: (id) => async (dispatch, getState) => {
+        try {
+            dispatch({
+                type: constants.TABLE_DELETE_REQUEST,
+            });
+
+            const { data } = await fetch.DeleteTable(id);
+
+            dispatch({
+                type: constants.TABLE_DELETE_SUCCESS,
+            });
+            openNotificationSucces('Delete table success.');
+        } catch (error) {
+            dispatch({
+                type: constants.TABLE_DELETE_FAIL,
+                payload: error.response && error.response.data.message ? error.response.data.message : error.message,
+            });
+            error.response && error.response.data.message
+                ? openNotificationError(error.response.data.message)
+                : openNotificationError(error.message);
+        }
+    },
+
+    updatedTable: (id, table) => async (dispatch, getState) => {
+        try {
+            dispatch({
+                type: constants.TABLE_UPDATE_REQUEST,
+            });
+
+            const { data } = await fetch.UpdateTable(id, table);
+
+            dispatch({
+                type: constants.TABLE_UPDATE_SUCCESS,
+                payload: data,
+            });
+            openNotificationSucces('Update table success.');
+        } catch (error) {
+            dispatch({
+                type: constants.TABLE_UPDATE_FAIL,
                 payload: error.response && error.response.data.message ? error.response.data.message : error.message,
             });
             error.response && error.response.data.message

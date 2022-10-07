@@ -7,8 +7,7 @@ import { getNoneParams } from '@/utils/fetchData';
 const { Title } = Typography;
 const { Option } = Select;
 
-const FormAddAccount = React.forwardRef((props, ref) => {
-    const { visible, setVisible } = props;
+const FormEditAccount = React.forwardRef(({ visible, setVisible, data }, ref) => {
     const dispatch = Redux.useDispatch();
     const [typePass, setTypePass] = React.useState(false);
     const [role, setRole] = React.useState(null);
@@ -223,4 +222,4 @@ const FormAddAccount = React.forwardRef((props, ref) => {
     );
 });
 
-export default FormAddAccount;
+export default FormEditAccount;

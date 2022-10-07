@@ -45,6 +45,39 @@ const fetch = {
         let response = await httpRequest.put(`/api/areas/${id}`, areas, config);
         return response;
     },
+
+    GetTableAll: async (params = {}) => {
+        const options = {
+            params,
+            baseURL: httpRequest.baseUrl,
+            headers: {
+                'Content-Type': 'application/json',
+                Authorization: 'Bearer ' + getToken(),
+            },
+        };
+
+        let response = await httpRequest.get(`/api/tables`, options);
+        return response;
+    },
+
+    GetTableDetail: async (id) => {
+        let response = await httpRequest.get(`/api/tables/${id}`, config);
+        return response;
+    },
+    CreateTable: async (areas) => {
+        console.log('config', config);
+        let response = await httpRequest.post(`/api/tables/`, areas, config);
+
+        return response;
+    },
+    DeleteTable: async (id) => {
+        let response = await httpRequest.delete(`/api/tables/${id}`, config);
+        return response;
+    },
+    UpdateTable: async (id, areas) => {
+        let response = await httpRequest.put(`/api/tables/${id}`, areas, config);
+        return response;
+    },
 };
 
 export default fetch;

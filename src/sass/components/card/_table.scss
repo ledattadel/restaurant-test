@@ -75,10 +75,12 @@
 
             .table_right--handing {
                 height: 28px;
-                width: 52.90909194946289px;
-
+                // width: 52.90909194946289px;
+                display: flex;
+                width: 70px;
+                justify-content: space-around;
                 border-radius: 0px;
-                padding: -2px 0px 0px 0px;
+                // padding: 2px 0px 0px 0px;
             }
         }
     }

@@ -7,6 +7,7 @@ import { Button, message, Popconfirm, Tooltip, Modal } from 'antd';
 import ModalComponent from '@/components/ModalComponent';
 import FormEditArea from '@/components/Form/FormEditArea';
 import actions from '@/redux/actions/areas';
+import constants from '@/redux/constants/areas';
 const { confirm } = Modal;
 const text = 'Bạn muốn xóa khu vực này?';
 const textToolTip = 'Nhấn vào để chọn khu vực?';
@@ -23,6 +24,11 @@ const AreaCard = ({ product, deleteArea }) => {
         //     type: GLOBALTYPES.LOADAREAID,
         //     payload: product.id,
         // });
+
+        dispatch({
+            type: constants.AREAS_DETAIL_SUCCESS,
+            payload: product,
+        });
         navigate(`/area/table`);
     };
 

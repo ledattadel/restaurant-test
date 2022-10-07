@@ -1,7 +1,7 @@
 import { Search, SizeChanger } from '@/components';
 import actions from '@/redux/actions/account';
 import { Col, Row, Space, Spin } from 'antd';
-import Table from '@/components/Table/Table';
+import Table from '@/pages/Account/Table/Table/';
 import ReactPaginate from 'react-paginate';
 import * as Redux from 'react-redux';
 import React from 'react';

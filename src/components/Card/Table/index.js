@@ -1,9 +1,18 @@
 import React from 'react';
 import './index.scss';
-
+import ModalComponent from '@/components/ModalComponent';
+import FormEditTable from '@/components/Form/FormEditTable';
+import { Button, message, Popconfirm, Tooltip, Modal } from 'antd';
 import * as TableIcon from '@/assets/table-icon';
+const text = 'Bạn muốn xóa khu vực này?';
 
-const TableCard = ({ product }) => {
+const TableCard = ({ product, DeleteTable }) => {
+    const [visible, setVisible] = React.useState(false);
+
+    const confirm = () => {
+        DeleteTable(product.id);
+        // dispatch(actions.deleteCategory(product.id));
+    };
     return (
         <div className="table_card">
             <div className="table_cardLeft">
@@ -20,11 +29,35 @@ const TableCard = ({ product }) => {
                         Mã ID: <span className="table_right--id-2">{product.id}</span>
                     </span>
                     <div className="table_right--handing">
-                        <TableIcon.EditIcon color={'#F78B2D'} />
-                        <TableIcon.DeleteIcon />
+                        <div
+                            onClick={(e) => {
+                                e.stopPropagation();
+                                setVisible(true);
+                            }}
+                        >
+                            <TableIcon.EditIcon />
+                        </div>
+                        <div onClick={(e) => e.stopPropagation()}>
+                            <Popconfirm
+                                placement="topLeft"
+                                title={text}
+                                onConfirm={confirm}
+                                okText="Yes"
+                                cancelText="No"
+                            >
+                                <TableIcon.DeleteIcon />
+                            </Popconfirm>
+                        </div>
                     </div>
                 </div>
             </div>
+            <ModalComponent
+                visible={visible}
+                setVisible={setVisible}
+                width={window.innerWidth / 2}
+                maskClosable={false}
+                componentForm={<FormEditTable data={product} visible={visible} setVisible={setVisible}></FormEditTable>}
+            />
         </div>
     );
 };
